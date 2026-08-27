@@ -29,8 +29,36 @@
     </div>
   </header>
  
+  <style>
+    .hero { position: relative; overflow: hidden; }
+    .hero-slideshow { position: absolute; inset: 0; z-index: 0; }
+    .hero-slide {
+      position: absolute; inset: 0;
+      background-size: cover; background-position: center;
+      opacity: 0; transform: scale(1);
+      transition: opacity 1.8s ease;
+      animation: heroZoom 16s ease-in-out infinite;
+    }
+    .hero-slide.is-active { opacity: 1; z-index: 1; }
+    @keyframes heroZoom { 0% { transform: scale(1); } 100% { transform: scale(1.12); } }
+    .hero-overlay {
+      position: absolute; inset: 0; z-index: 1;
+      background: linear-gradient(180deg, rgba(10,10,10,.5) 0%, rgba(10,10,10,.78) 100%);
+    }
+    .hero .hero-glow, .hero .hero-grid { position: relative; z-index: 2; }
+    .media-feature .gallery-grid img { aspect-ratio: 4/3; object-fit: cover; }
+  </style>
+ 
   <main id="home">
     <section class="hero">
+      <div class="hero-slideshow">
+        <div class="hero-slide is-active" style="background-image:url('assets/hero1.jpg')"></div>
+        <div class="hero-slide" style="background-image:url('assets/hero2.jpg')"></div>
+        <div class="hero-slide" style="background-image:url('assets/hero3.jpg')"></div>
+        <div class="hero-slide" style="background-image:url('assets/hero4.jpg')"></div>
+        <div class="hero-slide" style="background-image:url('assets/hero5.jpg')"></div>
+      </div>
+      <div class="hero-overlay"></div>
       <div class="hero-glow"></div>
       <div class="container hero-grid">
         <div class="hero-copy">
@@ -187,6 +215,22 @@
       </div>
     </section>
  
+    <section class="section media-feature">
+      <div class="container">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">IN THE COMMUNITY</p>
+            <h2>Featured on Vuma 103FM</h2>
+          </div>
+          <p>Ms. Nkosi shares the Ntokazi story and her passion for hospitality on-air.</p>
+        </div>
+        <div class="gallery-grid">
+          <img src="assets/media1.jpg" alt="Ntokazi Nkosi live on Vuma 103FM" class="gallery-img">
+          <img src="assets/media2.jpg" alt="On-air interview at Vuma 103FM studio" class="gallery-img">
+        </div>
+      </div>
+    </section>
+ 
     <section class="section why">
       <div class="container two-col">
         <div>
@@ -269,5 +313,17 @@
   </footer>
  
   <script src="script.js"></script>
+  <script>
+    (function () {
+      var slides = document.querySelectorAll('.hero-slide');
+      if (!slides.length) return;
+      var idx = 0;
+      setInterval(function () {
+        slides[idx].classList.remove('is-active');
+        idx = (idx + 1) % slides.length;
+        slides[idx].classList.add('is-active');
+      }, 5000);
+    })();
+  </script>
 </body>
 </html>
