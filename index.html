@@ -293,6 +293,43 @@
       </div>
     </section>
  
+    <style>
+      :root { --navy: #13294b; --ivory: #faf7f2; }
+      .gallery { background: var(--ivory); }
+      .story-block { margin-bottom: 48px; }
+      .story-block:last-child { margin-bottom: 0; }
+      .story-block h3 {
+        font-family: 'Playfair Display', Georgia, serif;
+        color: var(--navy); font-size: 1.4rem; font-weight: 600;
+        margin: 0 0 4px;
+      }
+      .story-block p.story-caption { margin: 0 0 18px; opacity: .65; font-size: .95rem; }
+      .story-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+        gap: 16px;
+      }
+      .story-grid figure {
+        margin: 0; position: relative; overflow: hidden; border-radius: 14px;
+        aspect-ratio: 4 / 3; box-shadow: 0 10px 30px rgba(19,41,75,.12);
+        background: #eee;
+      }
+      .story-grid img {
+        width: 100%; height: 100%; object-fit: cover; display: block;
+        transition: transform .5s ease;
+      }
+      .story-grid figure:hover img { transform: scale(1.06); }
+      .story-grid figcaption {
+        position: absolute; left: 0; right: 0; bottom: 0;
+        padding: 10px 14px;
+        background: linear-gradient(0deg, rgba(19,41,75,.82) 0%, rgba(19,41,75,0) 100%);
+        color: #fff; font-size: .8rem; font-weight: 500;
+        opacity: 0; transform: translateY(6px);
+        transition: all .35s ease;
+      }
+      .story-grid figure:hover figcaption { opacity: 1; transform: translateY(0); }
+    </style>
+ 
     <section id="gallery" class="section gallery">
       <div class="container">
         <div class="section-heading">
@@ -300,18 +337,55 @@
             <p class="eyebrow">A TASTE OF NTOKAZI</p>
             <h2>Our gallery</h2>
           </div>
-          <p>A look at our food, event setups and celebrations.</p>
+          <p>A look at our food, our people and the occasions we bring to life.</p>
         </div>
-        <div class="gallery-grid">
-          <img src="assets/gallery1.jpg" alt="Food and flavour" class="gallery-img">
-          <img src="assets/gallery2.jpg" alt="Event setup" class="gallery-img">
-          <img src="assets/gallery3.jpg" alt="Tradition and celebration" class="gallery-img">
-          <img src="assets/gallery4.jpg" alt="Professional service" class="gallery-img">
-          <img src="assets/gallery5.jpg" alt="Fresh bread and canapés" class="gallery-img">
-          <img src="assets/gallery6.jpg" alt="Fragrant rice dish" class="gallery-img">
-          <img src="assets/gallery7.jpg" alt="Yellow rice with garnish" class="gallery-img">
-          <img src="assets/gallery8.jpg" alt="Roast chicken platters" class="gallery-img">
-          <img src="assets/gallery9.jpg" alt="Seasoned chicken dish" class="gallery-img">
+ 
+        <div class="story-block">
+          <h3>The Ntokazi Table</h3>
+          <p class="story-caption">Every place setting is considered — because presentation is part of the experience.</p>
+          <div class="story-grid">
+            <figure><img src="assets/gallery4.jpg" alt="Elegant gold place setting"><figcaption>Gold-accented place setting</figcaption></figure>
+            <figure><img src="assets/gallery-table1.jpg" alt="Red carnation table centrepiece"><figcaption>Red carnation centrepieces</figcaption></figure>
+            <figure><img src="assets/gallery-table2.jpg" alt="Floral table setting in a church hall"><figcaption>Floral table styling</figcaption></figure>
+            <figure><img src="assets/gallery-table3.jpg" alt="Full dining hall set for a function"><figcaption>Full hall, dressed and ready</figcaption></figure>
+          </div>
+        </div>
+ 
+        <div class="story-block">
+          <h3>From Our Kitchen</h3>
+          <p class="story-caption">Made fresh, plated with care, served hot.</p>
+          <div class="story-grid">
+            <figure><img src="assets/gallery1.jpg" alt="Catering buffet setup"><figcaption>Buffet, ready to serve</figcaption></figure>
+            <figure><img src="assets/gallery5.jpg" alt="Fresh bread and canapés"><figcaption>Fresh bread and canapés</figcaption></figure>
+            <figure><img src="assets/gallery-kitchen1.jpg" alt="Grilled chicken drumsticks"><figcaption>Grilled chicken drumsticks</figcaption></figure>
+            <figure><img src="assets/gallery-kitchen2.jpg" alt="Braai ribs and rice"><figcaption>Braai ribs and rice</figcaption></figure>
+            <figure><img src="assets/gallery6.jpg" alt="Fragrant rice dish"><figcaption>Fragrant rice</figcaption></figure>
+            <figure><img src="assets/gallery7.jpg" alt="Yellow rice with garnish"><figcaption>Yellow rice, house style</figcaption></figure>
+            <figure><img src="assets/gallery8.jpg" alt="Roast chicken platters"><figcaption>Roast chicken platter</figcaption></figure>
+            <figure><img src="assets/gallery9.jpg" alt="Seasoned chicken dish"><figcaption>Seasoned chicken</figcaption></figure>
+            <figure><img src="assets/gallery-kitchen3.jpg" alt="Slow-cooked mushroom dish"><figcaption>Slow-cooked mushroom dish</figcaption></figure>
+            <figure><img src="assets/gallery-kitchen4.jpg" alt="Seasoned mince dish"><figcaption>Seasoned mince</figcaption></figure>
+          </div>
+        </div>
+ 
+        <div class="story-block">
+          <h3>Event Ambience</h3>
+          <p class="story-caption">The setup is half the experience.</p>
+          <div class="story-grid">
+            <figure><img src="assets/gallery2.jpg" alt="Draped reception hall"><figcaption>Draped reception hall</figcaption></figure>
+            <figure><img src="assets/gallery3.jpg" alt="Wedding stage with couple portraits"><figcaption>Wedding stage styling</figcaption></figure>
+            <figure><img src="assets/gallery-event.jpg" alt="Catering spread at a function"><figcaption>Ready before the guests arrive</figcaption></figure>
+          </div>
+        </div>
+ 
+        <div class="story-block">
+          <h3>Our Team & Our Fleet</h3>
+          <p class="story-caption">The people and vehicles that make it happen, on time, every time.</p>
+          <div class="story-grid">
+            <figure><img src="assets/gallery-team.jpg" alt="The Ntokazi Catering team"><figcaption>Part of the Ntokazi family</figcaption></figure>
+            <figure><img src="assets/gallery-service.jpg" alt="Staff plating canapés on-site"><figcaption>Final touches, on-site</figcaption></figure>
+            <figure><img src="assets/gallery-fleet.jpg" alt="Ntokazi delivery vehicles"><figcaption>Our delivery fleet</figcaption></figure>
+          </div>
         </div>
       </div>
     </section>
