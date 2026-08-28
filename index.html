@@ -395,45 +395,108 @@
       </div>
     </section>
 
-    <section id="cafe-sizzle" class="section dark-section">
+    <style>
+      .sizzle-section {
+        background: linear-gradient(180deg, #0b1d4d 0%, #142b6b 100%);
+        position: relative; overflow: hidden;
+      }
+      .sizzle-section::before {
+        content: ""; position: absolute; inset: 0;
+        background-image: radial-gradient(circle at 15% 10%, rgba(255,255,255,.06) 0%, transparent 40%),
+                           radial-gradient(circle at 85% 90%, rgba(255,255,255,.05) 0%, transparent 40%);
+        pointer-events: none;
+      }
+      .sizzle-header { text-align: center; position: relative; z-index: 1; margin-bottom: 8px; }
+      .sizzle-presents {
+        color: rgba(255,255,255,.75); font-size: .9rem; letter-spacing: .3em;
+        text-transform: uppercase; margin-bottom: 6px; font-weight: 500;
+      }
+      .sizzle-logo { max-height: 90px; margin: 4px auto 14px; display: block; }
+      .sizzle-title {
+        font-family: 'Playfair Display', Georgia, serif;
+        color: #fff; font-size: clamp(2.4rem, 6vw, 3.6rem); font-weight: 700;
+        letter-spacing: .04em; margin: 0;
+      }
+      .sizzle-divider { width: 90px; height: 2px; background: #d4af37; margin: 18px auto 8px; }
+      .sizzle-tagline { color: rgba(255,255,255,.7); font-style: italic; margin-bottom: 40px; }
+
+      .sizzle-category {
+        text-align: center; margin: 48px 0 22px; position: relative; z-index: 1;
+      }
+      .sizzle-category h3 {
+        font-family: 'Playfair Display', Georgia, serif;
+        color: #d4af37; font-size: 1.5rem; letter-spacing: .08em;
+        text-transform: uppercase; display: inline-block; margin: 0;
+        padding: 0 20px; position: relative;
+      }
+      .sizzle-category h3::before, .sizzle-category h3::after {
+        content: ""; position: absolute; top: 50%; width: 40px; height: 1px;
+        background: rgba(212,175,55,.5);
+      }
+      .sizzle-category h3::before { right: 100%; }
+      .sizzle-category h3::after { left: 100%; }
+
+      .sizzle-items { max-width: 760px; margin: 0 auto; position: relative; z-index: 1; }
+      .sizzle-item {
+        display: flex; justify-content: space-between; align-items: baseline;
+        gap: 16px; padding: 14px 4px; border-bottom: 1px dotted rgba(255,255,255,.2);
+      }
+      .sizzle-item .name {
+        color: #fff; font-weight: 600; font-size: 1.02rem;
+      }
+      .sizzle-item .price {
+        color: #d4af37; font-weight: 700; font-family: 'Playfair Display', Georgia, serif;
+        white-space: nowrap;
+      }
+
+      .sizzle-order { text-align: center; margin-top: 52px; position: relative; z-index: 1; }
+      .sizzle-order .btn-primary {
+        background: linear-gradient(135deg, #d4af37 0%, #b8860b 100%) !important;
+        color: #0b1d4d !important; border: none !important; font-weight: 700 !important;
+        padding: 14px 36px !important; font-size: 1.02rem !important;
+        box-shadow: 0 10px 30px rgba(212,175,55,.35);
+      }
+    </style>
+
+    <section id="cafe-sizzle" class="section sizzle-section">
       <div class="container">
-        <div class="section-heading light">
-          <div>
-            <p class="eyebrow">GRAB & GO</p>
-            <h2>Café Sizzle by Ntokazi</h2>
-          </div>
-          <p>Our Uber Eats cloud kitchen — quick, flavour-packed favourites, delivered daily.</p>
+        <div class="sizzle-header">
+          <p class="sizzle-presents">Ntokazi Catering and Events presents</p>
+          <img src="assets/cafe-sizzle-logo.png" alt="Café Sizzle logo" class="sizzle-logo" onerror="this.style.display='none'">
+          <h2 class="sizzle-title">Café Sizzle</h2>
+          <div class="sizzle-divider"></div>
+          <p class="sizzle-tagline">Quick, flavour-packed favourites — grilled fresh, served daily.</p>
         </div>
 
-        <p style="color:#fff;opacity:.85;font-weight:600;margin:32px 0 12px;">Sandwiches</p>
-        <div class="occasion-grid">
-          <div class="occasion"><span>R55.00</span><b>Toasted Bacon, Egg and Cheese Sandwich, served with chips (brown/white bread)</b></div>
-          <div class="occasion"><span>R45.00</span><b>Toasted Cheese and Tomato Sandwich, served with chips (brown/white bread)</b></div>
+        <div class="sizzle-category"><h3>Sandwiches</h3></div>
+        <div class="sizzle-items">
+          <div class="sizzle-item"><span class="name">Toasted Bacon, Egg and Cheese Sandwich, served with chips (brown/white bread)</span><span class="price">R55.00</span></div>
+          <div class="sizzle-item"><span class="name">Toasted Cheese and Tomato Sandwich, served with chips (brown/white bread)</span><span class="price">R45.00</span></div>
         </div>
 
-        <p style="color:#fff;opacity:.85;font-weight:600;margin:32px 0 12px;">Submarines & Paninis</p>
-        <div class="occasion-grid">
-          <div class="occasion"><span>R55.00</span><b>Chicken and Mayo Submarine</b></div>
-          <div class="occasion"><span>R45.00</span><b>Cheese and Tomato Submarine</b></div>
-          <div class="occasion"><span>R55.00</span><b>Chicken and Mayo Chilli Cheese Panini</b></div>
-          <div class="occasion"><span>R60.00</span><b>Bacon, Egg and Cheese Panini</b></div>
+        <div class="sizzle-category"><h3>Submarines &amp; Paninis</h3></div>
+        <div class="sizzle-items">
+          <div class="sizzle-item"><span class="name">Chicken and Mayo Submarine</span><span class="price">R55.00</span></div>
+          <div class="sizzle-item"><span class="name">Cheese and Tomato Submarine</span><span class="price">R45.00</span></div>
+          <div class="sizzle-item"><span class="name">Chicken and Mayo Chilli Cheese Panini</span><span class="price">R55.00</span></div>
+          <div class="sizzle-item"><span class="name">Bacon, Egg and Cheese Panini</span><span class="price">R60.00</span></div>
         </div>
 
-        <p style="color:#fff;opacity:.85;font-weight:600;margin:32px 0 12px;">Our Top Selling Dishes</p>
-        <div class="occasion-grid">
-          <div class="occasion"><span>R90.00</span><b>Inhloko with uPhuthu/Samp</b></div>
-          <div class="occasion"><span>R70.00</span><b>Usu (Tripe) with uPhuthu/Samp</b></div>
-          <div class="occasion"><span>R50.00</span><b>Four Sticky/Spicy Wings and Fries</b></div>
-          <div class="occasion"><span>R45.00</span><b>Kota — quarter bread loaf filled with chips, egg, cheese, french polony and beef burger</b></div>
+        <div class="sizzle-category"><h3>Our Top Selling Dishes</h3></div>
+        <div class="sizzle-items">
+          <div class="sizzle-item"><span class="name">Inhloko with uPhuthu/Samp</span><span class="price">R90.00</span></div>
+          <div class="sizzle-item"><span class="name">Usu (Tripe) with uPhuthu/Samp</span><span class="price">R70.00</span></div>
+          <div class="sizzle-item"><span class="name">Four Sticky/Spicy Wings and Fries</span><span class="price">R50.00</span></div>
+          <div class="sizzle-item"><span class="name">Kota — quarter bread loaf filled with chips, egg, cheese, french polony and beef burger</span><span class="price">R45.00</span></div>
         </div>
 
-        <p style="color:#fff;opacity:.85;font-weight:600;margin:32px 0 12px;">Platters</p>
-        <div class="occasion-grid">
-          <div class="occasion"><span>R120.00</span><b>Platter for Two — two grilled chicken pieces, two skewers, two beef snack burgers/two chicken wraps</b></div>
-          <div class="occasion"><span>R150.00</span><b>Platter for Four — four grilled chicken pieces, four skewers, four beef snack burgers/four chicken wraps</b></div>
+        <div class="sizzle-category"><h3>Platters</h3></div>
+        <div class="sizzle-items">
+          <div class="sizzle-item"><span class="name">Platter for Two — two grilled chicken pieces, two skewers, two beef snack burgers/two chicken wraps</span><span class="price">R120.00</span></div>
+          <div class="sizzle-item"><span class="name">Platter for Four — four grilled chicken pieces, four skewers, four beef snack burgers/four chicken wraps</span><span class="price">R150.00</span></div>
         </div>
 
-        <div style="text-align:center;margin-top:40px;">
+        <div class="sizzle-order">
           <a class="btn btn-primary" href="#" target="_blank" rel="noopener">Order on Uber Eats</a>
         </div>
       </div>
