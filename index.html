@@ -29,10 +29,10 @@
       </nav>
     </div>
   </header>
- 
+
   <style>
     :root { --gold: #d4af37; --gold-light: #e8caa4; }
- 
+
     .hero { position: relative; overflow: hidden; min-height: 92vh; display: flex; align-items: center; }
     .hero-slideshow { position: absolute; inset: 0; z-index: 0; background: #0a0a0a; }
     .hero-slide {
@@ -45,7 +45,7 @@
     }
     .hero-slide.is-active { opacity: 1; z-index: 1; animation-play-state: running; }
     @keyframes heroZoom { from { transform: scale(1.01); } to { transform: scale(1.14); } }
- 
+
     .hero-overlay {
       position: absolute; inset: 0; z-index: 1;
       background:
@@ -53,7 +53,7 @@
         radial-gradient(120% 90% at 15% 20%, rgba(6,6,8,.15) 0%, rgba(6,6,8,.7) 70%);
     }
     .hero .hero-glow, .hero .hero-grid { position: relative; z-index: 2; }
- 
+
     /* Guaranteed-legible hero text, regardless of the underlying photo */
     .hero .eyebrow {
       color: var(--gold-light) !important;
@@ -100,7 +100,7 @@
       backdrop-filter: blur(6px);
     }
     .hero .btn-outline:hover { background: rgba(255,255,255,.15) !important; }
- 
+
     .hero-card { animation: heroFadeUp 1.1s .1s ease both; }
     .hero-card .card-frame {
       background: rgba(15,15,18,.55) !important;
@@ -111,9 +111,9 @@
     .hero-card .card-caption span { color: var(--gold-light) !important; letter-spacing: .12em; }
     .hero-card .card-caption strong { color: #fff !important; }
     .hero-card .card-caption small { color: rgba(255,255,255,.75) !important; }
- 
+
     @keyframes heroFadeUp { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: translateY(0); } }
- 
+
     /* Slide indicator dots */
     .hero-dots {
       position: absolute; left: 50%; bottom: 28px; transform: translateX(-50%);
@@ -125,10 +125,10 @@
       transition: all .3s ease;
     }
     .hero-dot.is-active { background: var(--gold); width: 26px; }
- 
+
     .media-feature .gallery-grid img { aspect-ratio: 4/3; object-fit: cover; }
   </style>
- 
+
   <main id="home">
     <section class="hero">
       <div class="hero-slideshow">
@@ -185,7 +185,7 @@
         </div>
       </div>
     </section>
- 
+
     <section class="intro section">
       <div class="container narrow center">
         <p class="eyebrow">THE NTOKAZI STANDARD</p>
@@ -196,7 +196,7 @@
         </p>
       </div>
     </section>
- 
+
     <section id="about" class="section about">
       <div class="container two-col">
         <div>
@@ -237,7 +237,7 @@
         </div>
       </div>
     </section>
- 
+
     <section id="services" class="section services">
       <div class="container">
         <div class="section-heading">
@@ -247,7 +247,7 @@
           </div>
           <p>Professional hospitality tailored to the purpose, people and character of your occasion.</p>
         </div>
- 
+
         <div class="service-grid">
           <article class="service-card featured">
             <div class="icon">01</div>
@@ -272,7 +272,7 @@
         </div>
       </div>
     </section>
- 
+
     <section id="events" class="section dark-section">
       <div class="container">
         <div class="section-heading light">
@@ -292,7 +292,44 @@
         </div>
       </div>
     </section>
- 
+
+    <style>
+      :root { --navy: #13294b; --ivory: #faf7f2; }
+      .gallery { background: var(--ivory); }
+      .story-block { margin-bottom: 48px; }
+      .story-block:last-child { margin-bottom: 0; }
+      .story-block h3 {
+        font-family: 'Playfair Display', Georgia, serif;
+        color: var(--navy); font-size: 1.4rem; font-weight: 600;
+        margin: 0 0 4px;
+      }
+      .story-block p.story-caption { margin: 0 0 18px; opacity: .65; font-size: .95rem; }
+      .story-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+        gap: 16px;
+      }
+      .story-grid figure {
+        margin: 0; position: relative; overflow: hidden; border-radius: 14px;
+        aspect-ratio: 4 / 3; box-shadow: 0 10px 30px rgba(19,41,75,.12);
+        background: #eee;
+      }
+      .story-grid img {
+        width: 100%; height: 100%; object-fit: cover; display: block;
+        transition: transform .5s ease;
+      }
+      .story-grid figure:hover img { transform: scale(1.06); }
+      .story-grid figcaption {
+        position: absolute; left: 0; right: 0; bottom: 0;
+        padding: 10px 14px;
+        background: linear-gradient(0deg, rgba(19,41,75,.82) 0%, rgba(19,41,75,0) 100%);
+        color: #fff; font-size: .8rem; font-weight: 500;
+        opacity: 0; transform: translateY(6px);
+        transition: all .35s ease;
+      }
+      .story-grid figure:hover figcaption { opacity: 1; transform: translateY(0); }
+    </style>
+
     <section id="gallery" class="section gallery">
       <div class="container">
         <div class="section-heading">
@@ -300,22 +337,63 @@
             <p class="eyebrow">A TASTE OF NTOKAZI</p>
             <h2>Our gallery</h2>
           </div>
-          <p>A look at our food, event setups and celebrations.</p>
+          <p>A look at our food, our people and the occasions we bring to life.</p>
         </div>
-        <div class="gallery-grid">
-          <img src="assets/gallery1.jpg" alt="Food and flavour" class="gallery-img">
-          <img src="assets/gallery2.jpg" alt="Event setup" class="gallery-img">
-          <img src="assets/gallery3.jpg" alt="Tradition and celebration" class="gallery-img">
-          <img src="assets/gallery4.jpg" alt="Professional service" class="gallery-img">
-          <img src="assets/gallery5.jpg" alt="Fresh bread and canapés" class="gallery-img">
-          <img src="assets/gallery6.jpg" alt="Fragrant rice dish" class="gallery-img">
-          <img src="assets/gallery7.jpg" alt="Yellow rice with garnish" class="gallery-img">
-          <img src="assets/gallery8.jpg" alt="Roast chicken platters" class="gallery-img">
-          <img src="assets/gallery9.jpg" alt="Seasoned chicken dish" class="gallery-img">
+
+        <div class="story-block">
+          <h3>The Ntokazi Table</h3>
+          <p class="story-caption">Every place setting is considered — because presentation is part of the experience.</p>
+          <div class="story-grid">
+            <figure><img src="assets/gallery4.jpg" alt="Elegant gold place setting"><figcaption>Gold-accented place setting</figcaption></figure>
+            <figure><img src="assets/gallery-table1.jpg" alt="Red carnation table centrepiece"><figcaption>Red carnation centrepieces</figcaption></figure>
+            <figure><img src="assets/gallery-table2.jpg" alt="Floral table setting in a church hall"><figcaption>Floral table styling</figcaption></figure>
+            <figure><img src="assets/gallery-table3.jpg" alt="Full dining hall set for a function"><figcaption>Full hall, dressed and ready</figcaption></figure>
+            <figure><img src="assets/gallery-table4.jpg" alt="Blue and gold place setting with menu card"><figcaption>Blue and gold place setting</figcaption></figure>
+          </div>
+        </div>
+
+        <div class="story-block">
+          <h3>From Our Kitchen</h3>
+          <p class="story-caption">Made fresh, plated with care, served hot.</p>
+          <div class="story-grid">
+            <figure><img src="assets/gallery1.jpg" alt="Catering buffet setup"><figcaption>Buffet, ready to serve</figcaption></figure>
+            <figure><img src="assets/gallery5.jpg" alt="Fresh bread and canapés"><figcaption>Fresh bread and canapés</figcaption></figure>
+            <figure><img src="assets/gallery-kitchen1.jpg" alt="Grilled chicken drumsticks"><figcaption>Grilled chicken drumsticks</figcaption></figure>
+            <figure><img src="assets/gallery-kitchen2.jpg" alt="Braai ribs and rice"><figcaption>Braai ribs and rice</figcaption></figure>
+            <figure><img src="assets/gallery6.jpg" alt="Fragrant rice dish"><figcaption>Fragrant rice</figcaption></figure>
+            <figure><img src="assets/gallery7.jpg" alt="Yellow rice with garnish"><figcaption>Yellow rice, house style</figcaption></figure>
+            <figure><img src="assets/gallery8.jpg" alt="Roast chicken platters"><figcaption>Roast chicken platter</figcaption></figure>
+            <figure><img src="assets/gallery9.jpg" alt="Seasoned chicken dish"><figcaption>Seasoned chicken</figcaption></figure>
+            <figure><img src="assets/gallery-kitchen3.jpg" alt="Slow-cooked mushroom dish"><figcaption>Slow-cooked mushroom dish</figcaption></figure>
+            <figure><img src="assets/gallery-kitchen4.jpg" alt="Seasoned mince dish"><figcaption>Seasoned mince</figcaption></figure>
+            <figure><img src="assets/gallery-kitchen5.jpg" alt="Guests being served at an elegant buffet"><figcaption>Serving guests, buffet-style</figcaption></figure>
+            <figure><img src="assets/gallery-kitchen6.jpg" alt="Elegant buffet spread with floral styling"><figcaption>Buffet, styled to impress</figcaption></figure>
+          </div>
+        </div>
+
+        <div class="story-block">
+          <h3>Event Ambience</h3>
+          <p class="story-caption">The setup is half the experience.</p>
+          <div class="story-grid">
+            <figure><img src="assets/gallery2.jpg" alt="Draped reception hall"><figcaption>Draped reception hall</figcaption></figure>
+            <figure><img src="assets/gallery3.jpg" alt="Wedding stage with couple portraits"><figcaption>Wedding stage styling</figcaption></figure>
+            <figure><img src="assets/gallery-event.jpg" alt="Catering spread at a function"><figcaption>Ready before the guests arrive</figcaption></figure>
+            <figure><img src="assets/gallery-event2.jpg" alt="Draped reception hall with teal table settings"><figcaption>Draped and dressed for the day</figcaption></figure>
+          </div>
+        </div>
+
+        <div class="story-block">
+          <h3>Our Team & Our Fleet</h3>
+          <p class="story-caption">The people and vehicles that make it happen, on time, every time.</p>
+          <div class="story-grid">
+            <figure><img src="assets/gallery-team.jpg" alt="The Ntokazi Catering team"><figcaption>Part of the Ntokazi family</figcaption></figure>
+            <figure><img src="assets/gallery-service.jpg" alt="Staff plating canapés on-site"><figcaption>Final touches, on-site</figcaption></figure>
+            <figure><img src="assets/gallery-fleet.jpg" alt="Ntokazi delivery vehicles"><figcaption>Our delivery fleet</figcaption></figure>
+          </div>
         </div>
       </div>
     </section>
- 
+
     <section id="cafe-sizzle" class="section dark-section">
       <div class="container">
         <div class="section-heading light">
@@ -325,13 +403,13 @@
           </div>
           <p>Our Uber Eats cloud kitchen — quick, flavour-packed favourites, delivered daily.</p>
         </div>
- 
+
         <p style="color:#fff;opacity:.85;font-weight:600;margin:32px 0 12px;">Sandwiches</p>
         <div class="occasion-grid">
           <div class="occasion"><span>R55.00</span><b>Toasted Bacon, Egg and Cheese Sandwich, served with chips (brown/white bread)</b></div>
           <div class="occasion"><span>R45.00</span><b>Toasted Cheese and Tomato Sandwich, served with chips (brown/white bread)</b></div>
         </div>
- 
+
         <p style="color:#fff;opacity:.85;font-weight:600;margin:32px 0 12px;">Submarines & Paninis</p>
         <div class="occasion-grid">
           <div class="occasion"><span>R55.00</span><b>Chicken and Mayo Submarine</b></div>
@@ -339,7 +417,7 @@
           <div class="occasion"><span>R55.00</span><b>Chicken and Mayo Chilli Cheese Panini</b></div>
           <div class="occasion"><span>R60.00</span><b>Bacon, Egg and Cheese Panini</b></div>
         </div>
- 
+
         <p style="color:#fff;opacity:.85;font-weight:600;margin:32px 0 12px;">Our Top Selling Dishes</p>
         <div class="occasion-grid">
           <div class="occasion"><span>R90.00</span><b>Inhloko with uPhuthu/Samp</b></div>
@@ -347,19 +425,53 @@
           <div class="occasion"><span>R50.00</span><b>Four Sticky/Spicy Wings and Fries</b></div>
           <div class="occasion"><span>R45.00</span><b>Kota — quarter bread loaf filled with chips, egg, cheese, french polony and beef burger</b></div>
         </div>
- 
+
         <p style="color:#fff;opacity:.85;font-weight:600;margin:32px 0 12px;">Platters</p>
         <div class="occasion-grid">
           <div class="occasion"><span>R120.00</span><b>Platter for Two — two grilled chicken pieces, two skewers, two beef snack burgers/two chicken wraps</b></div>
           <div class="occasion"><span>R150.00</span><b>Platter for Four — four grilled chicken pieces, four skewers, four beef snack burgers/four chicken wraps</b></div>
         </div>
- 
+
         <div style="text-align:center;margin-top:40px;">
           <a class="btn btn-primary" href="#" target="_blank" rel="noopener">Order on Uber Eats</a>
         </div>
       </div>
     </section>
- 
+
+    <section class="section on-air">
+      <div class="container">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">IN HER OWN WORDS</p>
+            <h2>The Ntokazi journey</h2>
+          </div>
+        </div>
+        <div class="narrow" style="max-width:70ch;">
+          <p style="font-size:1.05rem;line-height:1.75;">
+            Before she was plating for government forums and 1,500-guest weddings, Ms. Xoliswa
+            Ntokazi Nkosi was standing in front of a classroom — an educator teaching Hospitality,
+            training young people in the very skills she now practises every day. It's a detail
+            she comes back to often when she's on air: the years spent teaching gave her the
+            structure and standards that now run through everything Ntokazi Catering & Events
+            does, from a boardroom lunch to a family memorial.
+          </p>
+          <p style="font-size:1.05rem;line-height:1.75;">
+            In 2009, she took that classroom discipline and turned it into a business — starting
+            small, building relationships one function at a time, and slowly earning the trust of
+            clients who needed more than good food; they needed someone reliable. Seventeen years
+            later, that same passion has grown into a catering and events partner trusted across
+            KwaZulu-Natal, from Transnet's canteens to the KZN Office of the Premier's VIP
+            functions.
+          </p>
+          <p style="font-size:1.05rem;line-height:1.75;">
+            It's a story Ms. Nkosi has shared on-air with both Vuma 103FM and Highway Radio —
+            how passion, discipline and a willingness to start small can grow into something
+            people rely on. Have a look through the moments below.
+          </p>
+        </div>
+      </div>
+    </section>
+
     <section class="section media-feature">
       <div class="container">
         <div class="section-heading">
@@ -369,13 +481,15 @@
           </div>
           <p>Ms. Nkosi shares the Ntokazi story and her passion for hospitality on-air.</p>
         </div>
-        <div class="gallery-grid">
-          <img src="assets/media1.jpg" alt="Ntokazi Nkosi live on Vuma 103FM" class="gallery-img">
-          <img src="assets/media2.jpg" alt="On-air interview at Vuma 103FM studio" class="gallery-img">
+        <div class="story-grid">
+          <figure><img src="assets/media1.jpg" alt="Ntokazi Nkosi live on Vuma 103FM"><figcaption>Live on Vuma 103FM</figcaption></figure>
+          <figure><img src="assets/media2.jpg" alt="On-air interview at Vuma 103FM studio"><figcaption>On-air interview</figcaption></figure>
+          <figure><img src="assets/media3.jpg" alt="Candid moment at the Vuma 103FM studio"><figcaption>Behind the scenes at Vuma</figcaption></figure>
+          <figure><img src="assets/media4.jpg" alt="Ntokazi catering set up at the Vuma 103FM studio"><figcaption>Catering the Vuma studio</figcaption></figure>
         </div>
       </div>
     </section>
- 
+
     <section class="section media-feature">
       <div class="container">
         <div class="section-heading">
@@ -383,15 +497,22 @@
             <p class="eyebrow">ON AIR</p>
             <h2>Featured on Radio Highway</h2>
           </div>
-          <p>More conversations, more community — Ntokazi's story continues on Radio Highway.</p>
+          <p>More conversations, more community — including Highway Radio's 30th anniversary celebration, proudly sponsored by Ntokazi Catering & Events.</p>
         </div>
-        <div class="gallery-grid">
-          <img src="assets/radiohighway1.jpg" alt="Ntokazi Nkosi interview on Radio Highway" class="gallery-img">
-          <img src="assets/radiohighway2.jpg" alt="On-air segment at Radio Highway studio" class="gallery-img">
+        <div class="story-grid">
+          <figure><img src="assets/radiohighway1.jpg" alt="Ntokazi Nkosi interview on Radio Highway"><figcaption>On-air interview</figcaption></figure>
+          <figure><img src="assets/radiohighway2.jpg" alt="On-air segment at Radio Highway studio"><figcaption>In the studio</figcaption></figure>
+          <figure><img src="assets/radiohighway8.jpg" alt="Ntokazi Nkosi at the Radio Highway microphone"><figcaption>On the mic</figcaption></figure>
+          <figure><img src="assets/radiohighway9.jpg" alt="Wide shot of the Radio Highway studio session"><figcaption>Inside the studio</figcaption></figure>
+          <figure><img src="assets/radiohighway3.jpg" alt="Guests at the Radio Highway 30th anniversary event"><figcaption>Celebrating 30 years</figcaption></figure>
+          <figure><img src="assets/radiohighway4.jpg" alt="Welcome to Highway Radio event backdrop"><figcaption>Welcome to Highway</figcaption></figure>
+          <figure><img src="assets/radiohighway5.jpg" alt="Ntokazi Catering sponsor signage at Radio Highway event"><figcaption>Proud event sponsor</figcaption></figure>
+          <figure><img src="assets/radiohighway6.jpg" alt="Group photo at the Radio Highway event"><figcaption>With the Highway Radio team</figcaption></figure>
+          <figure><img src="assets/radiohighway7.jpg" alt="Cultural dance performance at the Radio Highway event"><figcaption>Celebrating in style</figcaption></figure>
         </div>
       </div>
     </section>
- 
+
     <section class="section why">
       <div class="container two-col">
         <div>
@@ -406,7 +527,7 @@
         </div>
       </div>
     </section>
- 
+
     <section id="clients" class="section clients">
       <div class="container">
         <div class="section-heading">
@@ -418,12 +539,29 @@
         </div>
         <div class="service-grid">
           <article class="service-card">
+            <img src="assets/logo-transnet.png" alt="Transnet logo" style="height:38px;object-fit:contain;margin-bottom:14px;">
             <h3>Transnet</h3>
             <p>Ongoing canteen service and catering management.</p>
           </article>
           <article class="service-card">
+            <img src="assets/logo-dubetradeport.png" alt="Dube TradePort logo" style="height:38px;object-fit:contain;margin-bottom:14px;">
             <h3>Dube TradePort</h3>
             <p>Catering for board meetings, breakfasts, lunches and other corporate and in-house functions.</p>
+          </article>
+          <article class="service-card">
+            <img src="assets/logo-ethekwini.jpg" alt="eThekwini Municipality logo" style="height:38px;object-fit:contain;margin-bottom:14px;">
+            <h3>eThekwini Municipality</h3>
+            <p>Catering and event support services.</p>
+          </article>
+          <article class="service-card">
+            <img src="assets/logo-cxai.jpg" alt="CXAi logo" style="height:38px;object-fit:contain;margin-bottom:14px;">
+            <h3>CXAi</h3>
+            <p>Catering and event support services.</p>
+          </article>
+          <article class="service-card">
+            <img src="assets/logo-highwayradio.jpg" alt="Highway Radio 101.5FM logo" style="height:38px;object-fit:contain;margin-bottom:14px;">
+            <h3>Highway Radio</h3>
+            <p>On-air brand partner, featured guest and proud catering sponsor of the station's 30th anniversary celebration.</p>
           </article>
           <article class="service-card">
             <h3>KZN Legislature</h3>
@@ -434,13 +572,17 @@
             <p>Among their VIP caterers — serving breakfasts, and African and Western lunches, for meetings and corporate functions.</p>
           </article>
           <article class="service-card">
-            <h3>ANC Provincial Office</h3>
-            <p>Trusted for functions ranging from an intimate 20 guests up to 1,500, depending on the occasion.</p>
+            <h3>Umngeni Water</h3>
+            <p>Catering and event support services.</p>
+          </article>
+          <article class="service-card">
+            <h3>Department of Labour</h3>
+            <p>Catering and event support services.</p>
           </article>
         </div>
       </div>
     </section>
- 
+
     <section class="section why-choose">
       <div class="container narrow">
         <div class="section-heading">
@@ -463,7 +605,7 @@
         </p>
       </div>
     </section>
- 
+
     <section id="contact" class="section contact">
       <div class="container contact-grid">
         <div>
@@ -483,7 +625,7 @@
             <a href="mailto:ntokazi@ntokazievents.co.za">ntokazi@ntokazievents.co.za</a>
           </div>
         </div>
- 
+
         <form class="quote-form" id="quoteForm">
           <label>Name<input name="name" required placeholder="Your full name"></label>
           <label>Phone / WhatsApp<input name="phone" required placeholder="Your contact number"></label>
@@ -509,7 +651,7 @@
       </div>
     </section>
   </main>
- 
+
   <footer>
     <div class="container footer-grid">
       <div>
@@ -539,7 +681,7 @@
     </div>
     <div class="footer-bottom">© <span id="year"></span> Ntokazi Catering & Events. All rights reserved.</div>
   </footer>
- 
+
   <script src="script.js"></script>
   <script>
     (function () {
@@ -547,7 +689,7 @@
       var dots = document.querySelectorAll('.hero-dot');
       if (!slides.length) return;
       var idx = 0;
- 
+
       function goTo(next) {
         slides[idx].classList.remove('is-active');
         if (dots[idx]) dots[idx].classList.remove('is-active');
@@ -559,9 +701,9 @@
         slide.classList.add('is-active');
         if (dots[idx]) dots[idx].classList.add('is-active');
       }
- 
+
       var timer = setInterval(function () { goTo((idx + 1) % slides.length); }, 5500);
- 
+
       dots.forEach(function (dot, i) {
         dot.addEventListener('click', function () {
           clearInterval(timer);
