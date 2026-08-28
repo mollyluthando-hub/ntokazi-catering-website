@@ -406,12 +406,12 @@
                            radial-gradient(circle at 85% 90%, rgba(255,255,255,.05) 0%, transparent 40%);
         pointer-events: none;
       }
-      .sizzle-header { text-align: center; position: relative; z-index: 1; margin-bottom: 8px; }
+      .sizzle-header { text-align: center; position: relative; z-index: 1; margin-bottom: 20px; }
       .sizzle-presents {
         color: rgba(255,255,255,.75); font-size: .9rem; letter-spacing: .3em;
         text-transform: uppercase; margin-bottom: 6px; font-weight: 500;
       }
-      .sizzle-logo { max-height: 90px; margin: 4px auto 14px; display: block; }
+      .sizzle-logo { max-height: 180px; margin: 10px auto 26px; display: block; }
       .sizzle-title {
         font-family: 'Playfair Display', Georgia, serif;
         color: #fff; font-size: clamp(2.4rem, 6vw, 3.6rem); font-weight: 700;
@@ -496,8 +496,23 @@
           <div class="sizzle-item"><span class="name">Platter for Four — four grilled chicken pieces, four skewers, four beef snack burgers/four chicken wraps</span><span class="price">R150.00</span></div>
         </div>
 
+        <div style="max-width:640px;margin:0 auto;text-align:center;">
+          <p style="color:rgba(255,255,255,.85);font-size:.95rem;line-height:1.7;">
+            Outside our Uber Eats delivery range? We take orders directly — just call or WhatsApp
+            us. We offer <strong style="color:#d4af37;">free delivery for group orders of 5 or
+            more</strong> to office spaces and private residences in Umhlanga, Durban North,
+            Ballito, Durban CBD, Musgrave, Newlands, KwaMashu, Inanda, Westville, Pinetown and
+            surrounding areas.
+          </p>
+        </div>
+
         <div class="sizzle-order">
-          <a class="btn btn-primary" href="#" target="_blank" rel="noopener">Order on Uber Eats</a>
+          <div style="display:flex;flex-wrap:wrap;gap:14px;justify-content:center;">
+            <a class="btn btn-primary" href="#" target="_blank" rel="noopener">Order on Uber Eats</a>
+            <a class="btn btn-outline" href="https://wa.me/27662972750?text=Hi%2C%20I%27d%20like%20to%20place%20an%20order%20with%20Caf%C3%A9%20Sizzle." target="_blank" rel="noopener" style="color:#fff !important;border-color:rgba(255,255,255,.6) !important;">Order via WhatsApp</a>
+            <a class="btn btn-outline" href="https://wa.me/27662972750?text=Hi%2C%20I%27d%20like%20to%20place%20a%20group%20order%20(5%2B)%20with%20Caf%C3%A9%20Sizzle." target="_blank" rel="noopener" style="color:#fff !important;border-color:rgba(255,255,255,.6) !important;">Group Order Enquiry</a>
+          </div>
+          <img src="assets/ubereats-logo.png" alt="Available on Uber Eats" style="height:52px;margin-top:28px;">
         </div>
       </div>
     </section>
