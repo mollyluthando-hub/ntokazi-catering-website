@@ -17,23 +17,25 @@
     .site-header .nav-wrap {
       display: flex; flex-direction: column; align-items: center; gap: 10px;
     }
-    .site-header .brand {
-      order: -1;
+    .brand-banner {
+      width: 100%; line-height: 0; text-align: center; background: #fff;
     }
-    .site-header .brand img {
-      height: 100px !important; width: auto !important;
-      filter: drop-shadow(0 2px 6px rgba(0,0,0,.15));
+    .brand-banner img {
+      display: inline-block; width: 100%; height: 220px;
+      object-fit: contain; object-position: center;
     }
     @media (max-width: 640px) {
-      .site-header .brand img { height: 72px !important; }
+      .brand-banner img { height: 140px; }
     }
   </style>
 
   <header class="site-header">
-    <div class="container nav-wrap">
-      <a class="brand" href="#home" aria-label="Ntokazi Catering & Events home">
+    <div class="brand-banner">
+      <a href="#home" aria-label="Ntokazi Catering & Events home">
         <img src="assets/ntokazi-logo.png" alt="Ntokazi Catering & Events logo">
       </a>
+    </div>
+    <div class="container nav-wrap">
       <button class="menu-toggle" aria-label="Open menu" aria-expanded="false">☰</button>
       <nav class="nav">
         <a href="#about">About</a>
