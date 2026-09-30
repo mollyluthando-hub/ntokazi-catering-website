@@ -306,8 +306,8 @@
 
       .promo-grid {
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-        gap: 22px;
+        grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+        gap: 26px;
       }
       .promo-card {
         background: #fff; border-radius: 16px; overflow: hidden;
@@ -316,44 +316,65 @@
         display: flex; flex-direction: column;
       }
       .promo-card .promo-img-wrap {
-        background: #0b1d4d; line-height: 0; text-align: center;
+        background: #0b1d4d; line-height: 0; text-align: center; overflow: hidden;
       }
       .promo-card img {
         width: 100%; height: auto; display: block; object-fit: contain;
+        cursor: zoom-in; transition: transform .5s ease;
       }
+      .promo-card .promo-img-wrap:hover img { transform: scale(1.03); }
       .promo-card .promo-caption {
-        padding: 14px 18px 18px;
+        padding: 16px 20px 20px;
       }
       .promo-card .promo-caption h4 {
         font-family: 'Playfair Display', Georgia, serif;
-        font-size: 1.05rem; color: #13294b; margin: 0 0 4px;
+        font-size: 1.08rem; color: #13294b; margin: 0 0 6px;
       }
       .promo-card .promo-caption p {
-        font-size: .88rem; color: #555; margin: 0 0 12px; line-height: 1.5;
-      }
-      .promo-card .promo-caption a {
-        font-size: .85rem; font-weight: 600; color: #b8860b; text-decoration: underline;
+        font-size: .9rem; color: #555; margin: 0; line-height: 1.6;
       }
       .promo-note {
         max-width: 70ch; margin: 34px auto 0; text-align: center;
         font-size: .9rem; color: #666; line-height: 1.7;
       }
+
+      .promo-lightbox {
+        position: fixed; inset: 0; z-index: 999;
+        background: rgba(11,29,77,.94);
+        display: none; align-items: center; justify-content: center;
+        padding: 40px; cursor: zoom-out;
+      }
+      .promo-lightbox.is-open { display: flex; }
+      .promo-lightbox img {
+        max-width: 90vw; max-height: 88vh; display: block;
+        border-radius: 10px; box-shadow: 0 30px 80px rgba(0,0,0,.5);
+        cursor: default;
+      }
+      .promo-lightbox-close {
+        position: absolute; top: 24px; right: 28px;
+        width: 44px; height: 44px; border-radius: 50%;
+        border: 1px solid rgba(255,255,255,.35); background: rgba(255,255,255,.08);
+        color: #fff; font-size: 1.4rem; line-height: 1; cursor: pointer;
+        display: flex; align-items: center; justify-content: center;
+      }
+      .promo-lightbox-close:hover { background: rgba(255,255,255,.2); }
     </style>
 
     <section id="promotions" class="section promotions">
       <div class="container">
         <div class="promo-callout">
           <p class="eyebrow">END-OF-YEAR, CELEBRATION &amp; RECONCILIATION SEASON</p>
-          <h2>'Tis the season to celebrate, reconcile and gather <em>around a good table.</em></h2>
+          <h2>A Season to Celebrate, Reconcile and Gather <em>Around the Table.</em></h2>
           <p class="promo-lead">
             From festive family functions to Reconciliation Day celebrations, year-end
             office parties and everything in between, Ntokazi Catering &amp; Events has a
             menu and package ready to match the mood of your gathering. Browse our latest
-            price lists, event packages and braai menus below, every one of them can still
+            price lists, event packages and braai menus below. Every package can still
             be customised, from the menu to the guest count, to suit exactly what you need.
           </p>
           <div class="promo-halaal">
-            🍽️ <span>We proudly offer <strong>Halaal dishes</strong>, outsourced from a trusted Halaal-compliant vendor, so everyone at your table is catered for.</span>
+            <span style="color:#b8860b;font-weight:700;">✔</span>
+            <span>We proudly offer <strong>Halaal dishes</strong>, outsourced from a trusted Halaal-compliant vendor, so everyone at your table is catered for.</span>
           </div>
         </div>
 
@@ -365,7 +386,6 @@
             <div class="promo-caption">
               <h4>Catering Price List</h4>
               <p>Per-guest pricing from 20 to 200 guests, catering includes 3 starch, 2 salads, 2 protein, 1 vegetable and 2 drinks. Labour and groceries included.</p>
-              <a href="assets/promo-catering-pricelist.jpg" target="_blank" rel="noopener">View full size ↗</a>
             </div>
           </article>
 
@@ -376,7 +396,6 @@
             <div class="promo-caption">
               <h4>Event Packages</h4>
               <p>Silver Elegance, Gold Classic and Platinum Luxury VIP packages, each with decor, staffing and beverage options built in.</p>
-              <a href="assets/promo-event-packages-1.jpg" target="_blank" rel="noopener">View full size ↗</a>
             </div>
           </article>
 
@@ -387,7 +406,6 @@
             <div class="promo-caption">
               <h4>Event Packages, Flexible Platinum</h4>
               <p>Our Silver, Gold and Platinum packages, with Platinum Luxury VIP now available from 60+ guests.</p>
-              <a href="assets/promo-event-packages-2.jpg" target="_blank" rel="noopener">View full size ↗</a>
             </div>
           </article>
 
@@ -398,7 +416,6 @@
             <div class="promo-caption">
               <h4>Braai Menu 2</h4>
               <p>Premium braai meats, starch and salads for 10 people at R5 500, tongs, plates, serving staff and sauces included.</p>
-              <a href="assets/promo-braai-menu2-a.jpg" target="_blank" rel="noopener">View full size ↗</a>
             </div>
           </article>
 
@@ -409,7 +426,6 @@
             <div class="promo-caption">
               <h4>Braai Menu 2, with Corn on the Cob</h4>
               <p>Same premium braai spread for 10 people at R5 500, with corn on the cob among the side options.</p>
-              <a href="assets/promo-braai-menu2-b.jpg" target="_blank" rel="noopener">View full size ↗</a>
             </div>
           </article>
         </div>
@@ -1069,7 +1085,46 @@
     <div class="footer-bottom">© <span id="year"></span> Ntokazi Catering & Events. All rights reserved.</div>
   </footer>
 
+  <div class="promo-lightbox" id="promoLightbox" role="dialog" aria-modal="true" aria-hidden="true">
+    <button class="promo-lightbox-close" id="promoLightboxClose" type="button" aria-label="Close image preview">&times;</button>
+    <img id="promoLightboxImg" src="" alt="">
+  </div>
+
   <script src="script.js"></script>
+  <script>
+    (function () {
+      var overlay = document.getElementById('promoLightbox');
+      var lightboxImg = document.getElementById('promoLightboxImg');
+      var closeBtn = document.getElementById('promoLightboxClose');
+      if (!overlay || !lightboxImg || !closeBtn) return;
+
+      function openLightbox(src, alt) {
+        lightboxImg.src = src;
+        lightboxImg.alt = alt || '';
+        overlay.classList.add('is-open');
+        overlay.setAttribute('aria-hidden', 'false');
+      }
+      function closeLightbox() {
+        overlay.classList.remove('is-open');
+        overlay.setAttribute('aria-hidden', 'true');
+        lightboxImg.src = '';
+      }
+
+      document.querySelectorAll('.promo-card img').forEach(function (img) {
+        img.addEventListener('click', function () {
+          openLightbox(img.getAttribute('src'), img.getAttribute('alt'));
+        });
+      });
+
+      overlay.addEventListener('click', function (e) {
+        if (e.target === overlay) closeLightbox();
+      });
+      closeBtn.addEventListener('click', closeLightbox);
+      document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape') closeLightbox();
+      });
+    })();
+  </script>
   <script>
     (function () {
       var slides = document.querySelectorAll('.hero-slide');
