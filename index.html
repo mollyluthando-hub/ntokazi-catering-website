@@ -6,11 +6,111 @@
   <meta name="description" content="Ntokazi Catering & Events — professional South African catering and event services across KwaZulu-Natal.">
   <meta name="theme-color" content="#111111">
   <title>Ntokazi Catering & Events | KwaZulu-Natal</title>
+  <link rel="canonical" href="https://www.ntokazievents.co.za/">
+
+  <!-- Open Graph / social sharing preview -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Ntokazi Catering & Events">
+  <meta property="og:title" content="Ntokazi Catering & Events | KwaZulu-Natal">
+  <meta property="og:description" content="17 years of professional South African catering and event services across KwaZulu-Natal. Corporate, government, weddings, memorials and private functions.">
+  <meta property="og:image" content="https://www.ntokazievents.co.za/assets/ntokazi-logo.png">
+  <meta property="og:url" content="https://www.ntokazievents.co.za/">
+  <meta property="og:locale" content="en_ZA">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Ntokazi Catering & Events | KwaZulu-Natal">
+  <meta name="twitter:description" content="17 years of professional South African catering and event services across KwaZulu-Natal.">
+  <meta name="twitter:image" content="https://www.ntokazievents.co.za/assets/ntokazi-logo.png">
+
+  <!-- Structured data: helps Google show address, phone and rating directly in search results -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "CateringService",
+    "name": "Ntokazi Catering & Events",
+    "image": "https://www.ntokazievents.co.za/assets/ntokazi-logo.png",
+    "description": "Professional South African catering and event services across KwaZulu-Natal. Corporate, government, weddings, memorials and private functions.",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "11 Plane Street",
+      "addressLocality": "Durban North",
+      "addressRegion": "KwaZulu-Natal",
+      "addressCountry": "ZA"
+    },
+    "telephone": "+27837934919",
+    "email": "ntokazi@ntokazievents.co.za",
+    "areaServed": "KwaZulu-Natal",
+    "founder": {
+      "@type": "Person",
+      "name": "Ms. Xoliswa Ntokazi Nkosi"
+    },
+    "foundingDate": "2009",
+    "sameAs": [
+      "https://www.facebook.com/NtokaziCateringandEvents",
+      "https://www.instagram.com/ntokazicateringandevents"
+    ]
+  }
+  </script>
   <link rel="icon" href="assets/ntokazi-logo.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
+  <style>
+    /* ===== Global polish: consistent heading scale, aligned cards, reusable components ===== */
+
+    /* 1. One consistent H2 scale across every standard section heading, instead of each
+          section relying on ad-hoc sizing. More specific rules elsewhere (e.g. hero h1,
+          .sizzle-title, .promo-callout h2) intentionally still win over this baseline. */
+    .section-heading h2 {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: clamp(1.8rem, 3.4vw, 2.6rem);
+      color: #13294b;
+      line-height: 1.25;
+      margin: 6px 0 10px;
+    }
+    .section-heading .eyebrow {
+      letter-spacing: .14em;
+      font-weight: 700;
+      font-size: .82rem;
+    }
+    .section-heading p:not(.eyebrow) {
+      max-width: 62ch;
+      line-height: 1.7;
+    }
+
+    /* 2. Equal-height cards so a grid row never looks lopsided when copy length varies. */
+    .service-grid .service-card,
+    .promo-grid .promo-card {
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+    }
+    .service-grid .service-card p {
+      margin-top: auto;
+      padding-top: 6px;
+    }
+
+    /* 3. Reusable "checklist" item — replaces a dozen copies of the same inline style
+          block, so one edit here updates every checklist on the site. */
+    .check-item {
+      display: flex;
+      gap: 10px;
+      align-items: flex-start;
+      padding: 14px 16px;
+      border: 1px solid rgba(0,0,0,.08);
+      border-radius: 10px;
+    }
+    .check-item .mark {
+      color: #b8860b;
+      font-weight: 700;
+      flex-shrink: 0;
+    }
+
+    /* 4. Cap line length on body copy for readability on large screens. */
+    .about p, .why p, .on-air p {
+      max-width: 66ch;
+    }
+  </style>
 </head>
 <body>
   <style>
@@ -45,6 +145,7 @@
         <a href="#gallery">Gallery</a>
         <a href="#csr">CSR</a>
         <a href="#clients">Clients</a>
+        <a href="#testimonials">Testimonials</a>
         <a href="#contact" class="nav-cta">Request a Quote</a>
       </nav>
     </div>
@@ -381,7 +482,7 @@
         <div class="promo-grid">
           <article class="promo-card">
             <div class="promo-img-wrap">
-              <img src="assets/promo-catering-pricelist.jpg" alt="Ntokazi Catering price list for 20 to 200 guests">
+              <img src="assets/promo-catering-pricelist.jpg" alt="Ntokazi Catering price list for 20 to 200 guests" loading="lazy">
             </div>
             <div class="promo-caption">
               <h4>Catering Price List</h4>
@@ -391,7 +492,7 @@
 
           <article class="promo-card">
             <div class="promo-img-wrap">
-              <img src="assets/promo-event-packages-1.jpg" alt="Ntokazi event packages: Silver Elegance, Gold Classic and Platinum Luxury VIP">
+              <img src="assets/promo-event-packages-1.jpg" alt="Ntokazi event packages: Silver Elegance, Gold Classic and Platinum Luxury VIP" loading="lazy">
             </div>
             <div class="promo-caption">
               <h4>Event Packages</h4>
@@ -401,7 +502,7 @@
 
           <article class="promo-card">
             <div class="promo-img-wrap">
-              <img src="assets/promo-event-packages-2.jpg" alt="Ntokazi event packages with Platinum Luxury VIP from R45 000">
+              <img src="assets/promo-event-packages-2.jpg" alt="Ntokazi event packages with Platinum Luxury VIP from R45 000" loading="lazy">
             </div>
             <div class="promo-caption">
               <h4>Event Packages, Flexible Platinum</h4>
@@ -411,7 +512,7 @@
 
           <article class="promo-card">
             <div class="promo-img-wrap">
-              <img src="assets/promo-braai-menu2-a.jpg" alt="Ntokazi Braai Menu 2 with premium braai meats, starch and sides">
+              <img src="assets/promo-braai-menu2-a.jpg" alt="Ntokazi Braai Menu 2 with premium braai meats, starch and sides" loading="lazy">
             </div>
             <div class="promo-caption">
               <h4>Braai Menu 2</h4>
@@ -421,7 +522,7 @@
 
           <article class="promo-card">
             <div class="promo-img-wrap">
-              <img src="assets/promo-braai-menu2-b.jpg" alt="Ntokazi Braai Menu 2 with corn on the cob option">
+              <img src="assets/promo-braai-menu2-b.jpg" alt="Ntokazi Braai Menu 2 with corn on the cob option" loading="lazy">
             </div>
             <div class="promo-caption">
               <h4>Braai Menu 2, with Corn on the Cob</h4>
@@ -539,9 +640,9 @@
           <p>Ntokazi Catering &amp; Events had the honour of preparing food for presidential consumption, serving His Excellency the President of South Africa, a moment our team will always be proud of.</p>
         </div>
         <div class="story-grid">
-          <figure><img src="assets/presidential-1.jpg" alt="Ntokazi Catering team greeting the President of South Africa"><figcaption>Meeting the President</figcaption></figure>
-          <figure><img src="assets/presidential-2.jpg" alt="Ntokazi Catering staff shaking hands with the President of South Africa"><figcaption>A moment of pride for the team</figcaption></figure>
-          <figure><img src="assets/presidential-3.jpg" alt="The Ntokazi Catering team with the President of South Africa"><figcaption>The Ntokazi team on the day</figcaption></figure>
+          <figure><img src="assets/presidential-1.jpg" alt="Ntokazi Catering team greeting the President of South Africa" loading="lazy"><figcaption>Meeting the President</figcaption></figure>
+          <figure><img src="assets/presidential-2.jpg" alt="Ntokazi Catering staff shaking hands with the President of South Africa" loading="lazy"><figcaption>A moment of pride for the team</figcaption></figure>
+          <figure><img src="assets/presidential-3.jpg" alt="The Ntokazi Catering team with the President of South Africa" loading="lazy"><figcaption>The Ntokazi team on the day</figcaption></figure>
         </div>
       </div>
     </section>
@@ -560,15 +661,15 @@
           <h3>The Ntokazi Table</h3>
           <p class="story-caption">Every place setting is considered, because presentation is part of the experience.</p>
           <div class="story-grid">
-            <figure><img src="assets/gallery4.jpg" alt="Elegant gold place setting"><figcaption>Gold-accented place setting</figcaption></figure>
-            <figure><img src="assets/gallery-table1.jpg" alt="Red carnation table centrepiece"><figcaption>Red carnation centrepieces</figcaption></figure>
-            <figure><img src="assets/gallery-table2.jpg" alt="Floral table setting in a church hall"><figcaption>Floral table styling</figcaption></figure>
-            <figure><img src="assets/gallery-table3.jpg" alt="Full dining hall set for a function"><figcaption>Full hall, dressed and ready</figcaption></figure>
-            <figure><img src="assets/gallery-table4.jpg" alt="Blue and gold place setting with menu card"><figcaption>Blue and gold place setting</figcaption></figure>
-            <figure><img src="assets/gallery-table5.jpg" alt="Elegant tiered wedding cake with sugar flowers"><figcaption>A cake to match the occasion</figcaption></figure>
-            <figure><img src="assets/gallery-table6.jpg" alt="Mirror-top table centrepiece detail"><figcaption>Detail in every centrepiece</figcaption></figure>
-            <figure><img src="assets/gallery-table7.jpg" alt="Full gold and white table setting in a hall"><figcaption>Gold and white, hall-ready</figcaption></figure>
-            <figure><img src="assets/gallery-table8.jpg" alt="Black and gold table setting"><figcaption>Black and gold place setting</figcaption></figure>
+            <figure><img src="assets/gallery4.jpg" alt="Elegant gold place setting" loading="lazy"><figcaption>Gold-accented place setting</figcaption></figure>
+            <figure><img src="assets/gallery-table1.jpg" alt="Red carnation table centrepiece" loading="lazy"><figcaption>Red carnation centrepieces</figcaption></figure>
+            <figure><img src="assets/gallery-table2.jpg" alt="Floral table setting in a church hall" loading="lazy"><figcaption>Floral table styling</figcaption></figure>
+            <figure><img src="assets/gallery-table3.jpg" alt="Full dining hall set for a function" loading="lazy"><figcaption>Full hall, dressed and ready</figcaption></figure>
+            <figure><img src="assets/gallery-table4.jpg" alt="Blue and gold place setting with menu card" loading="lazy"><figcaption>Blue and gold place setting</figcaption></figure>
+            <figure><img src="assets/gallery-table5.jpg" alt="Elegant tiered wedding cake with sugar flowers" loading="lazy"><figcaption>A cake to match the occasion</figcaption></figure>
+            <figure><img src="assets/gallery-table6.jpg" alt="Mirror-top table centrepiece detail" loading="lazy"><figcaption>Detail in every centrepiece</figcaption></figure>
+            <figure><img src="assets/gallery-table7.jpg" alt="Full gold and white table setting in a hall" loading="lazy"><figcaption>Gold and white, hall-ready</figcaption></figure>
+            <figure><img src="assets/gallery-table8.jpg" alt="Black and gold table setting" loading="lazy"><figcaption>Black and gold place setting</figcaption></figure>
           </div>
         </div>
 
@@ -576,18 +677,18 @@
           <h3>From Our Kitchen</h3>
           <p class="story-caption">Made fresh, plated with care, served hot.</p>
           <div class="story-grid">
-            <figure><img src="assets/gallery1.jpg" alt="Catering buffet setup"><figcaption>Buffet, ready to serve</figcaption></figure>
-            <figure><img src="assets/gallery5.jpg" alt="Slow-grilled chicken"><figcaption>Slow-grilled chicken</figcaption></figure>
-            <figure><img src="assets/gallery-kitchen1.jpg" alt="Grilled chicken drumsticks"><figcaption>Grilled chicken drumsticks</figcaption></figure>
-            <figure><img src="assets/gallery-kitchen2.jpg" alt="Hot steamy pap served with slow-cooked beef"><figcaption>Pap and slow-cooked beef</figcaption></figure>
-            <figure><img src="assets/gallery6.jpg" alt="Meat buffet"><figcaption>Meat buffet</figcaption></figure>
-            <figure><img src="assets/gallery7.jpg" alt="Creamy samp"><figcaption>Creamy samp</figcaption></figure>
-            <figure><img src="assets/gallery8.jpg" alt="House-style rice"><figcaption>House-style rice</figcaption></figure>
-            <figure><img src="assets/gallery9.jpg" alt="Buffet setup"><figcaption>Buffet setup</figcaption></figure>
-            <figure><img src="assets/gallery-kitchen3.jpg" alt="Grilled chicken"><figcaption>Grilled chicken</figcaption></figure>
-            <figure><img src="assets/gallery-kitchen4.jpg" alt="Mutton biryani"><figcaption>Mutton biryani</figcaption></figure>
-            <figure><img src="assets/gallery-kitchen5.jpg" alt="Guests being served at an elegant buffet"><figcaption>Serving guests, buffet-style</figcaption></figure>
-            <figure><img src="assets/gallery-kitchen6.jpg" alt="Elegant buffet spread with floral styling"><figcaption>Buffet, styled to impress</figcaption></figure>
+            <figure><img src="assets/gallery1.jpg" alt="Catering buffet setup" loading="lazy"><figcaption>Buffet, ready to serve</figcaption></figure>
+            <figure><img src="assets/gallery5.jpg" alt="Slow-grilled chicken" loading="lazy"><figcaption>Slow-grilled chicken</figcaption></figure>
+            <figure><img src="assets/gallery-kitchen1.jpg" alt="Grilled chicken drumsticks" loading="lazy"><figcaption>Grilled chicken drumsticks</figcaption></figure>
+            <figure><img src="assets/gallery-kitchen2.jpg" alt="Hot steamy pap served with slow-cooked beef" loading="lazy"><figcaption>Pap and slow-cooked beef</figcaption></figure>
+            <figure><img src="assets/gallery6.jpg" alt="Meat buffet" loading="lazy"><figcaption>Meat buffet</figcaption></figure>
+            <figure><img src="assets/gallery7.jpg" alt="Creamy samp" loading="lazy"><figcaption>Creamy samp</figcaption></figure>
+            <figure><img src="assets/gallery8.jpg" alt="House-style rice" loading="lazy"><figcaption>House-style rice</figcaption></figure>
+            <figure><img src="assets/gallery9.jpg" alt="Buffet setup" loading="lazy"><figcaption>Buffet setup</figcaption></figure>
+            <figure><img src="assets/gallery-kitchen3.jpg" alt="Grilled chicken" loading="lazy"><figcaption>Grilled chicken</figcaption></figure>
+            <figure><img src="assets/gallery-kitchen4.jpg" alt="Mutton biryani" loading="lazy"><figcaption>Mutton biryani</figcaption></figure>
+            <figure><img src="assets/gallery-kitchen5.jpg" alt="Guests being served at an elegant buffet" loading="lazy"><figcaption>Serving guests, buffet-style</figcaption></figure>
+            <figure><img src="assets/gallery-kitchen6.jpg" alt="Elegant buffet spread with floral styling" loading="lazy"><figcaption>Buffet, styled to impress</figcaption></figure>
           </div>
         </div>
 
@@ -595,16 +696,16 @@
           <h3>Event Ambience</h3>
           <p class="story-caption">The setup is half the experience.</p>
           <div class="story-grid">
-            <figure><img src="assets/gallery2.jpg" alt="Draped reception hall"><figcaption>Draped reception hall</figcaption></figure>
-            <figure><img src="assets/gallery3.jpg" alt="Wedding stage with couple portraits"><figcaption>Wedding stage styling</figcaption></figure>
-            <figure><img src="assets/gallery-event.jpg" alt="Catering spread at a function"><figcaption>Ready before the guests arrive</figcaption></figure>
-            <figure><img src="assets/gallery-event2.jpg" alt="Draped reception hall with teal table settings"><figcaption>Draped and dressed for the day</figcaption></figure>
-            <figure><img src="assets/gallery-event3.jpg" alt="Outdoor memorial gathering under red gazebos"><figcaption>Outdoor family gathering</figcaption></figure>
-            <figure><img src="assets/gallery-event4.jpg" alt="Welcome signage for a celebration"><figcaption>Welcomed in style</figcaption></figure>
-            <figure><img src="assets/gallery-event5.jpg" alt="Guests seated at an elegant celebration"><figcaption>Guests, dressed to celebrate</figcaption></figure>
-            <figure><img src="assets/gallery-event6.jpg" alt="Round wedding stage with floral arch"><figcaption>A stage set for 'I do'</figcaption></figure>
-            <figure><img src="assets/gallery-event7.jpg" alt="Draped stage with podium and lounge seating"><figcaption>Every detail staged</figcaption></figure>
-            <figure><img src="assets/gallery-event8.jpg" alt="Wide view of guests dining under elegant lighting"><figcaption>The room, full and glowing</figcaption></figure>
+            <figure><img src="assets/gallery2.jpg" alt="Draped reception hall" loading="lazy"><figcaption>Draped reception hall</figcaption></figure>
+            <figure><img src="assets/gallery3.jpg" alt="Wedding stage with couple portraits" loading="lazy"><figcaption>Wedding stage styling</figcaption></figure>
+            <figure><img src="assets/gallery-event.jpg" alt="Catering spread at a function" loading="lazy"><figcaption>Ready before the guests arrive</figcaption></figure>
+            <figure><img src="assets/gallery-event2.jpg" alt="Draped reception hall with teal table settings" loading="lazy"><figcaption>Draped and dressed for the day</figcaption></figure>
+            <figure><img src="assets/gallery-event3.jpg" alt="Outdoor memorial gathering under red gazebos" loading="lazy"><figcaption>Outdoor family gathering</figcaption></figure>
+            <figure><img src="assets/gallery-event4.jpg" alt="Welcome signage for a celebration" loading="lazy"><figcaption>Welcomed in style</figcaption></figure>
+            <figure><img src="assets/gallery-event5.jpg" alt="Guests seated at an elegant celebration" loading="lazy"><figcaption>Guests, dressed to celebrate</figcaption></figure>
+            <figure><img src="assets/gallery-event6.jpg" alt="Round wedding stage with floral arch" loading="lazy"><figcaption>A stage set for 'I do'</figcaption></figure>
+            <figure><img src="assets/gallery-event7.jpg" alt="Draped stage with podium and lounge seating" loading="lazy"><figcaption>Every detail staged</figcaption></figure>
+            <figure><img src="assets/gallery-event8.jpg" alt="Wide view of guests dining under elegant lighting" loading="lazy"><figcaption>The room, full and glowing</figcaption></figure>
           </div>
         </div>
 
@@ -612,10 +713,10 @@
           <h3>Our Team & Our Fleet</h3>
           <p class="story-caption">The people and vehicles that make it happen, on time, every time.</p>
           <div class="story-grid">
-            <figure><img src="assets/gallery-team.jpg" alt="The Ntokazi Catering team"><figcaption>Part of the Ntokazi family</figcaption></figure>
-            <figure><img src="assets/gallery-service.jpg" alt="Staff plating canapés on-site"><figcaption>Final touches, on-site</figcaption></figure>
-            <figure><img src="assets/gallery-fleet.jpg" alt="Ntokazi delivery vehicles"><figcaption>Our delivery fleet</figcaption></figure>
-            <figure><img src="assets/gallery-fleet2.jpg" alt="Ntokazi delivery fleet on the road"><figcaption>On the road across KZN</figcaption></figure>
+            <figure><img src="assets/gallery-team.jpg" alt="The Ntokazi Catering team" loading="lazy"><figcaption>Part of the Ntokazi family</figcaption></figure>
+            <figure><img src="assets/gallery-service.jpg" alt="Staff plating canapés on-site" loading="lazy"><figcaption>Final touches, on-site</figcaption></figure>
+            <figure><img src="assets/gallery-fleet.jpg" alt="Ntokazi delivery vehicles" loading="lazy"><figcaption>Our delivery fleet</figcaption></figure>
+            <figure><img src="assets/gallery-fleet2.jpg" alt="Ntokazi delivery fleet on the road" loading="lazy"><figcaption>On the road across KZN</figcaption></figure>
           </div>
         </div>
       </div>
@@ -688,7 +789,7 @@
       <div class="container">
         <div class="sizzle-header">
           <p class="sizzle-presents">Ntokazi Catering and Events presents</p>
-          <img src="assets/cafe-sizzle-logo.png" alt="Café Sizzle logo" class="sizzle-logo" onerror="this.style.display='none'">
+          <img src="assets/cafe-sizzle-logo.png" alt="Café Sizzle logo" class="sizzle-logo" onerror="this.style.display='none'" loading="lazy">
           <h2 class="sizzle-title">Café Sizzle</h2>
           <div class="sizzle-divider"></div>
           <p class="sizzle-tagline">Quick, flavour-packed favourites, grilled fresh, served daily.</p>
@@ -734,13 +835,13 @@
           <div style="display:flex;flex-wrap:wrap;gap:14px;justify-content:center;align-items:center;">
             <a class="btn btn-primary" href="#" target="_blank" rel="noopener">Order on Uber Eats</a>
             <a href="https://wa.me/27662972750?text=Hi%2C%20I%27d%20like%20to%20place%20an%20order%20with%20Caf%C3%A9%20Sizzle." target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:10px;background:#25D366;color:#fff;font-weight:700;padding:12px 28px;border-radius:999px;text-decoration:none;box-shadow:0 10px 30px rgba(37,211,102,.35);">
-              <img src="assets/whatsapp-icon.png" alt="" style="height:22px;width:22px;object-fit:contain;">
+              <img src="assets/whatsapp-icon.png" alt="" style="height:22px;width:22px;object-fit:contain;" loading="lazy">
               Order on WhatsApp
             </a>
           </div>
           <div style="display:flex;align-items:center;justify-content:center;gap:24px;flex-wrap:wrap;margin-top:32px;">
-            <img src="assets/ubereats-logo.png" alt="Available on Uber Eats" style="height:180px;width:180px;object-fit:contain;">
-            <img src="assets/cafe-sizzle-logo.png" alt="Café Sizzle logo" style="height:180px;width:180px;object-fit:contain;">
+            <img src="assets/ubereats-logo.png" alt="Available on Uber Eats" style="height:180px;width:180px;object-fit:contain;" loading="lazy">
+            <img src="assets/cafe-sizzle-logo.png" alt="Café Sizzle logo" style="height:180px;width:180px;object-fit:contain;" loading="lazy">
           </div>
           <p style="color:#fff;font-weight:700;margin-top:16px;font-size:1.05rem;">Café Sizzle is on Uber Eats</p>
           <p style="color:rgba(255,255,255,.7);font-size:.9rem;margin-top:4px;">11 Plane Glen Anil Durban North</p>
@@ -792,10 +893,10 @@
           <p>Ms. Nkosi shares the Ntokazi story and her passion for hospitality on-air.</p>
         </div>
         <div class="story-grid">
-          <figure><img src="assets/media1.jpg" alt="Ntokazi Nkosi live on Vuma 103FM"><figcaption>Live on Vuma 103FM</figcaption></figure>
-          <figure><img src="assets/media2.jpg" alt="On-air interview at Vuma 103FM studio"><figcaption>On-air interview</figcaption></figure>
-          <figure><img src="assets/media3.jpg" alt="Candid moment at the Vuma 103FM studio"><figcaption>Behind the scenes at Vuma</figcaption></figure>
-          <figure><img src="assets/media4.jpg" alt="Ntokazi catering set up at the Vuma 103FM studio"><figcaption>Catering the Vuma studio</figcaption></figure>
+          <figure><img src="assets/media1.jpg" alt="Ntokazi Nkosi live on Vuma 103FM" loading="lazy"><figcaption>Live on Vuma 103FM</figcaption></figure>
+          <figure><img src="assets/media2.jpg" alt="On-air interview at Vuma 103FM studio" loading="lazy"><figcaption>On-air interview</figcaption></figure>
+          <figure><img src="assets/media3.jpg" alt="Candid moment at the Vuma 103FM studio" loading="lazy"><figcaption>Behind the scenes at Vuma</figcaption></figure>
+          <figure><img src="assets/media4.jpg" alt="Ntokazi catering set up at the Vuma 103FM studio" loading="lazy"><figcaption>Catering the Vuma studio</figcaption></figure>
         </div>
       </div>
     </section>
@@ -810,15 +911,15 @@
           <p>More conversations, more community, including Highway Radio's 30th anniversary celebration, proudly sponsored by Ntokazi Catering & Events.</p>
         </div>
         <div class="story-grid">
-          <figure><img src="assets/radiohighway1.jpg" alt="Ntokazi Nkosi interview on Radio Highway"><figcaption>On-air interview</figcaption></figure>
-          <figure><img src="assets/radiohighway2.jpg" alt="On-air segment at Radio Highway studio"><figcaption>In the studio</figcaption></figure>
-          <figure><img src="assets/radiohighway8.jpg" alt="Ntokazi Nkosi at the Radio Highway microphone"><figcaption>On the mic</figcaption></figure>
-          <figure><img src="assets/radiohighway9.jpg" alt="Wide shot of the Radio Highway studio session"><figcaption>Inside the studio</figcaption></figure>
-          <figure><img src="assets/radiohighway3.jpg" alt="Guests at the Radio Highway 30th anniversary event"><figcaption>Celebrating 30 years</figcaption></figure>
-          <figure><img src="assets/radiohighway4.jpg" alt="Welcome to Highway Radio event backdrop"><figcaption>Welcome to Highway</figcaption></figure>
-          <figure><img src="assets/radiohighway5.jpg" alt="Ntokazi Catering sponsor signage at Radio Highway event"><figcaption>Proud event sponsor</figcaption></figure>
-          <figure><img src="assets/radiohighway6.jpg" alt="Group photo at the Radio Highway event"><figcaption>With the Highway Radio team</figcaption></figure>
-          <figure><img src="assets/radiohighway7.jpg" alt="Cultural dance performance at the Radio Highway event"><figcaption>Celebrating in style</figcaption></figure>
+          <figure><img src="assets/radiohighway1.jpg" alt="Ntokazi Nkosi interview on Radio Highway" loading="lazy"><figcaption>On-air interview</figcaption></figure>
+          <figure><img src="assets/radiohighway2.jpg" alt="On-air segment at Radio Highway studio" loading="lazy"><figcaption>In the studio</figcaption></figure>
+          <figure><img src="assets/radiohighway8.jpg" alt="Ntokazi Nkosi at the Radio Highway microphone" loading="lazy"><figcaption>On the mic</figcaption></figure>
+          <figure><img src="assets/radiohighway9.jpg" alt="Wide shot of the Radio Highway studio session" loading="lazy"><figcaption>Inside the studio</figcaption></figure>
+          <figure><img src="assets/radiohighway3.jpg" alt="Guests at the Radio Highway 30th anniversary event" loading="lazy"><figcaption>Celebrating 30 years</figcaption></figure>
+          <figure><img src="assets/radiohighway4.jpg" alt="Welcome to Highway Radio event backdrop" loading="lazy"><figcaption>Welcome to Highway</figcaption></figure>
+          <figure><img src="assets/radiohighway5.jpg" alt="Ntokazi Catering sponsor signage at Radio Highway event" loading="lazy"><figcaption>Proud event sponsor</figcaption></figure>
+          <figure><img src="assets/radiohighway6.jpg" alt="Group photo at the Radio Highway event" loading="lazy"><figcaption>With the Highway Radio team</figcaption></figure>
+          <figure><img src="assets/radiohighway7.jpg" alt="Cultural dance performance at the Radio Highway event" loading="lazy"><figcaption>Celebrating in style</figcaption></figure>
         </div>
       </div>
     </section>
@@ -867,25 +968,25 @@
         </div>
 
         <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:14px;margin-bottom:36px;">
-          <div style="display:flex;gap:10px;align-items:flex-start;padding:14px 16px;border:1px solid rgba(0,0,0,.08);border-radius:10px;"><span style="color:#b8860b;font-weight:700;">✔</span><span>15+ permanent staff, scaling to 50+ casual staff for larger events</span></div>
-          <div style="display:flex;gap:10px;align-items:flex-start;padding:14px 16px;border:1px solid rgba(0,0,0,.08);border-radius:10px;"><span style="color:#b8860b;font-weight:700;">✔</span><span>Fully compliant with South African labour legislation</span></div>
-          <div style="display:flex;gap:10px;align-items:flex-start;padding:14px 16px;border:1px solid rgba(0,0,0,.08);border-radius:10px;"><span style="color:#b8860b;font-weight:700;">✔</span><span>Ongoing staff training and upskilling</span></div>
-          <div style="display:flex;gap:10px;align-items:flex-start;padding:14px 16px;border:1px solid rgba(0,0,0,.08);border-radius:10px;"><span style="color:#b8860b;font-weight:700;">✔</span><span>Youth and community employment focus</span></div>
-          <div style="display:flex;gap:10px;align-items:flex-start;padding:14px 16px;border:1px solid rgba(0,0,0,.08);border-radius:10px;"><span style="color:#b8860b;font-weight:700;">✔</span><span>Long-standing, trusted supplier relationships</span></div>
-          <div style="display:flex;gap:10px;align-items:flex-start;padding:14px 16px;border:1px solid rgba(0,0,0,.08);border-radius:10px;"><span style="color:#b8860b;font-weight:700;">✔</span><span>100% black female-owned, BBBEE Level 1</span></div>
+          <div class="check-item"><span class="mark">✔</span><span>15+ permanent staff, scaling to 50+ casual staff for larger events</span></div>
+          <div class="check-item"><span class="mark">✔</span><span>Fully compliant with South African labour legislation</span></div>
+          <div class="check-item"><span class="mark">✔</span><span>Ongoing staff training and upskilling</span></div>
+          <div class="check-item"><span class="mark">✔</span><span>Youth and community employment focus</span></div>
+          <div class="check-item"><span class="mark">✔</span><span>Long-standing, trusted supplier relationships</span></div>
+          <div class="check-item"><span class="mark">✔</span><span>100% black female-owned, BBBEE Level 1</span></div>
         </div>
 
         <div class="story-grid">
           <figure>
-            <img src="assets/gallery-team.jpg" alt="The Ntokazi Catering team">
+            <img src="assets/gallery-team.jpg" alt="The Ntokazi Catering team" loading="lazy">
             <figcaption>Part of the Ntokazi family</figcaption>
           </figure>
           <figure>
-            <img src="assets/gallery-service.jpg" alt="Trained staff plating on-site">
+            <img src="assets/gallery-service.jpg" alt="Trained staff plating on-site" loading="lazy">
             <figcaption>Trained to industry standard</figcaption>
           </figure>
           <figure>
-            <img src="assets/gallery-fleet.jpg" alt="Ntokazi delivery fleet">
+            <img src="assets/gallery-fleet.jpg" alt="Ntokazi delivery fleet" loading="lazy">
             <figcaption>Reaching every corner of KZN</figcaption>
           </figure>
         </div>
@@ -908,74 +1009,129 @@
         </div>
         <div class="service-grid">
           <article class="service-card">
-            <img src="assets/logo-thekwinitvet.jpg" alt="Thekwini TVET College logo" style="height:38px;object-fit:contain;margin-bottom:14px;">
+            <img src="assets/logo-thekwinitvet.jpg" alt="Thekwini TVET College logo" style="height:38px;object-fit:contain;margin-bottom:14px;" loading="lazy">
             <h3>Thekwini TVET College</h3>
             <p>Catering and event support services.</p>
           </article>
           <article class="service-card">
-            <img src="assets/logo-transnet.png" alt="Transnet logo" style="height:38px;object-fit:contain;margin-bottom:14px;">
+            <img src="assets/logo-transnet.png" alt="Transnet logo" style="height:38px;object-fit:contain;margin-bottom:14px;" loading="lazy">
             <h3>Transnet</h3>
             <p>Ongoing canteen service and catering management.</p>
           </article>
           <article class="service-card">
-            <img src="assets/logo-dubetradeport.png" alt="Dube TradePort logo" style="height:38px;object-fit:contain;margin-bottom:14px;">
+            <img src="assets/logo-dubetradeport.png" alt="Dube TradePort logo" style="height:38px;object-fit:contain;margin-bottom:14px;" loading="lazy">
             <h3>Dube TradePort</h3>
             <p>Catering for board meetings, breakfasts, lunches and other corporate and in-house functions.</p>
           </article>
           <article class="service-card">
-            <img src="assets/logo-ethekwini.jpg" alt="eThekwini Municipality logo" style="height:38px;object-fit:contain;margin-bottom:14px;">
+            <img src="assets/logo-ethekwini.jpg" alt="eThekwini Municipality logo" style="height:38px;object-fit:contain;margin-bottom:14px;" loading="lazy">
             <h3>eThekwini Municipality</h3>
             <p>Catering and event support services.</p>
           </article>
           <article class="service-card">
-            <img src="assets/logo-cxai.jpg" alt="CXAi logo" style="height:38px;object-fit:contain;margin-bottom:14px;">
+            <img src="assets/logo-cxai.jpg" alt="CXAi logo" style="height:38px;object-fit:contain;margin-bottom:14px;" loading="lazy">
             <h3>CXAi</h3>
             <p>Catering and event support services.</p>
           </article>
           <article class="service-card">
-            <img src="assets/logo-highwayradio.jpg" alt="Highway Radio 101.5FM logo" style="height:38px;object-fit:contain;margin-bottom:14px;">
+            <img src="assets/logo-highwayradio.jpg" alt="Highway Radio 101.5FM logo" style="height:38px;object-fit:contain;margin-bottom:14px;" loading="lazy">
             <h3>Highway Radio</h3>
             <p>On-air brand partner, featured guest and proud catering sponsor of the station's 30th anniversary celebration.</p>
           </article>
           <article class="service-card">
-            <img src="assets/logo-kznlegislature.jpg" alt="KwaZulu-Natal Legislature logo" style="height:38px;object-fit:contain;margin-bottom:14px;">
+            <img src="assets/logo-kznlegislature.jpg" alt="KwaZulu-Natal Legislature logo" style="height:38px;object-fit:contain;margin-bottom:14px;" loading="lazy">
             <h3>KZN Legislature</h3>
             <p>Catering services for meetings and corporate functions.</p>
           </article>
           <article class="service-card">
-            <img src="assets/logo-kznpremier.jpg" alt="KZN Office of the Premier logo" style="height:38px;object-fit:contain;margin-bottom:14px;">
+            <img src="assets/logo-kznpremier.jpg" alt="KZN Office of the Premier logo" style="height:38px;object-fit:contain;margin-bottom:14px;" loading="lazy">
             <h3>KZN Office of the Premier</h3>
             <p>Among their VIP caterers, serving breakfasts, and African and Western lunches, for meetings and corporate functions.</p>
           </article>
           <article class="service-card">
-            <img src="assets/logo-umngeniwater.png" alt="Umngeni-uThukela Water logo" style="height:38px;object-fit:contain;margin-bottom:14px;">
+            <img src="assets/logo-umngeniwater.png" alt="Umngeni-uThukela Water logo" style="height:38px;object-fit:contain;margin-bottom:14px;" loading="lazy">
             <h3>Umngeni Water</h3>
             <p>Catering and event support services.</p>
           </article>
           <article class="service-card">
-            <img src="assets/logo-labour.jpg" alt="Department of Labour logo" style="height:38px;object-fit:contain;margin-bottom:14px;">
+            <img src="assets/logo-labour.jpg" alt="Department of Labour logo" style="height:38px;object-fit:contain;margin-bottom:14px;" loading="lazy">
             <h3>Department of Labour</h3>
             <p>Catering and event support services.</p>
           </article>
           <article class="service-card">
-            <img src="assets/logo-ekuvukeni.jpg" alt="Ekuvukeni Anglican Church logo" style="height:48px;object-fit:contain;margin-bottom:14px;">
+            <img src="assets/logo-ekuvukeni.jpg" alt="Ekuvukeni Anglican Church logo" style="height:48px;object-fit:contain;margin-bottom:14px;" loading="lazy">
             <h3>Ekuvukeni Anglican Church</h3>
             <p>Catering and event support services.</p>
           </article>
           <article class="service-card">
-            <img src="assets/logo-doj.png" alt="Department of Justice and Constitutional Development logo" style="height:48px;object-fit:contain;margin-bottom:14px;">
+            <img src="assets/logo-doj.png" alt="Department of Justice and Constitutional Development logo" style="height:48px;object-fit:contain;margin-bottom:14px;" loading="lazy">
             <h3>Department of Justice</h3>
             <p>Catering and event support services.</p>
           </article>
           <article class="service-card">
-            <img src="assets/logo-kznera.png" alt="KwaZulu-Natal Economic Regulatory Authority logo" style="height:48px;object-fit:contain;margin-bottom:14px;">
+            <img src="assets/logo-kznera.png" alt="KwaZulu-Natal Economic Regulatory Authority logo" style="height:48px;object-fit:contain;margin-bottom:14px;" loading="lazy">
             <h3>KZN ERA</h3>
             <p>Catering and event support services.</p>
           </article>
           <article class="service-card">
-            <img src="assets/logo-kzntourismfilm.png" alt="KwaZulu-Natal Tourism and Film logo" style="height:48px;object-fit:contain;margin-bottom:14px;border-radius:6px;">
+            <img src="assets/logo-kzntourismfilm.png" alt="KwaZulu-Natal Tourism and Film logo" style="height:48px;object-fit:contain;margin-bottom:14px;border-radius:6px;" loading="lazy">
             <h3>KZN Tourism & Film</h3>
             <p>Catering and event support services.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <style>
+      .testimonials { background: #fff; }
+      .testimonial-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 22px;
+      }
+      .testimonial-card {
+        background: var(--ivory, #faf7f2);
+        border: 1px solid rgba(19,41,75,.08);
+        border-radius: 16px;
+        padding: 28px 26px;
+        display: flex; flex-direction: column; height: 100%;
+      }
+      .testimonial-card .quote-mark {
+        font-family: 'Playfair Display', Georgia, serif;
+        font-size: 2.6rem; color: #d4af37; line-height: 1; margin-bottom: 6px;
+      }
+      .testimonial-card p.quote {
+        font-size: 1rem; line-height: 1.7; color: #333; font-style: italic;
+        margin: 0 0 18px; flex-grow: 1;
+      }
+      .testimonial-card .attribution strong { display: block; color: #13294b; font-size: .95rem; }
+      .testimonial-card .attribution span { font-size: .82rem; color: #777; }
+    </style>
+
+    <section id="testimonials" class="section testimonials">
+      <div class="container">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">WHAT OUR CLIENTS SAY</p>
+            <h2>In their words</h2>
+          </div>
+          <p>Real feedback from the government, corporate and private clients we've had the privilege of serving.</p>
+        </div>
+        <div class="testimonial-grid">
+          <article class="testimonial-card">
+            <div class="quote-mark">&ldquo;</div>
+            <p class="quote">[Client testimonial to be added — please share a short quote and who it's from.]</p>
+            <div class="attribution"><strong>Client name</strong><span>Organisation, role</span></div>
+          </article>
+          <article class="testimonial-card">
+            <div class="quote-mark">&ldquo;</div>
+            <p class="quote">[Client testimonial to be added — please share a short quote and who it's from.]</p>
+            <div class="attribution"><strong>Client name</strong><span>Organisation, role</span></div>
+          </article>
+          <article class="testimonial-card">
+            <div class="quote-mark">&ldquo;</div>
+            <p class="quote">[Client testimonial to be added — please share a short quote and who it's from.]</p>
+            <div class="attribution"><strong>Client name</strong><span>Organisation, role</span></div>
           </article>
         </div>
       </div>
@@ -991,12 +1147,12 @@
           <p>What our clients count on, brief after brief.</p>
         </div>
         <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:14px;margin-top:24px;">
-          <div style="display:flex;gap:10px;align-items:flex-start;padding:14px 16px;border:1px solid rgba(0,0,0,.08);border-radius:10px;"><span style="color:#b8860b;font-weight:700;">✔</span><span>Over 17 years of industry experience</span></div>
-          <div style="display:flex;gap:10px;align-items:flex-start;padding:14px 16px;border:1px solid rgba(0,0,0,.08);border-radius:10px;"><span style="color:#b8860b;font-weight:700;">✔</span><span>Proven public and private sector track record</span></div>
-          <div style="display:flex;gap:10px;align-items:flex-start;padding:14px 16px;border:1px solid rgba(0,0,0,.08);border-radius:10px;"><span style="color:#b8860b;font-weight:700;">✔</span><span>Fully compliant and professionally managed operations</span></div>
-          <div style="display:flex;gap:10px;align-items:flex-start;padding:14px 16px;border:1px solid rgba(0,0,0,.08);border-radius:10px;"><span style="color:#b8860b;font-weight:700;">✔</span><span>Customised and flexible service solutions</span></div>
-          <div style="display:flex;gap:10px;align-items:flex-start;padding:14px 16px;border:1px solid rgba(0,0,0,.08);border-radius:10px;"><span style="color:#b8860b;font-weight:700;">✔</span><span>100% black female-owned, BBBEE Level 1</span></div>
-          <div style="display:flex;gap:10px;align-items:flex-start;padding:14px 16px;border:1px solid rgba(0,0,0,.08);border-radius:10px;"><span style="color:#b8860b;font-weight:700;">✔</span><span>Committed to excellence, innovation and reliability</span></div>
+          <div class="check-item"><span class="mark">✔</span><span>Over 17 years of industry experience</span></div>
+          <div class="check-item"><span class="mark">✔</span><span>Proven public and private sector track record</span></div>
+          <div class="check-item"><span class="mark">✔</span><span>Fully compliant and professionally managed operations</span></div>
+          <div class="check-item"><span class="mark">✔</span><span>Customised and flexible service solutions</span></div>
+          <div class="check-item"><span class="mark">✔</span><span>100% black female-owned, BBBEE Level 1</span></div>
+          <div class="check-item"><span class="mark">✔</span><span>Committed to excellence, innovation and reliability</span></div>
         </div>
         <p style="margin-top:28px;font-size:.85rem;opacity:.65;">
           Reg No: 2009/042567/23 · Tax No: 9179794178 · VAT No: 4640258580 · CSD No: MAAA0174211 · BEE Level 1
@@ -1054,8 +1210,8 @@
     <div class="container footer-grid">
       <div>
         <div style="display:flex;align-items:center;gap:20px;flex-wrap:wrap;margin-bottom:12px;">
-          <img src="assets/ntokazi-logo.png" alt="Ntokazi Catering & Events logo" style="height:110px;width:auto;object-fit:contain;">
-          <img src="assets/cafe-sizzle-logo.png" alt="Café Sizzle logo" style="height:110px;width:auto;object-fit:contain;">
+          <img src="assets/ntokazi-logo.png" alt="Ntokazi Catering & Events logo" style="height:110px;width:auto;object-fit:contain;" loading="lazy">
+          <img src="assets/cafe-sizzle-logo.png" alt="Café Sizzle logo" style="height:110px;width:auto;object-fit:contain;" loading="lazy">
         </div>
         <p style="font-family:'Playfair Display', Georgia, serif;font-style:italic;color:#d4af37;font-size:1.1rem;margin-bottom:10px;">"mmm Divine"</p>
         <p>Exceptional catering and professional event services across KwaZulu-Natal.</p>
@@ -1065,21 +1221,21 @@
         <h4>Ntokazi Catering & Events</h4>
         <p>Founded in 2009 by Ms. Xoliswa Ntokazi Nkosi.</p>
         <p>100% black female-owned enterprise.</p>
-        <p style="display:flex;align-items:center;gap:8px;"><img src="assets/icon-location.png" alt="" style="height:18px;width:18px;object-fit:contain;">11 Plane Glen Anil Durban North</p>
+        <p style="display:flex;align-items:center;gap:8px;"><img src="assets/icon-location.png" alt="" style="height:18px;width:18px;object-fit:contain;" loading="lazy">11 Plane Glen Anil Durban North</p>
       </div>
       <div>
         <h4>Get in touch</h4>
-        <p style="display:flex;align-items:center;gap:8px;"><img src="assets/icon-phone.jpg" alt="" style="height:18px;width:18px;object-fit:contain;border-radius:4px;"><a href="tel:+27837934919">+27 83 793 4919</a></p>
-        <p style="display:flex;align-items:center;gap:8px;"><img src="assets/icon-phone.jpg" alt="" style="height:18px;width:18px;object-fit:contain;border-radius:4px;"><a href="tel:+27662972750">+27 66 297 2750</a></p>
-        <p style="display:flex;align-items:center;gap:8px;"><img src="assets/icon-email.png" alt="" style="height:18px;width:18px;object-fit:contain;"><a href="mailto:ntokazi@ntokazievents.co.za">ntokazi@ntokazievents.co.za</a></p>
+        <p style="display:flex;align-items:center;gap:8px;"><img src="assets/icon-phone.jpg" alt="" style="height:18px;width:18px;object-fit:contain;border-radius:4px;" loading="lazy"><a href="tel:+27837934919">+27 83 793 4919</a></p>
+        <p style="display:flex;align-items:center;gap:8px;"><img src="assets/icon-phone.jpg" alt="" style="height:18px;width:18px;object-fit:contain;border-radius:4px;" loading="lazy"><a href="tel:+27662972750">+27 66 297 2750</a></p>
+        <p style="display:flex;align-items:center;gap:8px;"><img src="assets/icon-email.png" alt="" style="height:18px;width:18px;object-fit:contain;" loading="lazy"><a href="mailto:ntokazi@ntokazievents.co.za">ntokazi@ntokazievents.co.za</a></p>
       </div>
       <div>
         <h4>Follow Us</h4>
-        <p style="display:flex;align-items:center;gap:8px;"><img src="assets/icon-facebook.jpg" alt="" style="height:18px;width:18px;object-fit:contain;border-radius:4px;"><a href="https://www.facebook.com/NtokaziCateringandEvents" target="_blank" rel="noopener">Facebook<strong>:</strong> Ntokazi Catering and Events</a></p>
-        <p style="display:flex;align-items:center;gap:8px;"><img src="assets/icon-facebook.jpg" alt="" style="height:18px;width:18px;object-fit:contain;border-radius:4px;"><a href="https://www.facebook.com/NtokaziNkosi" target="_blank" rel="noopener">Facebook<strong>:</strong> Ntokazi Nkosi</a></p>
-        <p style="display:flex;align-items:center;gap:8px;"><img src="assets/icon-instagram.jpg" alt="" style="height:18px;width:18px;object-fit:contain;border-radius:4px;"><a href="https://www.instagram.com/ntokazicateringandevents" target="_blank" rel="noopener">Instagram<strong>:</strong> Ntokazi Catering and Events</a></p>
-        <p style="display:flex;align-items:center;gap:8px;"><img src="assets/icon-instagram.jpg" alt="" style="height:18px;width:18px;object-fit:contain;border-radius:4px;"><a href="https://www.instagram.com/ntokazinkosi" target="_blank" rel="noopener">Instagram<strong>:</strong> Ntokazi Nkosi</a></p>
-        <p style="display:flex;align-items:center;gap:8px;"><img src="assets/icon-tiktok.png" alt="" style="height:18px;width:18px;object-fit:contain;border-radius:4px;"><a href="https://www.tiktok.com/@cafesizzle" target="_blank" rel="noopener">TikTok<strong>:</strong> Café Sizzle</a></p>
+        <p style="display:flex;align-items:center;gap:8px;"><img src="assets/icon-facebook.jpg" alt="" style="height:18px;width:18px;object-fit:contain;border-radius:4px;" loading="lazy"><a href="https://www.facebook.com/NtokaziCateringandEvents" target="_blank" rel="noopener">Facebook<strong>:</strong> Ntokazi Catering and Events</a></p>
+        <p style="display:flex;align-items:center;gap:8px;"><img src="assets/icon-facebook.jpg" alt="" style="height:18px;width:18px;object-fit:contain;border-radius:4px;" loading="lazy"><a href="https://www.facebook.com/NtokaziNkosi" target="_blank" rel="noopener">Facebook<strong>:</strong> Ntokazi Nkosi</a></p>
+        <p style="display:flex;align-items:center;gap:8px;"><img src="assets/icon-instagram.jpg" alt="" style="height:18px;width:18px;object-fit:contain;border-radius:4px;" loading="lazy"><a href="https://www.instagram.com/ntokazicateringandevents" target="_blank" rel="noopener">Instagram<strong>:</strong> Ntokazi Catering and Events</a></p>
+        <p style="display:flex;align-items:center;gap:8px;"><img src="assets/icon-instagram.jpg" alt="" style="height:18px;width:18px;object-fit:contain;border-radius:4px;" loading="lazy"><a href="https://www.instagram.com/ntokazinkosi" target="_blank" rel="noopener">Instagram<strong>:</strong> Ntokazi Nkosi</a></p>
+        <p style="display:flex;align-items:center;gap:8px;"><img src="assets/icon-tiktok.png" alt="" style="height:18px;width:18px;object-fit:contain;border-radius:4px;" loading="lazy"><a href="https://www.tiktok.com/@cafesizzle" target="_blank" rel="noopener">TikTok<strong>:</strong> Café Sizzle</a></p>
       </div>
     </div>
     <div class="footer-bottom">© <span id="year"></span> Ntokazi Catering & Events. All rights reserved.</div>
@@ -1087,7 +1243,7 @@
 
   <div class="promo-lightbox" id="promoLightbox" role="dialog" aria-modal="true" aria-hidden="true">
     <button class="promo-lightbox-close" id="promoLightboxClose" type="button" aria-label="Close image preview">&times;</button>
-    <img id="promoLightboxImg" src="" alt="">
+    <img id="promoLightboxImg" src="" alt="" loading="lazy">
   </div>
 
   <script src="script.js"></script>
