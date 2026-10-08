@@ -247,6 +247,24 @@
     .hero-dot.is-active { background: var(--gold); width: 26px; }
 
     .media-feature .gallery-grid img { aspect-ratio: 4/3; object-fit: cover; }
+    /* Flyer slides: sharp flyer on the right over a blurred, darkened copy of itself,
+       so the headline text on the left stays readable. */
+    .hero-slide--flyer { background: #0b1d4d; }
+    .hero-slide--flyer::before {
+      content: ""; position: absolute; inset: -30px;
+      background: var(--flyer) center/cover no-repeat;
+      filter: blur(28px) brightness(.45);
+    }
+    .hero-slide--flyer::after {
+      content: ""; position: absolute; inset: 4% 6% 4% 40%;
+      background: var(--flyer) center/contain no-repeat;
+    }
+    .hero .hero-card { transition: opacity .6s ease; }
+    .hero.is-flyer .hero-card { opacity: 0 !important; }
+    @media (max-width: 900px) {
+      .hero-slide--flyer::after { inset: 3% 8%; }
+    }
+
   </style>
 
   <main id="home">
@@ -257,6 +275,11 @@
         <div class="hero-slide" style="background-image:url('assets/hero3.jpg')"></div>
         <div class="hero-slide" style="background-image:url('assets/hero4.jpg')"></div>
         <div class="hero-slide" style="background-image:url('assets/hero5.jpg')"></div>
+        <!-- Seasonal flyers -->
+        <div class="hero-slide hero-slide--flyer" style="--flyer:url('assets/promo-platters-price-list.jpg')"></div>
+        <div class="hero-slide hero-slide--flyer" style="--flyer:url('assets/promo-curry-starch-menu-1.jpg')"></div>
+        <div class="hero-slide hero-slide--flyer" style="--flyer:url('assets/promo-braai-menu-2-yearend.jpg')"></div>
+        <div class="hero-slide hero-slide--flyer" style="--flyer:url('assets/promo-smash-burgers.jpg')"></div>
         <div class="hero-slide" style="background-image:url('assets/media1.jpg')"></div>
         <div class="hero-slide" style="background-image:url('assets/media2.jpg')"></div>
         <!-- Food -->
@@ -529,10 +552,49 @@
               <p>Same premium braai spread for 10 people at R5 500, with corn on the cob among the side options.</p>
             </div>
           </article>
+
+          <article class="promo-card">
+            <div class="promo-img-wrap">
+              <img src="assets/promo-platters-price-list.jpg" alt="Ntokazi year end function platters price list" loading="lazy">
+            </div>
+            <div class="promo-caption">
+              <h4>Year End Function Platters</h4>
+              <p>Meaty, mixed and party-snack platters priced from R430 to R600.</p>
+            </div>
+          </article>
+
+          <article class="promo-card">
+            <div class="promo-img-wrap">
+              <img src="assets/promo-curry-starch-menu-1.jpg" alt="Ntokazi year end function curry and starch menu 1" loading="lazy">
+            </div>
+            <div class="promo-caption">
+              <h4>Curry &amp; Starch Menu 1</h4>
+              <p>Two curries, two starches and two sides for 10 people at R3 800. Serving spoons, chafing dishes, staff and plates included.</p>
+            </div>
+          </article>
+
+          <article class="promo-card">
+            <div class="promo-img-wrap">
+              <img src="assets/promo-braai-menu-2-yearend.jpg" alt="Ntokazi year end function braai menu 2 at R5 000 for 10 people" loading="lazy">
+            </div>
+            <div class="promo-caption">
+              <h4>Year End Braai Menu</h4>
+              <p>Three meats, two starches and two salads for 10 people at R5 000. Tongs, serving spoons, chafing dishes, setup and serving included.</p>
+            </div>
+          </article>
+
+          <article class="promo-card">
+            <div class="promo-img-wrap">
+              <img src="assets/promo-smash-burgers.jpg" alt="Ntokazi year end function smash burger menu and office packages" loading="lazy">
+            </div>
+            <div class="promo-caption">
+              <h4>Smash Burgers &amp; Office Packages</h4>
+              <p>Smash burgers from R85 to R130, with sides, cold drinks and juice, plus office packages for 20, 40 and 60 guests.</p>
+            </div>
+          </article>
         </div>
 
         <p class="promo-note">
-          Prices and packages shown are current seasonal specials and may be updated without notice.
           Get in touch for a customised quote for your event, including Halaal menu options.
         </p>
       </div>
@@ -1297,6 +1359,8 @@
         void slide.offsetWidth; // restart the zoom animation cleanly
         slide.style.animation = '';
         slide.classList.add('is-active');
+        var heroEl = document.querySelector('.hero');
+        if (heroEl) heroEl.classList.toggle('is-flyer', slide.classList.contains('hero-slide--flyer'));
         if (dots[idx]) dots[idx].classList.add('is-active');
       }
 
