@@ -124,6 +124,48 @@
     .tone-deep { background: linear-gradient(180deg, var(--navy-900) 0%, var(--navy-950) 100%); }
     .section + .section { border-top: 1px solid rgba(255, 255, 255, .07); }
 
+
+    /* ---------- Light and black section variants ---------- */
+    .tone-white { background: #fff; }
+    .tone-ice { background: linear-gradient(180deg, #eef3fc 0%, #e3ebfa 100%); }
+    .tone-black { background: radial-gradient(120% 70% at 50% 0%, #0d1530 0%, #05070d 55%, #03050a 100%); }
+    .section.tone-white, .section.tone-ice { border-top: 0; }
+    .tone-white, .tone-ice {
+      --text-soft: #46547a; --text-mute: #6a7799; --line: rgba(11, 29, 77, .12); --card: #ffffff; --card-hover: #ffffff;
+      color: var(--navy-800);
+    }
+    .tone-white h1, .tone-white h2, .tone-white h3, .tone-white h4,
+    .tone-ice h1, .tone-ice h2, .tone-ice h3, .tone-ice h4 { color: var(--navy-800); }
+    .tone-white strong, .tone-ice strong { color: var(--navy-800); }
+    .tone-white .eyebrow, .tone-ice .eyebrow { color: var(--royal-600); }
+    .tone-white .eyebrow::before, .tone-ice .eyebrow::before { background: var(--royal-600); }
+    .tone-white .lead, .tone-ice .lead { color: #38466e; }
+    .tone-white h2 em, .tone-ice h2 em { color: var(--royal-600); }
+    .tone-white .promo-halaal, .tone-ice .promo-halaal { background: #fff; color: var(--navy-800); border-color: rgba(11, 29, 77, .14); box-shadow: 0 10px 30px rgba(11, 29, 77, .08); }
+    .tone-white .promo-halaal svg, .tone-ice .promo-halaal svg { color: var(--royal-600); }
+    .tone-ice .promo-card { background: #fff; border-color: rgba(11, 29, 77, .1); box-shadow: 0 18px 44px rgba(11, 29, 77, .12); }
+    .tone-ice .promo-card:hover { border-color: rgba(27, 69, 196, .45); }
+    .tone-ice .promo-img-wrap { background: #dfe8f9; }
+    .tone-ice .promo-caption { border-top: 1px solid rgba(11, 29, 77, .08); }
+    .tone-ice .promo-caption h4 { color: var(--navy-800); }
+    .tone-ice .promo-caption p { color: #46547a; }
+    .tone-white .principles > div, .tone-ice .principles > div { box-shadow: 0 14px 36px rgba(11, 29, 77, .08); border-color: rgba(11, 29, 77, .08); }
+    .tone-white .principles span, .tone-ice .principles span { color: var(--royal-600); }
+    .tone-white .client-card { background: #fff; border-color: rgba(11, 29, 77, .12); box-shadow: 0 14px 36px rgba(11, 29, 77, .07); }
+    .tone-white .client-card:hover { border-color: rgba(27, 69, 196, .45); }
+    .tone-white .client-logo { background: #f4f7fd; border-bottom: 1px solid rgba(11, 29, 77, .08); }
+    .tone-white .client-body h3 { color: var(--navy-800); }
+    .tone-white .story-grid figure, .tone-ice .story-grid figure { border-color: rgba(11, 29, 77, .1); box-shadow: 0 14px 34px rgba(11, 29, 77, .12); }
+    .tone-white .intro-rule { background: var(--royal-600); }
+
+    /* Black sections */
+    .tone-black .occasion-grid { background: rgba(255, 255, 255, .1); border-color: rgba(255, 255, 255, .1); }
+    .tone-black .occasion { background: rgba(5, 7, 13, .9); }
+    .tone-black .occasion:hover { background: rgba(21, 54, 160, .28); }
+    .tone-black .sizzle-item { border-bottom-color: rgba(255, 255, 255, .1); }
+    .partner-pill { display: inline-flex; align-items: center; height: 84px; padding: 0 28px; border-radius: 14px; background: #fff; color: #05070d; font: 700 1.5rem/1 var(--sans); letter-spacing: -.01em; }
+    .partner-pill small { font: 600 .66rem/1 var(--sans); letter-spacing: .22em; text-transform: uppercase; color: var(--royal-600); margin-right: 12px; }
+
     /* ---------- Type ---------- */
     .eyebrow {
       display: inline-flex; align-items: center; gap: 14px;
@@ -417,7 +459,7 @@
     .form-status { min-height: 1.3em; font-size: .9rem; text-align: center; color: var(--sky-200); }
 
     /* ---------- Footer ---------- */
-    footer { background: var(--navy-950); border-top: 1px solid rgba(255, 255, 255, .08); padding-top: 76px; }
+    footer { background: #04060b; border-top: 1px solid rgba(255, 255, 255, .08); padding-top: 76px; }
     .footer-grid { display: grid; grid-template-columns: 1.5fr 1fr 1fr 1.2fr; gap: 48px; }
     .footer-logos { display: flex; align-items: center; gap: 14px; flex-wrap: wrap; margin-bottom: 22px; }
     .footer-logos img { height: 64px; width: auto; background: #fff; border-radius: 12px; padding: 6px 14px; }
@@ -590,7 +632,7 @@
     </section>
 
     <!-- ================= INTRO ================= -->
-    <section class="intro section tone-royal">
+    <section class="intro section tone-white">
       <div class="container narrow center">
         <p class="eyebrow">The Ntokazi standard</p>
         <h2>Where every occasion deserves exceptional care.</h2>
@@ -646,7 +688,7 @@
     </section>
 
     <!-- ================= PROMOTIONS ================= -->
-    <section id="promotions" class="section promotions tone-royal">
+    <section id="promotions" class="section promotions tone-ice">
       <div class="container">
         <div class="promo-callout">
           <p class="eyebrow">End-of-year, celebration &amp; reconciliation season</p>
@@ -751,7 +793,7 @@
     </section>
 
     <!-- ================= SERVICES ================= -->
-    <section id="services" class="section services tone-navy">
+    <section id="services" class="section services tone-royal">
       <div class="container">
         <div class="section-heading">
           <div>
@@ -786,7 +828,7 @@
     </section>
 
     <!-- ================= OCCASIONS ================= -->
-    <section id="events" class="section dark-section tone-royal">
+    <section id="events" class="section dark-section tone-black">
       <div class="container">
         <div class="section-heading light">
           <div>
@@ -807,7 +849,7 @@
     </section>
 
     <!-- ================= PRESIDENTIAL ================= -->
-    <section id="presidential" class="section media-feature tone-navy">
+    <section id="presidential" class="section media-feature tone-white">
       <div class="container">
         <div class="section-heading">
           <div>
@@ -825,7 +867,7 @@
     </section>
 
     <!-- ================= GALLERY ================= -->
-    <section id="gallery" class="section gallery tone-royal">
+    <section id="gallery" class="section gallery tone-navy">
       <div class="container">
         <div class="section-heading">
           <div>
@@ -901,7 +943,7 @@
     </section>
 
     <!-- ================= CAFÉ SIZZLE ================= -->
-    <section id="cafe-sizzle" class="section sizzle-section tone-deep">
+    <section id="cafe-sizzle" class="section sizzle-section tone-black">
       <div class="container">
         <div class="sizzle-header">
           <p class="sizzle-presents">Ntokazi Catering and Events presents</p>
@@ -940,7 +982,7 @@
         </div>
 
         <p class="sizzle-note">
-          Outside our Uber Eats delivery area? Order directly on
+          Outside our Uber Eats and Mr D Food delivery areas? Order directly on
           <strong>WhatsApp</strong> and collect from our kitchen in Glen Anil, Durban North.
         </p>
 
@@ -955,14 +997,15 @@
           </div>
           <div class="sizzle-badges">
             <img src="assets/ubereats-logo.png" alt="Available on Uber Eats" loading="lazy">
+            <span class="partner-pill" aria-label="Available on Mr D Food"><small>Also on</small>Mr D Food</span>
           </div>
-          <p class="sizzle-addr">Café Sizzle is on Uber Eats · 11 Plane, Glen Anil, Durban North</p>
+          <p class="sizzle-addr">Café Sizzle is on Uber Eats and Mr D Food · 11 Plane, Glen Anil, Durban North</p>
         </div>
       </div>
     </section>
 
     <!-- ================= JOURNEY ================= -->
-    <section class="section on-air tone-navy">
+    <section class="section on-air tone-white">
       <div class="container">
         <div class="section-heading">
           <div>
@@ -1039,7 +1082,7 @@
     </section>
 
     <!-- ================= WHY ================= -->
-    <section class="section why tone-royal">
+    <section class="section why tone-ice">
       <div class="container two-col">
         <div>
           <p class="eyebrow">Why Ntokazi</p>
@@ -1101,7 +1144,7 @@
     </section>
 
     <!-- ================= CLIENTS ================= -->
-    <section id="clients" class="section clients tone-royal">
+    <section id="clients" class="section clients tone-white">
       <div class="container">
         <div class="section-heading">
           <div>
