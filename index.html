@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Ntokazi Catering & Events — professional South African catering and event services across KwaZulu-Natal.">
+  <meta name="description" content="Ntokazi Catering & Events: professional South African catering and event services across KwaZulu-Natal.">
   <meta name="theme-color" content="#0b1d4d">
   <title>Ntokazi Catering & Events | KwaZulu-Natal</title>
   <link rel="canonical" href="https://www.ntokazievents.co.za/">
@@ -53,404 +53,546 @@
   <link rel="icon" href="assets/ntokazi-logo.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <!--
+    This page is fully self-contained: all styling and behaviour is below.
+    style.css and script.js are no longer needed.
+  -->
   <style>
-    /* ===== Global polish: consistent heading scale, aligned cards, reusable components ===== */
+    /* =====================================================================
+       NTOKAZI CATERING & EVENTS: design system
+       Palette is taken from the logo: royal blue, deep navy and white.
+       ===================================================================== */
+    :root {
+      --navy-950: #050e29;
+      --navy-900: #081640;
+      --navy-800: #0b1d4d;
+      --royal-800: #102a86;
+      --royal-700: #1536a0;
+      --royal-600: #1b45c4;
+      --blue-500: #2f6bff;
+      --sky-300: #8fbbff;
+      --sky-200: #bcd4ff;
+      --ice: #e6efff;
+      --white: #ffffff;
 
-    /* 1. One consistent H2 scale across every standard section heading, instead of each
-          section relying on ad-hoc sizing. More specific rules elsewhere (e.g. hero h1,
-          .sizzle-title, .promo-callout h2) intentionally still win over this baseline. */
-    .section-heading h2 {
-      font-family: 'Playfair Display', Georgia, serif;
-      font-size: clamp(1.8rem, 3.4vw, 2.6rem);
-      color: #13294b;
-      line-height: 1.25;
-      margin: 6px 0 10px;
-    }
-    .section-heading .eyebrow {
-      letter-spacing: .14em;
-      font-weight: 700;
-      font-size: .82rem;
-    }
-    .section-heading p:not(.eyebrow) {
-      max-width: 62ch;
-      line-height: 1.7;
-    }
+      --text: #ffffff;
+      --text-soft: rgba(230, 239, 255, .8);
+      --text-mute: rgba(230, 239, 255, .62);
+      --line: rgba(255, 255, 255, .14);
+      --card: rgba(255, 255, 255, .06);
+      --card-hover: rgba(255, 255, 255, .095);
 
-    /* 2. Equal-height cards so a grid row never looks lopsided when copy length varies. */
-    .service-grid .service-card,
-    .promo-grid .promo-card {
-      display: flex;
-      flex-direction: column;
-      height: 100%;
-    }
-    .service-grid .service-card p {
-      margin-top: auto;
-      padding-top: 6px;
-    }
+      --serif: 'Playfair Display', Georgia, 'Times New Roman', serif;
+      --sans: 'Poppins', system-ui, -apple-system, 'Segoe UI', Arial, sans-serif;
 
-    /* 3. Reusable "checklist" item — replaces a dozen copies of the same inline style
-          block, so one edit here updates every checklist on the site. */
-    .check-item {
-      display: flex;
-      gap: 10px;
-      align-items: flex-start;
-      padding: 14px 16px;
-      border: 1px solid rgba(0,0,0,.08);
-      border-radius: 10px;
-    }
-    .check-item .mark {
-      color: #b8860b;
-      font-weight: 700;
-      flex-shrink: 0;
+      --header-h: 78px;
+      --radius: 18px;
+      --radius-sm: 12px;
+      --shadow: 0 24px 60px rgba(3, 9, 30, .38);
     }
 
-    /* 4. Cap line length on body copy for readability on large screens. */
-    .about p, .why p, .on-air p {
-      max-width: 66ch;
+    *, *::before, *::after { box-sizing: border-box; }
+    html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+    body {
+      margin: 0; background: var(--navy-900); color: var(--text);
+      font-family: var(--sans); font-size: 16px; line-height: 1.7; font-weight: 400;
+      -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility;
     }
-  </style>
+    img { max-width: 100%; display: block; }
+    a { color: inherit; text-decoration: none; }
+    h1, h2, h3, h4, p, ul, figure, dl { margin: 0; }
+    ul { padding: 0; list-style: none; }
+    button, input, select, textarea { font: inherit; color: inherit; }
+    section[id], main { scroll-margin-top: calc(var(--header-h) + 8px); }
+    :focus-visible { outline: 2px solid var(--sky-300); outline-offset: 3px; border-radius: 6px; }
 
-  <noscript><style>#curtain, #snow { display: none !important; }</style></noscript>
-  <style id="xmas-theme">
-    /* ===== Christmas theme in Ntokazi colours: royal blue, navy, white and gold ===== */
-    :root { --x-navy: #0b1d4d; --x-deep: #060f33; --x-blue: #1a3fa8; --x-gold: #d4af37; --x-gold-l: #f1d27a; }
-    .sf { width: 18px; height: 18px; display: inline-block; vertical-align: -3px; color: var(--x-gold-l); }
-    .sf.big { width: 34px; height: 34px; }
+    .container { width: 100%; max-width: 1180px; margin: 0 auto; padding: 0 28px; }
+    .narrow { max-width: 760px; }
+    .center { text-align: center; }
+    .skip-link {
+      position: absolute; left: 16px; top: -60px; z-index: 1000; background: #fff; color: var(--navy-800);
+      padding: 10px 18px; border-radius: 999px; font-weight: 600; font-size: .9rem; transition: top .2s;
+    }
+    .skip-link:focus { top: 14px; }
 
-    /* --- opening stage curtain --- */
-    html.curtain-lock, html.curtain-lock body { overflow: hidden; height: 100%; }
-    #curtain { position: fixed; inset: 0; z-index: 99999; overflow: hidden; display: flex; align-items: center; justify-content: center; }
-    .curtain-panel {
-      position: absolute; top: 0; bottom: 0; width: 50.6%; will-change: transform;
+    /* ---------- Section rhythm ---------- */
+    .section { position: relative; padding: clamp(76px, 9vw, 124px) 0; }
+    .tone-navy { background: linear-gradient(180deg, var(--navy-800) 0%, var(--navy-900) 100%); }
+    .tone-royal { background: linear-gradient(180deg, var(--royal-700) 0%, var(--royal-800) 100%); }
+    .tone-deep { background: linear-gradient(180deg, var(--navy-900) 0%, var(--navy-950) 100%); }
+    .section + .section { border-top: 1px solid rgba(255, 255, 255, .07); }
+
+    /* ---------- Type ---------- */
+    .eyebrow {
+      display: inline-flex; align-items: center; gap: 14px;
+      font: 600 .74rem/1 var(--sans); letter-spacing: .24em; text-transform: uppercase; color: var(--sky-300);
+      margin-bottom: 18px;
+    }
+    .eyebrow::before { content: ""; width: 34px; height: 1px; background: var(--sky-300); opacity: .8; }
+    .center .eyebrow, .promo-callout .eyebrow, .sizzle-header .eyebrow { justify-content: center; }
+    h1, h2, h3 { font-family: var(--serif); font-weight: 600; color: #fff; letter-spacing: -.005em; }
+    h2 { font-size: clamp(1.95rem, 3.6vw, 2.9rem); line-height: 1.16; }
+    h3 { font-size: 1.28rem; line-height: 1.3; }
+    .lead { font-size: 1.12rem; line-height: 1.8; color: var(--text-soft); }
+    p { color: var(--text-soft); }
+    strong { color: #fff; font-weight: 600; }
+    em { font-style: italic; }
+
+    .section-heading {
+      display: flex; justify-content: space-between; align-items: flex-end; gap: 48px; flex-wrap: wrap;
+      margin-bottom: clamp(36px, 5vw, 60px);
+    }
+    .section-heading > div { flex: 1 1 420px; max-width: 660px; }
+    .section-heading > p { flex: 0 1 400px; font-size: 1rem; line-height: 1.75; color: var(--text-soft); }
+
+    /* ---------- Buttons ---------- */
+    .btn {
+      display: inline-flex; align-items: center; justify-content: center; gap: 10px; cursor: pointer;
+      padding: 15px 32px; border-radius: 999px; border: 1.5px solid transparent;
+      font: 600 .9rem/1 var(--sans); letter-spacing: .03em;
+      transition: background .25s, color .25s, border-color .25s, transform .25s, box-shadow .25s;
+    }
+    .btn-primary { background: #fff; color: var(--navy-800); box-shadow: 0 10px 30px rgba(3, 9, 30, .28); }
+    .btn-primary:hover { background: var(--ice); transform: translateY(-2px); }
+    .btn-outline { background: transparent; color: #fff; border-color: rgba(255, 255, 255, .5); }
+    .btn-outline:hover { background: rgba(255, 255, 255, .12); border-color: #fff; }
+    .btn-blue { background: var(--blue-500); color: #fff; box-shadow: 0 10px 30px rgba(47, 107, 255, .35); }
+    .btn-blue:hover { background: #4a80ff; transform: translateY(-2px); }
+    .btn svg { width: 20px; height: 20px; flex-shrink: 0; }
+
+    /* ---------- Header ---------- */
+    .site-header {
+      position: sticky; top: 0; z-index: 100; height: var(--header-h);
+      border-bottom: 1px solid rgba(255, 255, 255, .09); transition: box-shadow .3s;
+    }
+    /* Blur lives on a pseudo-element so the mobile menu (position: fixed) is not trapped inside the header. */
+    .site-header::before {
+      content: ""; position: absolute; inset: 0; z-index: -1;
+      background: rgba(8, 22, 64, .92); -webkit-backdrop-filter: blur(14px); backdrop-filter: blur(14px);
+    }
+    .site-header.is-scrolled { box-shadow: 0 12px 34px rgba(3, 9, 30, .45); }
+    .header-inner { height: 100%; display: flex; align-items: center; justify-content: space-between; gap: 24px; }
+    .brand { display: block; flex-shrink: 0; background: #fff; border-radius: 12px; padding: 5px 14px; line-height: 0; }
+    .brand img { height: 46px; width: auto; }
+    .nav { display: flex; align-items: center; gap: 4px; }
+    .nav a {
+      padding: 10px 14px; font-size: .84rem; font-weight: 500; letter-spacing: .02em; color: var(--ice);
+      border-radius: 999px; transition: color .2s, background .2s;
+    }
+    .nav a:hover, .nav a.is-current { color: #fff; background: rgba(255, 255, 255, .09); }
+    .nav a.nav-cta { margin-left: 10px; background: var(--blue-500); color: #fff; padding: 11px 22px; font-weight: 600; }
+    .nav a.nav-cta:hover { background: #4a80ff; }
+    .menu-toggle {
+      display: none; width: 46px; height: 46px; border-radius: 12px; border: 1px solid rgba(255, 255, 255, .25);
+      background: transparent; cursor: pointer; padding: 0; position: relative;
+    }
+    .menu-toggle span {
+      position: absolute; left: 13px; right: 13px; height: 2px; background: #fff; border-radius: 2px; transition: transform .3s, opacity .2s, top .3s;
+    }
+    .menu-toggle span:nth-child(1) { top: 16px; }
+    .menu-toggle span:nth-child(2) { top: 22px; }
+    .menu-toggle span:nth-child(3) { top: 28px; }
+    .menu-toggle[aria-expanded="true"] span:nth-child(1) { top: 22px; transform: rotate(45deg); }
+    .menu-toggle[aria-expanded="true"] span:nth-child(2) { opacity: 0; }
+    .menu-toggle[aria-expanded="true"] span:nth-child(3) { top: 22px; transform: rotate(-45deg); }
+
+    /* ---------- Hero ---------- */
+    .hero { position: relative; overflow: hidden; min-height: calc(100vh - var(--header-h)); min-height: calc(100svh - var(--header-h)); display: flex; align-items: center; background: var(--navy-950); }
+    .hero-slideshow { position: absolute; inset: 0; background: var(--navy-950); }
+    .hero-slide {
+      position: absolute; inset: 0; background-size: cover; background-position: center;
+      opacity: 0; transition: opacity 1.6s ease; animation: heroDrift 11s ease-out forwards; animation-play-state: paused;
+    }
+    .hero-slide.is-active { opacity: 1; z-index: 1; animation-play-state: running; }
+    @keyframes heroDrift { from { transform: scale(1); } to { transform: scale(1.07); } }
+    .hero-slide--flyer { background-color: var(--navy-800); }
+    .hero-slide--flyer::before {
+      content: ""; position: absolute; inset: -30px; background: var(--flyer) center/cover no-repeat; filter: blur(30px) brightness(.4);
+    }
+    .hero-slide--flyer::after { content: ""; position: absolute; inset: 5% 6% 5% 46%; background: var(--flyer) center/contain no-repeat; }
+    .hero-overlay {
+      position: absolute; inset: 0; z-index: 2; pointer-events: none;
       background:
-        repeating-linear-gradient(90deg, rgba(255,255,255,.075) 0 16px, rgba(0,0,0,.30) 16px 34px, rgba(255,255,255,.035) 34px 52px),
-        linear-gradient(180deg, #12308f 0%, #0b1d4d 55%, #050c2b 100%);
-      transition: transform 2.7s cubic-bezier(.76, 0, .2, 1);
+        linear-gradient(90deg, rgba(5, 14, 41, .9) 0%, rgba(5, 14, 41, .66) 46%, rgba(5, 14, 41, .22) 100%),
+        linear-gradient(180deg, rgba(5, 14, 41, .05) 55%, rgba(5, 14, 41, .78) 100%);
     }
-    .curtain-panel.left { left: 0; box-shadow: inset -34px 0 46px rgba(0,0,0,.5); }
-    .curtain-panel.right { right: 0; box-shadow: inset 34px 0 46px rgba(0,0,0,.5); }
-    .curtain-panel::after { content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 26px;
-      background: repeating-linear-gradient(90deg, var(--x-gold) 0 5px, #8a6c14 5px 7px, transparent 7px 11px); opacity: .95; }
-    #curtain.is-open .curtain-panel.left { transform: translateX(-101%); }
-    #curtain.is-open .curtain-panel.right { transform: translateX(101%); }
-    .stage-valance { position: absolute; top: 0; left: 0; right: 0; height: 74px; z-index: 3;
-      background: linear-gradient(#0d2468, #16399c); border-bottom: 4px solid var(--x-gold); box-shadow: 0 8px 22px rgba(0,0,0,.55);
-      transition: transform 1.3s ease 1.7s; }
-    .stage-valance::after { content: ""; position: absolute; left: 0; right: 0; top: 100%; height: 36px;
-      background: radial-gradient(circle at 50% 0, #16399c 0 24px, transparent 25px) 0 0 / 56px 36px repeat-x; filter: drop-shadow(0 5px 3px rgba(0,0,0,.45)); }
-    #curtain.is-open .stage-valance { transform: translateY(-150%); }
-    .curtain-card { position: relative; z-index: 4; text-align: center; color: #fff; padding: 90px 22px 40px; max-width: 780px; transition: opacity .8s ease, transform .8s ease; }
-    #curtain.is-open .curtain-card { opacity: 0; transform: scale(.94); }
-    .curtain-logo { width: min(250px, 58vw); height: auto; background: #fff; border-radius: 50% / 46%; padding: 8px 16px; box-shadow: 0 10px 34px rgba(0,0,0,.55), 0 0 0 3px var(--x-gold); }
-    .curtain-eyebrow { margin: 22px 0 6px; font: 700 .82rem 'DM Sans', Arial, sans-serif; letter-spacing: .3em; color: var(--x-gold-l); }
-    .curtain-eyebrow .sf { margin: 0 12px; }
-    .curtain-title { margin: 6px 0 8px; font: 400 clamp(2.7rem, 9vw, 5.6rem)/1.05 'Great Vibes', 'Playfair Display', Georgia, cursive; color: var(--x-gold-l);
-      text-shadow: 0 3px 20px rgba(0,0,0,.65), 0 0 28px rgba(241,210,122,.28); }
-    .curtain-sub { margin: 0 0 14px; font: 500 clamp(1.15rem, 3.2vw, 1.75rem) 'Playfair Display', Georgia, serif; color: #fff; text-shadow: 0 2px 10px rgba(0,0,0,.6); }
-    .curtain-sign { margin: 0 auto; max-width: 34em; line-height: 1.5; font: italic 500 1rem 'Playfair Display', Georgia, serif; color: #cfd9f7; }
-    .curtain-card { animation: xrise 1.3s ease .35s backwards; }
-    @keyframes xrise { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: none; } }
+    .hero-grid { position: relative; z-index: 3; display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(0, .75fr); gap: 64px; align-items: center; padding-top: 70px; padding-bottom: 130px; }
+    .hero h1 { font-size: clamp(2.4rem, 4.8vw, 3.9rem); line-height: 1.08; font-weight: 700; margin-bottom: 14px; }
+    .hero h1 span { color: var(--sky-300); font-style: italic; font-weight: 500; }
+    .hero-tagline { font-family: var(--serif); font-style: italic; font-size: 1.2rem; color: var(--sky-200); margin-bottom: 22px; }
+    .hero-text { max-width: 54ch; color: rgba(255, 255, 255, .9); font-size: 1.04rem; line-height: 1.8; margin-bottom: 36px; }
+    .hero-actions { display: flex; flex-wrap: wrap; gap: 14px; }
+    .hero-facts {
+      justify-self: end; width: 100%; max-width: 360px; padding: 8px 30px;
+      background: rgba(8, 22, 64, .55); border: 1px solid rgba(255, 255, 255, .16); border-radius: 22px;
+      -webkit-backdrop-filter: blur(16px); backdrop-filter: blur(16px); box-shadow: var(--shadow); transition: opacity .5s;
+    }
+    .hero.is-flyer .hero-facts { opacity: 0; pointer-events: none; }
+    .hero-facts li { padding: 22px 0; border-bottom: 1px solid rgba(255, 255, 255, .12); }
+    .hero-facts li:last-child { border-bottom: 0; }
+    .hero-facts strong { display: block; font: 600 2.1rem/1.1 var(--serif); color: #fff; }
+    .hero-facts span { font-size: .84rem; color: var(--text-soft); letter-spacing: .02em; }
+    .hero-controls { position: absolute; z-index: 4; left: 0; right: 0; bottom: 34px; }
+    .hero-controls .container { display: flex; align-items: center; gap: 22px; }
+    .hero-btn {
+      width: 44px; height: 44px; border-radius: 50%; border: 1px solid rgba(255, 255, 255, .4); background: rgba(8, 22, 64, .4);
+      color: #fff; cursor: pointer; display: grid; place-items: center; transition: background .2s, border-color .2s;
+    }
+    .hero-btn:hover { background: rgba(255, 255, 255, .16); border-color: #fff; }
+    .hero-btn svg { width: 18px; height: 18px; }
+    .hero-count { font: 500 .82rem var(--sans); letter-spacing: .16em; color: var(--ice); min-width: 74px; }
+    .hero-progress { flex: 1; max-width: 260px; height: 2px; background: rgba(255, 255, 255, .22); border-radius: 2px; overflow: hidden; }
+    .hero-progress i { display: block; height: 100%; width: 0; background: #fff; }
 
-    /* --- snow --- */
-    #snow { position: fixed; inset: 0; width: 100%; height: 100%; pointer-events: none; z-index: 60; }
+    /* ---------- Intro ---------- */
+    .intro h2 { max-width: 26ch; margin: 0 auto 22px; }
+    .intro .lead { max-width: 60ch; margin: 0 auto; }
 
-    /* --- string of lights + banner --- */
-    .xmas-lights { position: relative; height: 44px; background: var(--x-navy); border-bottom: 2px solid rgba(212,175,55,.55); overflow: hidden; display: flex; justify-content: space-between; padding: 0 10px; }
-    .xmas-lights::before { content: ""; position: absolute; left: 0; right: 0; top: 7px; height: 2px; background: #3a4c8c; }
-    .bulb { position: relative; width: 13px; height: 21px; margin-top: 9px; border-radius: 50% 50% 55% 55%; background: currentColor; box-shadow: 0 0 12px 3px currentColor; animation: xtwinkle 2.6s ease-in-out infinite; }
-    .bulb::before { content: ""; position: absolute; left: 3px; top: -5px; width: 7px; height: 6px; background: #7c8bb8; border-radius: 2px 2px 0 0; }
-    .bulb:nth-child(4n+1) { color: #4b79ff; } .bulb:nth-child(4n+2) { color: #ffffff; animation-delay: .5s; }
-    .bulb:nth-child(4n+3) { color: var(--x-gold-l); animation-delay: 1s; } .bulb:nth-child(4n) { color: #9fc0ff; animation-delay: 1.5s; }
-    @keyframes xtwinkle { 0%, 100% { opacity: 1; filter: brightness(1.25); } 50% { opacity: .42; filter: brightness(.8); } }
-    .xmas-banner { background: linear-gradient(90deg, var(--x-navy), var(--x-blue), var(--x-navy)); color: #fff; text-align: center; padding: 10px 16px; font: 500 .95rem 'DM Sans', Arial, sans-serif; letter-spacing: .03em; }
-    .xmas-banner a { color: var(--x-gold-l); font-weight: 700; text-decoration: underline; }
+    /* ---------- About ---------- */
+    .two-col { display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(0, .85fr); gap: clamp(40px, 6vw, 92px); align-items: start; }
+    .about h2 { margin-bottom: 18px; }
+    .about .lead { font-family: var(--serif); font-style: italic; color: var(--sky-200); font-size: 1.22rem; margin-bottom: 26px; }
+    .about p + p { margin-top: 18px; }
+    .about-panel {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: var(--line);
+      border: 1px solid var(--line); border-radius: 22px; overflow: hidden; box-shadow: var(--shadow); position: sticky; top: calc(var(--header-h) + 28px);
+    }
+    .stat { padding: 38px 28px; background: rgba(8, 22, 64, .62); }
+    .stat strong { display: block; font: 600 clamp(2.2rem, 4vw, 3.1rem)/1 var(--serif); color: #fff; margin-bottom: 10px; }
+    .stat span { font-size: .86rem; line-height: 1.55; color: var(--text-soft); display: block; }
 
-    /* --- hero: blue tint, hanging baubles, snow drift --- */
-    .hero-overlay { background: linear-gradient(180deg, rgba(6,15,51,.22) 0%, rgba(11,29,77,.30) 45%, rgba(6,15,51,.68) 100%) !important; }
-    .xmas-ornaments { position: absolute; inset: 0; pointer-events: none; z-index: 2; }
-    .orn { position: absolute; top: 0; transform-origin: 50% 0; animation: xswing 4.8s ease-in-out infinite alternate; filter: drop-shadow(0 6px 6px rgba(0,0,0,.35)); }
-    .orn .cord { display: block; width: 2px; margin: 0 auto; background: linear-gradient(#f3f5fb, #98a3c4); }
-    .orn img { display: block; width: 100%; height: auto; position: relative; }
-    @keyframes xswing { from { transform: rotate(-4.5deg); } to { transform: rotate(4.5deg); } }
-    .hero::after { content: ""; position: absolute; left: 0; right: 0; bottom: -1px; height: 64px; z-index: 2; pointer-events: none;
-      background: url("data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%201440%2080'%20preserveAspectRatio='none'%3E%3Cpath%20d='M0%2042%20C120%2010%20240%2072%20380%2044%20C520%2014%20640%2068%20780%2042%20C920%2014%201040%2070%201180%2042%20C1300%2018%201380%2048%201440%2034%20L1440%2080%20L0%2080Z'%20fill='white'/%3E%3C/svg%3E") center bottom / 100% 100% no-repeat; }
-    @media (max-width: 720px) { .xmas-ornaments { inset: 0 auto auto 0; width: 161%; height: 161%; transform: scale(.62); transform-origin: 0 0; } .orn.o2, .orn.o3, .orn.o4, .orn.o5 { display: none; } }
+    /* ---------- Promotions ---------- */
+    .promo-callout { max-width: 780px; margin: 0 auto clamp(42px, 5vw, 64px); text-align: center; }
+    .promo-callout h2 { margin-bottom: 20px; }
+    .promo-callout h2 em { color: var(--sky-300); }
+    .promo-lead { font-size: 1.04rem; line-height: 1.8; margin-bottom: 26px; }
+    .promo-halaal {
+      display: inline-flex; align-items: center; gap: 12px; text-align: left; padding: 14px 24px; border-radius: 999px;
+      background: rgba(255, 255, 255, .08); border: 1px solid var(--line); font-size: .92rem; color: var(--ice);
+    }
+    .promo-halaal svg { width: 20px; height: 20px; flex-shrink: 0; color: var(--sky-300); }
+    .promo-grid { column-count: 3; column-gap: 28px; }
+    .promo-card {
+      display: flex; flex-direction: column; overflow: hidden; border-radius: var(--radius); break-inside: avoid; margin-bottom: 28px;
+      background: var(--navy-900); border: 1px solid var(--line); box-shadow: var(--shadow); transition: transform .35s, border-color .35s;
+    }
+    .promo-card:hover { transform: translateY(-4px); border-color: rgba(255, 255, 255, .3); }
+    .promo-img-wrap { flex: 1; display: flex; align-items: center; justify-content: center; background: var(--navy-950); overflow: hidden; }
+    .promo-card img { width: 100%; height: auto; cursor: zoom-in; transition: transform .6s ease; }
+    .promo-card:hover img { transform: scale(1.03); }
+    .promo-caption { padding: 22px 24px 26px; border-top: 1px solid var(--line); }
+    .promo-caption h4 { font: 600 1.12rem/1.3 var(--serif); color: #fff; margin-bottom: 8px; }
+    .promo-caption p { font-size: .9rem; line-height: 1.65; }
+    .promo-note { max-width: 62ch; margin: 44px auto 0; text-align: center; font-size: .95rem; color: var(--text-mute); }
 
-    /* --- closing greeting --- */
-    .xmas-greeting { background: linear-gradient(180deg, var(--x-navy), var(--x-deep)); text-align: center; padding: 56px 20px 50px; border-top: 3px solid var(--x-gold); }
-    .xg-script { margin: 8px 0 8px; font: 400 clamp(2rem, 6vw, 3.4rem)/1.15 'Great Vibes', 'Playfair Display', Georgia, cursive; color: var(--x-gold-l); }
-    .xg-sub { margin: 0 auto; max-width: 56ch; font: 500 1rem 'Playfair Display', Georgia, serif; color: #cfd9f7; line-height: 1.7; }
+    /* ---------- Services ---------- */
+    .service-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 22px; }
+    .service-card {
+      display: flex; flex-direction: column; padding: 36px 30px; border-radius: var(--radius);
+      background: var(--card); border: 1px solid var(--line); transition: background .3s, transform .3s, border-color .3s;
+    }
+    .service-card:hover { background: var(--card-hover); transform: translateY(-4px); border-color: rgba(255, 255, 255, .28); }
+    .service-card .icon {
+      width: 52px; height: 52px; border-radius: 50%; display: grid; place-items: center; margin-bottom: 26px;
+      border: 1px solid rgba(143, 187, 255, .55); color: var(--sky-300); font: 600 .95rem var(--serif); letter-spacing: .04em;
+    }
+    .service-card h3 { margin-bottom: 14px; }
+    .service-card p { font-size: .94rem; line-height: 1.75; }
+    .service-card.featured { background: linear-gradient(155deg, var(--blue-500) 0%, var(--royal-700) 100%); border-color: rgba(255, 255, 255, .25); }
+    .service-card.featured .icon { border-color: rgba(255, 255, 255, .7); color: #fff; }
+    .service-card.featured p { color: rgba(255, 255, 255, .9); }
 
+    /* ---------- Occasions ---------- */
+    .section-heading.light h2 { color: #fff; }
+    .occasion-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--line); border: 1px solid var(--line); border-radius: 22px; overflow: hidden; }
+    .occasion { padding: 38px 32px; background: rgba(8, 22, 64, .55); transition: background .3s; }
+    .occasion:hover { background: rgba(8, 22, 64, .35); }
+    .occasion span { display: block; font: 600 .72rem/1 var(--sans); letter-spacing: .22em; text-transform: uppercase; color: var(--sky-300); margin-bottom: 14px; }
+    .occasion b { display: block; font: 600 1.3rem/1.3 var(--serif); color: #fff; }
+
+    /* ---------- Galleries ---------- */
+    .story-block + .story-block { margin-top: 64px; }
+    .story-block h3 { font-size: 1.55rem; margin-bottom: 6px; }
+    .story-caption { margin-bottom: 24px; font-size: .96rem; color: var(--text-mute); }
+    .story-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(236px, 1fr)); gap: 16px; }
+    .story-grid figure { position: relative; overflow: hidden; border-radius: 16px; aspect-ratio: 4 / 3; background: var(--navy-950); border: 1px solid rgba(255, 255, 255, .08); }
+    .story-grid img { width: 100%; height: 100%; object-fit: cover; cursor: zoom-in; transition: transform .7s ease; }
+    .story-grid figure:hover img { transform: scale(1.06); }
+    .story-grid figcaption {
+      position: absolute; left: 0; right: 0; bottom: 0; padding: 38px 16px 14px; pointer-events: none;
+      background: linear-gradient(0deg, rgba(5, 14, 41, .9) 0%, rgba(5, 14, 41, 0) 100%);
+      color: #fff; font-size: .82rem; font-weight: 500; letter-spacing: .02em; opacity: 0; transform: translateY(6px); transition: opacity .35s, transform .35s;
+    }
+    .story-grid figure:hover figcaption { opacity: 1; transform: none; }
+    @media (hover: none) { .story-grid figcaption { opacity: 1; transform: none; } }
+
+    /* ---------- Café Sizzle ---------- */
+    .sizzle-header { text-align: center; margin-bottom: 28px; }
+    .sizzle-presents { font: 500 .78rem var(--sans); letter-spacing: .3em; text-transform: uppercase; color: var(--sky-200); margin-bottom: 22px; }
+    .sizzle-logo { max-height: 150px; width: auto; margin: 0 auto 22px; background: #fff; border-radius: 18px; padding: 12px 20px; }
+    .sizzle-title { font-size: clamp(2.6rem, 6vw, 4rem); font-weight: 700; margin-bottom: 4px; }
+    .sizzle-divider { width: 64px; height: 2px; background: var(--sky-300); margin: 22px auto 16px; border-radius: 2px; }
+    .sizzle-tagline { color: var(--text-soft); font-style: italic; }
+    .sizzle-category { text-align: center; margin: 58px 0 18px; }
+    .sizzle-category h3 { font: 600 .82rem/1 var(--sans); letter-spacing: .26em; text-transform: uppercase; color: var(--sky-300); display: inline-flex; align-items: center; gap: 18px; }
+    .sizzle-category h3::before, .sizzle-category h3::after { content: ""; width: 44px; height: 1px; background: rgba(143, 187, 255, .5); }
+    .sizzle-items { max-width: 780px; margin: 0 auto; }
+    .sizzle-item { display: flex; justify-content: space-between; align-items: baseline; gap: 24px; padding: 18px 4px; border-bottom: 1px solid rgba(255, 255, 255, .12); }
+    .sizzle-item .name { color: #fff; font-weight: 500; font-size: 1rem; line-height: 1.55; }
+    .sizzle-item .price { font: 600 1.15rem var(--serif); color: var(--sky-300); white-space: nowrap; }
+    .sizzle-note { max-width: 640px; margin: 54px auto 0; text-align: center; font-size: .96rem; }
+    .sizzle-order { text-align: center; margin-top: 34px; }
+    .sizzle-order .order-actions { display: flex; flex-wrap: wrap; gap: 14px; justify-content: center; }
+    .sizzle-badges { display: flex; align-items: center; justify-content: center; gap: 22px; flex-wrap: wrap; margin-top: 44px; }
+    .sizzle-badges img { height: 84px; width: auto; background: #fff; border-radius: 14px; padding: 10px 16px; }
+    .sizzle-addr { margin-top: 18px; font-size: .9rem; color: var(--text-mute); }
+
+    /* ---------- Journey / long-form ---------- */
+    .prose { max-width: 70ch; }
+    .prose p { font-size: 1.04rem; line-height: 1.85; }
+    .prose p + p { margin-top: 20px; }
+
+    /* ---------- Principles ---------- */
+    .why h2 { margin-bottom: 18px; }
+    .principles { display: grid; gap: 18px; }
+    .principles > div {
+      display: grid; grid-template-columns: 56px 1fr; column-gap: 20px; padding: 28px 28px 28px 26px; border-radius: var(--radius);
+      background: var(--card); border: 1px solid var(--line);
+    }
+    .principles span { grid-row: 1 / span 2; font: 600 1.6rem/1 var(--serif); color: var(--sky-300); padding-top: 3px; }
+    .principles h3 { font-size: 1.2rem; margin-bottom: 6px; }
+    .principles p { font-size: .94rem; line-height: 1.7; }
+
+    /* ---------- Check list ---------- */
+    .check-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 14px; }
+    .check-item {
+      display: flex; gap: 14px; align-items: flex-start; padding: 20px 22px; border-radius: var(--radius-sm);
+      background: var(--card); border: 1px solid var(--line); color: var(--ice); font-size: .96rem; line-height: 1.6;
+    }
+    .check-item::before {
+      content: ""; flex-shrink: 0; width: 22px; height: 22px; margin-top: 1px; border-radius: 50%;
+      background: var(--blue-500) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='3.2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 12.5l4 4 8-9'/%3E%3C/svg%3E") center / 70% no-repeat;
+    }
+    .csr .prose { margin-bottom: 38px; }
+    .csr .check-grid { margin-bottom: 52px; }
+
+    /* ---------- Clients ---------- */
+    .client-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 20px; }
+    .client-card { display: flex; flex-direction: column; border-radius: var(--radius); background: var(--card); border: 1px solid var(--line); overflow: hidden; transition: transform .3s, border-color .3s; }
+    .client-card:hover { transform: translateY(-3px); border-color: rgba(255, 255, 255, .3); }
+    .client-logo { height: 120px; display: grid; place-items: center; background: #fff; padding: 18px 24px; }
+    .client-logo img { max-height: 84px; max-width: 100%; width: auto; object-fit: contain; }
+    .client-body { padding: 22px 24px 26px; }
+    .client-body h3 { font-size: 1.08rem; margin-bottom: 8px; }
+    .client-body p { font-size: .9rem; line-height: 1.65; }
+
+    /* ---------- Contact ---------- */
+    .contact-grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.05fr); gap: clamp(40px, 6vw, 90px); align-items: start; }
+    .contact h2 { margin-bottom: 18px; }
+    .contact-list { margin-top: 38px; border-top: 1px solid var(--line); }
+    .contact-list li { display: grid; grid-template-columns: 110px 1fr; gap: 16px; padding: 18px 0; border-bottom: 1px solid var(--line); font-size: .96rem; }
+    .contact-list .lbl { font: 600 .7rem/1.9 var(--sans); letter-spacing: .2em; text-transform: uppercase; color: var(--sky-300); }
+    .contact-list a { color: #fff; transition: color .2s; }
+    .contact-list a:hover { color: var(--sky-200); }
+    .contact-list .sep { color: var(--text-mute); margin: 0 6px; }
+    .quote-form {
+      display: grid; gap: 18px; padding: clamp(28px, 4vw, 44px); border-radius: 24px;
+      background: rgba(8, 22, 64, .55); border: 1px solid rgba(255, 255, 255, .16); box-shadow: var(--shadow);
+    }
+    .quote-form label { display: grid; gap: 8px; font-size: .78rem; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; color: var(--sky-200); }
+    .quote-form input, .quote-form select, .quote-form textarea {
+      width: 100%; padding: 14px 16px; border-radius: 12px; border: 1px solid rgba(255, 255, 255, .2); background: rgba(255, 255, 255, .07);
+      color: #fff; font-size: .98rem; letter-spacing: 0; text-transform: none; font-weight: 400; transition: border-color .2s, background .2s;
+    }
+    .quote-form textarea { resize: vertical; min-height: 118px; }
+    .quote-form ::placeholder { color: rgba(230, 239, 255, .45); }
+    .quote-form input:focus, .quote-form select:focus, .quote-form textarea:focus { outline: none; border-color: var(--sky-300); background: rgba(255, 255, 255, .11); }
+    .quote-form select option { color: var(--navy-800); background: #fff; }
+    .quote-form input[type="date"] { color-scheme: dark; }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+    .quote-form .btn { width: 100%; margin-top: 6px; }
+    .form-small { font-size: .82rem; color: var(--text-mute); text-align: center; }
+    .form-status { min-height: 1.3em; font-size: .9rem; text-align: center; color: var(--sky-200); }
+
+    /* ---------- Footer ---------- */
+    footer { background: var(--navy-950); border-top: 1px solid rgba(255, 255, 255, .08); padding-top: 76px; }
+    .footer-grid { display: grid; grid-template-columns: 1.5fr 1fr 1fr 1.2fr; gap: 48px; }
+    .footer-logos { display: flex; align-items: center; gap: 14px; flex-wrap: wrap; margin-bottom: 22px; }
+    .footer-logos img { height: 64px; width: auto; background: #fff; border-radius: 12px; padding: 6px 14px; }
+    .footer-tagline { font-family: var(--serif); font-style: italic; font-size: 1.15rem; color: var(--sky-300); margin-bottom: 10px; }
+    footer h4 { font: 600 .74rem/1 var(--sans); letter-spacing: .22em; text-transform: uppercase; color: var(--sky-300); margin-bottom: 22px; }
+    footer p, footer li { font-size: .92rem; line-height: 1.7; color: var(--text-soft); }
+    footer li + li { margin-top: 10px; }
+    footer a { transition: color .2s; }
+    footer a:hover { color: #fff; }
+    .footer-bottom { margin-top: 64px; padding: 26px 28px 34px; border-top: 1px solid rgba(255, 255, 255, .08); text-align: center; font-size: .8rem; color: var(--text-mute); }
+    .footer-bottom p { color: var(--text-mute); font-size: .8rem; }
+    .footer-bottom p + p { margin-top: 6px; }
+
+    /* ---------- Lightbox ---------- */
+    .promo-lightbox { position: fixed; inset: 0; z-index: 999; background: rgba(5, 14, 41, .95); display: none; align-items: center; justify-content: center; padding: 40px; cursor: zoom-out; }
+    .promo-lightbox.is-open { display: flex; }
+    .promo-lightbox img { max-width: 92vw; max-height: 88vh; border-radius: 12px; box-shadow: 0 30px 80px rgba(0, 0, 0, .55); cursor: default; }
+    .promo-lightbox-close {
+      position: absolute; top: 22px; right: 26px; width: 46px; height: 46px; border-radius: 50%; border: 1px solid rgba(255, 255, 255, .4);
+      background: rgba(255, 255, 255, .08); color: #fff; font-size: 1.5rem; line-height: 1; cursor: pointer; display: grid; place-items: center;
+    }
+    .promo-lightbox-close:hover { background: rgba(255, 255, 255, .2); }
+
+    /* ---------- Responsive ---------- */
+    @media (max-width: 1080px) {
+      .nav a { padding: 10px 10px; font-size: .8rem; }
+      .footer-grid { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 960px) {
+      .menu-toggle { display: block; }
+      .nav {
+        position: fixed; top: var(--header-h); left: 0; right: 0; bottom: 0; flex-direction: column; align-items: stretch; gap: 4px;
+        padding: 26px 28px 40px; background: var(--navy-900); overflow-y: auto; transform: translateY(-8px); opacity: 0; visibility: hidden; transition: opacity .25s, transform .25s, visibility .25s;
+      }
+      .nav.is-open { opacity: 1; visibility: visible; transform: none; }
+      .nav a { font-size: 1.05rem; padding: 16px 6px; border-radius: 0; border-bottom: 1px solid rgba(255, 255, 255, .09); background: none !important; }
+      .nav a.nav-cta { margin: 22px 0 0; text-align: center; border-radius: 999px; border-bottom: 0; background: var(--blue-500) !important; }
+      .hero-grid { grid-template-columns: 1fr; gap: 40px; padding-top: 56px; padding-bottom: 150px; }
+      .hero-facts { justify-self: start; display: grid; grid-template-columns: repeat(3, 1fr); max-width: none; padding: 6px 22px; }
+      .hero-facts li { border-bottom: 0; border-right: 1px solid rgba(255, 255, 255, .12); padding: 18px 16px; }
+      .hero-facts li:last-child { border-right: 0; }
+      .hero-facts strong { font-size: 1.5rem; }
+      .hero-slide--flyer::after { inset: 4% 8%; }
+      .two-col, .contact-grid { grid-template-columns: 1fr; }
+      .about-panel { position: static; }
+      .occasion-grid { grid-template-columns: 1fr 1fr; }
+      .promo-grid { column-count: 2; }
+      .section-heading { gap: 18px; align-items: flex-start; }
+    }
+    @media (max-width: 640px) {
+      :root { --header-h: 70px; }
+      .container { padding-left: 20px; padding-right: 20px; }
+      .brand img { height: 40px; }
+      .hero-facts { grid-template-columns: 1fr; padding: 4px 24px; }
+      .hero-facts li { border-right: 0; border-bottom: 1px solid rgba(255, 255, 255, .12); padding: 16px 0; }
+      .hero-facts li:last-child { border-bottom: 0; }
+      .hero-progress { display: none; }
+      .occasion-grid, .footer-grid, .form-row { grid-template-columns: 1fr; }
+      .about-panel { grid-template-columns: 1fr 1fr; }
+      .stat { padding: 28px 20px; }
+      .contact-list li { grid-template-columns: 1fr; gap: 2px; }
+      .sizzle-item { flex-direction: column; gap: 4px; }
+      .promo-grid { column-count: 1; }
+      .promo-lightbox { padding: 16px; }
+    }
     @media (prefers-reduced-motion: reduce) {
-      .curtain-panel, .stage-valance, .curtain-card { transition-duration: .01s; transition-delay: 0s; }
-      .bulb, .orn, .curtain-card { animation: none; }
+      html { scroll-behavior: auto; }
+      *, *::before, *::after { animation: none !important; transition-duration: .01ms !important; }
     }
   </style>
 </head>
 <body>
-  <svg width="0" height="0" style="position:absolute" aria-hidden="true"><symbol id="snowflake" viewBox="0 0 24 24"><g stroke="currentColor" stroke-width="1.5" stroke-linecap="round" fill="none"><path d="M12 2v20M3.3 7l17.4 10M3.3 17L20.7 7"/><path d="M9.5 3.8L12 6.3l2.5-2.5M9.5 20.2L12 17.7l2.5 2.5M4.2 10.6l3.4.9-.9 3.4M19.8 13.4l-3.4-.9.9-3.4M4.2 13.4l3.4-.9-.9-3.4M19.8 10.6l-3.4.9.9 3.4"/></g></symbol></svg>
-  <div id="curtain" role="region" aria-label="Season's greetings from Ntokazi Catering and Events">
-    <div class="stage-valance"></div>
-    <div class="curtain-panel left"></div>
-    <div class="curtain-panel right"></div>
-    <div class="curtain-card">
-      <img class="curtain-logo" src="assets/ntokazi-logo.png" alt="Ntokazi Catering &amp; Events">
-      <p class="curtain-eyebrow"><svg class="sf"><use href="#snowflake"/></svg>NTOKAZI CATERING &amp; EVENTS<svg class="sf"><use href="#snowflake"/></svg></p>
-      <h2 class="curtain-title">Compliments of the Holiday Season</h2>
-      <p class="curtain-sub">to our valued clients, suppliers, employees and all stakeholders</p>
-      <p class="curtain-sign">With sincere gratitude from the Ntokazi Catering &amp; Events family. Wishing you peace, joy and a prosperous New Year.</p>
-    </div>
-  </div>
-  <canvas id="snow" aria-hidden="true"></canvas>
-  <style>
-    .site-header .nav-wrap {
-      display: flex; flex-direction: column; align-items: center; gap: 10px;
-    }
-    .brand-banner {
-      width: 100%; line-height: 0; text-align: center; background: #fff;
-    }
-    .brand-banner img {
-      display: inline-block; width: 100%; height: 220px;
-      object-fit: contain; object-position: center;
-    }
-    @media (max-width: 640px) {
-      .brand-banner img { height: 140px; }
-    }
-  </style>
+  <a class="skip-link" href="#home">Skip to main content</a>
 
-  <header class="site-header">
-    <div class="brand-banner">
-      <a href="#home" aria-label="Ntokazi Catering & Events home">
-        <img src="assets/ntokazi-logo.png" alt="Ntokazi Catering & Events logo">
+  <header class="site-header" id="top">
+    <div class="container header-inner">
+      <a class="brand" href="#home" aria-label="Ntokazi Catering & Events, home">
+        <img src="assets/ntokazi-logo.png" alt="Ntokazi Catering & Events">
       </a>
-    </div>
-    <div class="container nav-wrap">
-      <button class="menu-toggle" aria-label="Open menu" aria-expanded="false">☰</button>
-      <nav class="nav">
+      <button class="menu-toggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="siteNav"><span></span><span></span><span></span></button>
+      <nav class="nav" id="siteNav" aria-label="Main">
         <a href="#about">About</a>
         <a href="#promotions">Promotions</a>
         <a href="#services">Services</a>
-        <a href="#events">Events</a>
         <a href="#gallery">Gallery</a>
+        <a href="#cafe-sizzle">Café Sizzle</a>
         <a href="#csr">CSR</a>
         <a href="#clients">Clients</a>
-        <a href="#testimonials">Testimonials</a>
         <a href="#contact" class="nav-cta">Request a Quote</a>
       </nav>
     </div>
   </header>
-  <div class="xmas-lights" aria-hidden="true"><span class="bulb"></span><span class="bulb"></span><span class="bulb"></span><span class="bulb"></span><span class="bulb"></span><span class="bulb"></span><span class="bulb"></span><span class="bulb"></span><span class="bulb"></span><span class="bulb"></span><span class="bulb"></span><span class="bulb"></span><span class="bulb"></span><span class="bulb"></span><span class="bulb"></span><span class="bulb"></span><span class="bulb"></span><span class="bulb"></span><span class="bulb"></span><span class="bulb"></span><span class="bulb"></span><span class="bulb"></span><span class="bulb"></span><span class="bulb"></span><span class="bulb"></span><span class="bulb"></span><span class="bulb"></span><span class="bulb"></span><span class="bulb"></span><span class="bulb"></span><span class="bulb"></span><span class="bulb"></span><span class="bulb"></span><span class="bulb"></span><span class="bulb"></span><span class="bulb"></span><span class="bulb"></span><span class="bulb"></span><span class="bulb"></span><span class="bulb"></span><span class="bulb"></span><span class="bulb"></span><span class="bulb"></span><span class="bulb"></span></div>
-  <div class="xmas-banner"><svg class="sf"><use href="#snowflake"/></svg> Season's greetings from the Ntokazi family &middot; <a href="#promotions">See our Christmas menus &amp; year end specials &rarr;</a> <svg class="sf"><use href="#snowflake"/></svg></div>
-
-  <style>
-    :root { --gold: #d4af37; --gold-light: #e8caa4; }
-
-    .hero { position: relative; overflow: hidden; min-height: 92vh; display: flex; align-items: center; }
-    .hero-slideshow { position: absolute; inset: 0; z-index: 0; background: #0a0a0a; }
-    .hero-slide {
-      position: absolute; inset: 0;
-      background-size: cover; background-position: center;
-      opacity: 0; transform: scale(1.01);
-      transition: opacity 2s ease;
-      animation: heroZoom 9s ease-out forwards;
-      animation-play-state: paused;
-    }
-    .hero-slide.is-active { opacity: 1; z-index: 1; animation-play-state: running; }
-    @keyframes heroZoom { from { transform: scale(1.01); } to { transform: scale(1.14); } }
-
-    .hero-overlay {
-      position: absolute; inset: 0; z-index: 1;
-      background:
-        linear-gradient(180deg, rgba(6,6,8,.08) 0%, rgba(6,6,8,.18) 45%, rgba(6,6,8,.55) 100%);
-    }
-    .hero .hero-glow, .hero .hero-grid { position: relative; z-index: 2; }
-
-    /* Guaranteed-legible hero text, regardless of the underlying photo */
-    .hero .eyebrow {
-      color: var(--gold-light) !important;
-      letter-spacing: .18em !important;
-      font-weight: 700 !important;
-      text-shadow: 0 2px 6px rgba(0,0,0,.9), 0 0 22px rgba(0,0,0,.6);
-    }
-    .hero h1 {
-      color: #ffffff !important;
-      font-family: 'Playfair Display', Georgia, serif !important;
-      font-weight: 700 !important;
-      line-height: 1.1 !important;
-      font-size: clamp(2.4rem, 5.4vw, 4.2rem) !important;
-      text-shadow: 0 2px 8px rgba(0,0,0,.95), 0 0 30px rgba(0,0,0,.7), 0 0 60px rgba(0,0,0,.4);
-      animation: heroFadeUp 1s ease both;
-    }
-    .hero h1 span { color: var(--gold-light) !important; font-style: italic; }
-    .hero .hero-text {
-      color: #ffffff !important;
-      font-size: 1.08rem !important;
-      line-height: 1.7 !important;
-      text-shadow: 0 2px 6px rgba(0,0,0,.9), 0 0 18px rgba(0,0,0,.6);
-      max-width: 46ch;
-      animation: heroFadeUp 1s .15s ease both;
-    }
-    .hero .trust-row { animation: heroFadeUp 1s .3s ease both; }
-    .hero .trust-row span {
-      color: #fff !important;
-      background: rgba(255,255,255,.1);
-      border: 1px solid rgba(255,255,255,.25);
-      padding: 6px 14px; border-radius: 999px; font-size: .85rem;
-      backdrop-filter: blur(6px);
-      display: inline-block; margin: 4px 8px 4px 0;
-    }
-    .hero-actions { animation: heroFadeUp 1s .22s ease both; }
-    .hero .btn-primary {
-      background: linear-gradient(135deg, var(--gold) 0%, #b8860b 100%) !important;
-      color: #1a1200 !important; border: none !important; font-weight: 700 !important;
-      box-shadow: 0 8px 24px rgba(212,175,55,.35);
-    }
-    .hero .btn-outline {
-      color: #fff !important; border: 1.5px solid rgba(255,255,255,.7) !important;
-      background: rgba(255,255,255,.05) !important;
-      backdrop-filter: blur(6px);
-    }
-    .hero .btn-outline:hover { background: rgba(255,255,255,.15) !important; }
-
-    .hero-card { animation: heroFadeUp 1.1s .1s ease both; }
-    .hero-card .card-frame {
-      background: rgba(15,15,18,.55) !important;
-      backdrop-filter: blur(14px);
-      border: 1px solid rgba(255,255,255,.18) !important;
-      box-shadow: 0 20px 60px rgba(0,0,0,.45);
-    }
-    .hero-card .card-caption span { color: var(--gold-light) !important; letter-spacing: .12em; }
-    .hero-card .card-caption strong { color: #fff !important; }
-    .hero-card .card-caption small { color: rgba(255,255,255,.75) !important; }
-
-    @keyframes heroFadeUp { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: translateY(0); } }
-
-    /* Slide indicator dots */
-    .hero-dots {
-      position: absolute; left: 50%; bottom: 28px; transform: translateX(-50%);
-      z-index: 3; display: flex; gap: 10px;
-    }
-    .hero-dot {
-      width: 8px; height: 8px; border-radius: 999px;
-      background: rgba(255,255,255,.4); border: none; cursor: pointer;
-      transition: all .3s ease;
-    }
-    .hero-dot.is-active { background: var(--gold); width: 26px; }
-
-    .media-feature .gallery-grid img { aspect-ratio: 4/3; object-fit: cover; }
-    /* Flyer slides: sharp flyer on the right over a blurred, darkened copy of itself,
-       so the headline text on the left stays readable. */
-    .hero-slide--flyer { background: #0b1d4d; }
-    .hero-slide--flyer::before {
-      content: ""; position: absolute; inset: -30px;
-      background: var(--flyer) center/cover no-repeat;
-      filter: blur(28px) brightness(.45);
-    }
-    .hero-slide--flyer::after {
-      content: ""; position: absolute; inset: 4% 6% 4% 40%;
-      background: var(--flyer) center/contain no-repeat;
-    }
-    .hero .hero-card { transition: opacity .6s ease; }
-    .hero.is-flyer .hero-card { opacity: 0 !important; }
-    @media (max-width: 900px) {
-      .hero-slide--flyer::after { inset: 3% 8%; }
-    }
-
-  </style>
 
   <main id="home">
-    <section class="hero">
-      <div class="hero-slideshow">
-        <div class="hero-slide is-active" style="background-image:url('assets/hero1.jpg')"></div>
-        <div class="hero-slide" style="background-image:url('assets/hero2.jpg')"></div>
-        <div class="hero-slide" style="background-image:url('assets/hero3.jpg')"></div>
-        <div class="hero-slide" style="background-image:url('assets/hero4.jpg')"></div>
-        <div class="hero-slide" style="background-image:url('assets/hero5.jpg')"></div>
+    <!-- ================= HERO ================= -->
+    <section class="hero" aria-label="Welcome">
+      <div class="hero-slideshow" aria-hidden="true">
+        <!-- Images load on demand (data-bg / data-flyer) so the page opens fast. -->
+        <div class="hero-slide is-active" style="background-image:url('assets/hero1.jpg')" data-loaded="1"></div>
+        <div class="hero-slide" data-bg="assets/hero2.jpg"></div>
+        <div class="hero-slide" data-bg="assets/hero3.jpg"></div>
+        <div class="hero-slide" data-bg="assets/hero4.jpg"></div>
+        <div class="hero-slide" data-bg="assets/hero5.jpg"></div>
         <!-- Seasonal flyers -->
-        <div class="hero-slide hero-slide--flyer" style="--flyer:url('assets/promo-platters-price-list.jpg')"></div>
-        <div class="hero-slide hero-slide--flyer" style="--flyer:url('assets/promo-curry-starch-menu-1.jpg')"></div>
-        <div class="hero-slide hero-slide--flyer" style="--flyer:url('assets/promo-braai-menu-2-yearend.jpg')"></div>
-        <div class="hero-slide hero-slide--flyer" style="--flyer:url('assets/promo-smash-burgers.jpg')"></div>
-        <div class="hero-slide" style="background-image:url('assets/media1.jpg')"></div>
-        <div class="hero-slide" style="background-image:url('assets/media2.jpg')"></div>
+        <div class="hero-slide hero-slide--flyer" data-flyer="assets/promo-platters-price-list.jpg"></div>
+        <div class="hero-slide hero-slide--flyer" data-flyer="assets/promo-curry-starch-menu-1.jpg"></div>
+        <div class="hero-slide hero-slide--flyer" data-flyer="assets/promo-braai-menu-2-yearend.jpg"></div>
+        <div class="hero-slide hero-slide--flyer" data-flyer="assets/promo-smash-burgers.jpg"></div>
+        <div class="hero-slide" data-bg="assets/media1.jpg"></div>
+        <div class="hero-slide" data-bg="assets/media2.jpg"></div>
         <!-- Food -->
-        <div class="hero-slide" style="background-image:url('assets/gallery1.jpg')"></div>
-        <div class="hero-slide" style="background-image:url('assets/gallery5.jpg')"></div>
-        <div class="hero-slide" style="background-image:url('assets/gallery-kitchen1.jpg')"></div>
-        <div class="hero-slide" style="background-image:url('assets/gallery-kitchen2.jpg')"></div>
-        <div class="hero-slide" style="background-image:url('assets/gallery6.jpg')"></div>
-        <div class="hero-slide" style="background-image:url('assets/gallery7.jpg')"></div>
-        <div class="hero-slide" style="background-image:url('assets/gallery8.jpg')"></div>
-        <div class="hero-slide" style="background-image:url('assets/gallery9.jpg')"></div>
-        <div class="hero-slide" style="background-image:url('assets/gallery-kitchen3.jpg')"></div>
-        <div class="hero-slide" style="background-image:url('assets/gallery-kitchen4.jpg')"></div>
-        <div class="hero-slide" style="background-image:url('assets/gallery-kitchen5.jpg')"></div>
-        <div class="hero-slide" style="background-image:url('assets/gallery-kitchen6.jpg')"></div>
+        <div class="hero-slide" data-bg="assets/gallery1.jpg"></div>
+        <div class="hero-slide" data-bg="assets/gallery5.jpg"></div>
+        <div class="hero-slide" data-bg="assets/gallery-kitchen1.jpg"></div>
+        <div class="hero-slide" data-bg="assets/gallery-kitchen2.jpg"></div>
+        <div class="hero-slide" data-bg="assets/gallery6.jpg"></div>
+        <div class="hero-slide" data-bg="assets/gallery7.jpg"></div>
+        <div class="hero-slide" data-bg="assets/gallery8.jpg"></div>
+        <div class="hero-slide" data-bg="assets/gallery9.jpg"></div>
+        <div class="hero-slide" data-bg="assets/gallery-kitchen3.jpg"></div>
+        <div class="hero-slide" data-bg="assets/gallery-kitchen4.jpg"></div>
+        <div class="hero-slide" data-bg="assets/gallery-kitchen5.jpg"></div>
+        <div class="hero-slide" data-bg="assets/gallery-kitchen6.jpg"></div>
         <!-- Decor -->
-        <div class="hero-slide" style="background-image:url('assets/gallery4.jpg')"></div>
-        <div class="hero-slide" style="background-image:url('assets/gallery-table1.jpg')"></div>
-        <div class="hero-slide" style="background-image:url('assets/gallery-table2.jpg')"></div>
-        <div class="hero-slide" style="background-image:url('assets/gallery-table3.jpg')"></div>
-        <div class="hero-slide" style="background-image:url('assets/gallery-table4.jpg')"></div>
-        <div class="hero-slide" style="background-image:url('assets/gallery2.jpg')"></div>
-        <div class="hero-slide" style="background-image:url('assets/gallery3.jpg')"></div>
-        <div class="hero-slide" style="background-image:url('assets/gallery-event.jpg')"></div>
-        <div class="hero-slide" style="background-image:url('assets/gallery-event2.jpg')"></div>
+        <div class="hero-slide" data-bg="assets/gallery4.jpg"></div>
+        <div class="hero-slide" data-bg="assets/gallery-table1.jpg"></div>
+        <div class="hero-slide" data-bg="assets/gallery-table2.jpg"></div>
+        <div class="hero-slide" data-bg="assets/gallery-table3.jpg"></div>
+        <div class="hero-slide" data-bg="assets/gallery-table4.jpg"></div>
+        <div class="hero-slide" data-bg="assets/gallery2.jpg"></div>
+        <div class="hero-slide" data-bg="assets/gallery3.jpg"></div>
+        <div class="hero-slide" data-bg="assets/gallery-event.jpg"></div>
+        <div class="hero-slide" data-bg="assets/gallery-event2.jpg"></div>
       </div>
       <div class="hero-overlay"></div>
-      <div class="xmas-ornaments" aria-hidden="true"><div class="orn o1" style="left:1.5%;width:96px;animation-duration:4.6s;animation-delay:0s"><i class="cord" style="height:34px"></i><img src="assets/xmas-bauble-1.png" alt="" width="96" height="107" style="margin-top:-3px"></div><div class="orn o2" style="left:6.5%;width:138px;animation-duration:5.4s;animation-delay:0.6s"><i class="cord" style="height:96px"></i><img src="assets/xmas-bauble-2.png" alt="" width="138" height="154" style="margin-top:-5px"></div><div class="orn o3" style="left:12%;width:104px;animation-duration:4.2s;animation-delay:1.1s"><i class="cord" style="height:52px"></i><img src="assets/xmas-bauble-3.png" alt="" width="104" height="116" style="margin-top:-3px"></div><div class="orn o4" style="left:82%;width:112px;animation-duration:4.8s;animation-delay:0.3s"><i class="cord" style="height:62px"></i><img src="assets/xmas-bauble-4.png" alt="" width="112" height="125" style="margin-top:-3px"></div><div class="orn o5" style="left:88%;width:144px;animation-duration:5.8s;animation-delay:0.9s"><i class="cord" style="height:128px"></i><img src="assets/xmas-bauble-5.png" alt="" width="144" height="160" style="margin-top:-5px"></div><div class="orn o6" style="left:94%;width:98px;animation-duration:4.4s;animation-delay:1.4s"><i class="cord" style="height:42px"></i><img src="assets/xmas-bauble-6.png" alt="" width="98" height="109" style="margin-top:-3px"></div></div>
-      <div class="hero-dots">
-        <button class="hero-dot is-active" aria-label="Slide 1"></button>
-        <button class="hero-dot" aria-label="Slide 2"></button>
-        <button class="hero-dot" aria-label="Slide 3"></button>
-        <button class="hero-dot" aria-label="Slide 4"></button>
-        <button class="hero-dot" aria-label="Slide 5"></button>
-        <button class="hero-dot" aria-label="Slide 6"></button>
-        <button class="hero-dot" aria-label="Slide 7"></button>
-      </div>
-      <div class="hero-glow"></div>
+
       <div class="container hero-grid">
         <div class="hero-copy">
-          <p class="eyebrow">17 YEARS OF SOUTH AFRICAN HOSPITALITY</p>
+          <p class="eyebrow">17 years of South African hospitality</p>
           <h1>Exceptional catering.<br><span>Unforgettable occasions.</span></h1>
-          <p style="font-family:'Playfair Display', Georgia, serif;font-style:italic;color:#e8caa4;font-size:1.15rem;margin:-4px 0 18px;">"mmm Divine"</p>
+          <p class="hero-tagline">“mmm Divine”</p>
           <p class="hero-text">
-            For over 17 years, we've turned government forums, corporate boardrooms, weddings
+            For over 17 years, we have turned government forums, corporate boardrooms, weddings
             and family gatherings into occasions people still talk about. Founded in 2009 by
-            Ms. Xoliswa Ntokazi Nkosi, we've grown from a local vision into a trusted partner
-            for clients like Transnet, Dube TradePort and the KZN Office of the Premier,
-            comfortably serving anywhere from an intimate 20-guest memorial to a 1,500-guest
-            corporate function, without ever losing the personal touch.
+            Ms. Xoliswa Ntokazi Nkosi, we have grown from a local vision into a trusted partner
+            for clients such as Transnet, Dube TradePort and the KZN Office of the Premier,
+            serving anything from an intimate 20-guest memorial to a 1,500-guest corporate
+            function without ever losing the personal touch.
           </p>
           <div class="hero-actions">
             <a class="btn btn-primary" href="#contact">Request a Quote</a>
             <a class="btn btn-outline" href="#services">Explore Our Services</a>
           </div>
-          <div class="trust-row">
-            <span>✓ 17 years' experience</span>
-            <span>✓ 100% black female-owned</span>
-            <span>✓ KwaZulu-Natal</span>
-          </div>
         </div>
-        <div class="hero-card">
-          <div class="card-frame">
-            <img src="assets/ntokazi-logo.png" alt="Ntokazi Catering & Events">
-            <div class="card-caption">
-              <span>NTOKAZI</span>
-              <strong>Catering & Events</strong>
-              <small>Professional service. Cultural authenticity. Seamless execution.</small>
-            </div>
-          </div>
+        <ul class="hero-facts" aria-label="Ntokazi at a glance">
+          <li><strong>17 years</strong><span>of professional hospitality</span></li>
+          <li><strong>20 – 1,500</strong><span>guests, comfortably served</span></li>
+          <li><strong>Level 1</strong><span>B-BBEE · 100% Black female-owned</span></li>
+        </ul>
+      </div>
+
+      <div class="hero-controls">
+        <div class="container">
+          <button class="hero-btn" id="heroPrev" type="button" aria-label="Previous image"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 5l-7 7 7 7"/></svg></button>
+          <button class="hero-btn" id="heroNext" type="button" aria-label="Next image"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 5l7 7-7 7"/></svg></button>
+          <span class="hero-count" id="heroCount" aria-live="off">01 / 01</span>
+          <div class="hero-progress" aria-hidden="true"><i id="heroBar"></i></div>
         </div>
       </div>
     </section>
 
-    <section class="intro section">
+    <!-- ================= INTRO ================= -->
+    <section class="intro section tone-royal">
       <div class="container narrow center">
-        <p class="eyebrow">THE NTOKAZI STANDARD</p>
+        <p class="eyebrow">The Ntokazi standard</p>
         <h2>Where every occasion deserves exceptional care.</h2>
         <p class="lead">
           We believe catering is more than food. It is about creating an experience that
@@ -459,19 +601,22 @@
       </div>
     </section>
 
-    <section id="about" class="section about">
+    <!-- ================= ABOUT ================= -->
+    <section id="about" class="section about tone-navy">
       <div class="container two-col">
         <div>
-          <p class="eyebrow">OUR STORY</p>
+          <p class="eyebrow">Our story</p>
           <h2>Built on experience. Driven by excellence.</h2>
-          <p class="lead" style="font-style:italic;margin-top:-4px;">From the classroom to a seasoned professional chef and phenomenal businesswoman.</p>
+          <p class="lead">From the classroom to the professional kitchen, and on to building a business.</p>
           <p>
             Founded in 2009 by <strong>Ms. Xoliswa Ntokazi Nkosi</strong>, Ntokazi Catering
-            and Events is a 100% black female-owned enterprise with seventeen years of
-            industry expertise.
+            and Events is a 100% Black female-owned enterprise with seventeen years of
+            industry expertise. Ms. Nkosi began her career as a Home Economics educator,
+            then furthered her studies and became a professional culinary chef, combining the
+            rigour of the classroom with the artistry of the professional kitchen.
           </p>
           <p>
-            What began as a local visionary project has grown into a trusted service provider
+            What began as a local vision has grown into a trusted service provider
             for KwaZulu-Natal, combining cultural authenticity with professional standards
             and meticulous attention to detail.
           </p>
@@ -482,9 +627,9 @@
             care, dignity and precision.
           </p>
           <p>
-            Our mission is simple: deliver exceptional culinary experiences that elevate every
+            Our mission is simple: to deliver exceptional culinary experiences that elevate every
             function into a memorable occasion, without ever compromising on quality, hygiene
-            or service excellence. We're working toward a bigger vision too: to be a respected,
+            or service excellence. We are working toward a bigger vision too: to be a respected,
             influential name in South African hospitality, known as much for our integrity as
             for our food.
           </p>
@@ -500,90 +645,12 @@
       </div>
     </section>
 
-    <style>
-      .promotions { background: linear-gradient(180deg, #faf7f2 0%, #f3ede1 100%); }
-      .promo-callout {
-        max-width: 78ch; margin: 0 auto 40px; text-align: center;
-      }
-      .promo-callout .eyebrow { justify-content: center; }
-      .promo-callout h2 {
-        font-family: 'Playfair Display', Georgia, serif;
-        font-size: clamp(1.7rem, 3.4vw, 2.5rem);
-        color: #13294b; margin: 6px 0 14px; line-height: 1.25;
-      }
-      .promo-callout h2 em { color: #b8860b; font-style: italic; }
-      .promo-callout .promo-lead {
-        font-size: 1.08rem; line-height: 1.75; color: #333; margin-bottom: 14px;
-      }
-      .promo-halaal {
-        display: inline-flex; align-items: center; gap: 10px;
-        background: #fff; border: 1px solid rgba(19,41,75,.12);
-        padding: 12px 22px; border-radius: 999px; margin-top: 10px;
-        font-size: .95rem; color: #13294b; box-shadow: 0 6px 20px rgba(19,41,75,.06);
-      }
-      .promo-halaal strong { color: #b8860b; }
-
-      .promo-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-        gap: 26px;
-      }
-      .promo-card {
-        background: #fff; border-radius: 16px; overflow: hidden;
-        box-shadow: 0 14px 34px rgba(19,41,75,.12);
-        border: 1px solid rgba(19,41,75,.06);
-        display: flex; flex-direction: column;
-      }
-      .promo-card .promo-img-wrap {
-        background: #0b1d4d; line-height: 0; text-align: center; overflow: hidden;
-      }
-      .promo-card img {
-        width: 100%; height: auto; display: block; object-fit: contain;
-        cursor: zoom-in; transition: transform .5s ease;
-      }
-      .promo-card .promo-img-wrap:hover img { transform: scale(1.03); }
-      .promo-card .promo-caption {
-        padding: 16px 20px 20px;
-      }
-      .promo-card .promo-caption h4 {
-        font-family: 'Playfair Display', Georgia, serif;
-        font-size: 1.08rem; color: #13294b; margin: 0 0 6px;
-      }
-      .promo-card .promo-caption p {
-        font-size: .9rem; color: #555; margin: 0; line-height: 1.6;
-      }
-      .promo-note {
-        max-width: 70ch; margin: 34px auto 0; text-align: center;
-        font-size: .9rem; color: #666; line-height: 1.7;
-      }
-
-      .promo-lightbox {
-        position: fixed; inset: 0; z-index: 999;
-        background: rgba(11,29,77,.94);
-        display: none; align-items: center; justify-content: center;
-        padding: 40px; cursor: zoom-out;
-      }
-      .promo-lightbox.is-open { display: flex; }
-      .promo-lightbox img {
-        max-width: 90vw; max-height: 88vh; display: block;
-        border-radius: 10px; box-shadow: 0 30px 80px rgba(0,0,0,.5);
-        cursor: default;
-      }
-      .promo-lightbox-close {
-        position: absolute; top: 24px; right: 28px;
-        width: 44px; height: 44px; border-radius: 50%;
-        border: 1px solid rgba(255,255,255,.35); background: rgba(255,255,255,.08);
-        color: #fff; font-size: 1.4rem; line-height: 1; cursor: pointer;
-        display: flex; align-items: center; justify-content: center;
-      }
-      .promo-lightbox-close:hover { background: rgba(255,255,255,.2); }
-    </style>
-
-    <section id="promotions" class="section promotions">
+    <!-- ================= PROMOTIONS ================= -->
+    <section id="promotions" class="section promotions tone-royal">
       <div class="container">
         <div class="promo-callout">
-          <p class="eyebrow">END-OF-YEAR, CELEBRATION &amp; RECONCILIATION SEASON</p>
-          <h2>A Season to Celebrate, Reconcile and Gather <em>Around the Table.</em></h2>
+          <p class="eyebrow">End-of-year, celebration &amp; reconciliation season</p>
+          <h2>A season to celebrate, reconcile and gather <em>around the table.</em></h2>
           <p class="promo-lead">
             From festive family functions to Reconciliation Day celebrations, year-end
             office parties and everything in between, Ntokazi Catering &amp; Events has a
@@ -592,57 +659,46 @@
             be customised, from the menu to the guest count, to suit exactly what you need.
           </p>
           <div class="promo-halaal">
-            <span style="color:#b8860b;font-weight:700;">✔</span>
-            <span>We proudly offer <strong>Halaal dishes</strong>, outsourced from a trusted Halaal-compliant vendor, so everyone at your table is catered for.</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M7.5 12.5l3 3 6-7"/></svg>
+            <span>We proudly offer <strong>Halaal dishes</strong>, sourced from a trusted Halaal-compliant vendor, so everyone at your table is catered for.</span>
           </div>
         </div>
 
         <div class="promo-grid">
           <article class="promo-card">
-            <div class="promo-img-wrap">
-              <img src="assets/promo-catering-pricelist.jpg" alt="Ntokazi Catering price list for 20 to 200 guests" loading="lazy">
-            </div>
+            <div class="promo-img-wrap"><img src="assets/promo-catering-pricelist.jpg" alt="Ntokazi Catering price list for 20 to 200 guests" loading="lazy"></div>
             <div class="promo-caption">
               <h4>Catering Price List</h4>
-              <p>Per-guest pricing from 20 to 200 guests, catering includes 3 starch, 2 salads, 2 protein, 1 vegetable and 2 drinks. Labour and groceries included.</p>
+              <p>Per-guest pricing from 20 to 200 guests. Catering includes 3 starches, 2 salads, 2 proteins, 1 vegetable and 2 drinks. Labour and groceries included.</p>
             </div>
           </article>
 
-
           <article class="promo-card">
-            <div class="promo-img-wrap">
-              <img src="assets/promo-braai-menu2-a.jpg" alt="Ntokazi Braai Menu 2 with premium braai meats, starch and sides" loading="lazy">
-            </div>
+            <div class="promo-img-wrap"><img src="assets/promo-braai-menu2-a.jpg" alt="Ntokazi Braai Menu 2 with premium braai meats, starch and sides" loading="lazy"></div>
             <div class="promo-caption">
               <h4>Braai Menu 2</h4>
-              <p>Premium braai meats, starch and salads for 10 people at R5 500, tongs, plates, serving staff and sauces included.</p>
+              <p>Premium braai meats, starch and salads for 10 people at R5 500. Tongs, plates, serving staff and sauces included.</p>
             </div>
           </article>
 
           <article class="promo-card">
-            <div class="promo-img-wrap">
-              <img src="assets/promo-braai-menu2-b.jpg" alt="Ntokazi Braai Menu 2 with corn on the cob option" loading="lazy">
-            </div>
+            <div class="promo-img-wrap"><img src="assets/promo-braai-menu2-b.jpg" alt="Ntokazi Braai Menu 2 with corn on the cob option" loading="lazy"></div>
             <div class="promo-caption">
               <h4>Braai Menu 2, with Corn on the Cob</h4>
-              <p>Same premium braai spread for 10 people at R5 500, with corn on the cob among the side options.</p>
+              <p>The same premium braai spread for 10 people at R5 500, with corn on the cob among the side options.</p>
             </div>
           </article>
 
           <article class="promo-card">
-            <div class="promo-img-wrap">
-              <img src="assets/promo-platters-price-list.jpg" alt="Ntokazi year end function platters price list" loading="lazy">
-            </div>
+            <div class="promo-img-wrap"><img src="assets/promo-platters-price-list.jpg" alt="Ntokazi year-end function platters price list" loading="lazy"></div>
             <div class="promo-caption">
-              <h4>Year End Function Platters</h4>
+              <h4>Year-End Function Platters</h4>
               <p>Meaty, mixed and party-snack platters priced from R430 to R600.</p>
             </div>
           </article>
 
           <article class="promo-card">
-            <div class="promo-img-wrap">
-              <img src="assets/promo-curry-starch-menu-1.jpg" alt="Ntokazi year end function curry and starch menu 1" loading="lazy">
-            </div>
+            <div class="promo-img-wrap"><img src="assets/promo-curry-starch-menu-1.jpg" alt="Ntokazi year-end function curry and starch menu 1" loading="lazy"></div>
             <div class="promo-caption">
               <h4>Curry &amp; Starch Menu 1</h4>
               <p>Two curries, two starches and two sides for 10 people at R3 800. Serving spoons, chafing dishes, staff and plates included.</p>
@@ -650,19 +706,15 @@
           </article>
 
           <article class="promo-card">
-            <div class="promo-img-wrap">
-              <img src="assets/promo-braai-menu-2-yearend.jpg" alt="Ntokazi year end function braai menu 2 at R5 000 for 10 people" loading="lazy">
-            </div>
+            <div class="promo-img-wrap"><img src="assets/promo-braai-menu-2-yearend.jpg" alt="Ntokazi year-end function braai menu 2 at R5 000 for 10 people" loading="lazy"></div>
             <div class="promo-caption">
-              <h4>Year End Braai Menu</h4>
-              <p>Three meats, two starches and two salads for 10 people at R5 000. Tongs, serving spoons, chafing dishes, setup and serving included.</p>
+              <h4>Year-End Braai Menu</h4>
+              <p>Three meats, two starches and two salads for 10 people at R5 000. Tongs, serving spoons, chafing dishes, set-up and serving included.</p>
             </div>
           </article>
 
           <article class="promo-card">
-            <div class="promo-img-wrap">
-              <img src="assets/promo-smash-burgers.jpg" alt="Ntokazi year end function smash burger menu and office packages" loading="lazy">
-            </div>
+            <div class="promo-img-wrap"><img src="assets/promo-smash-burgers.jpg" alt="Ntokazi year-end function smash burger menu and office packages" loading="lazy"></div>
             <div class="promo-caption">
               <h4>Smash Burgers &amp; Office Packages</h4>
               <p>Smash burgers from R85 to R130, with sides, cold drinks and juice, plus office packages for 20, 40 and 60 guests.</p>
@@ -670,9 +722,7 @@
           </article>
 
           <article class="promo-card">
-            <div class="promo-img-wrap">
-              <img src="assets/promo-christmas-menu-1.jpg" alt="Ntokazi Christmas Menu 1 at R4 000 for 10 people" loading="lazy">
-            </div>
+            <div class="promo-img-wrap"><img src="assets/promo-christmas-menu-1.jpg" alt="Ntokazi Christmas Menu 1 at R4 000 for 10 people" loading="lazy"></div>
             <div class="promo-caption">
               <h4>Christmas Menu 1</h4>
               <p>Festive mains with glazed gammon or roast beef, finished with cheesecake. R4 000 for 10 people.</p>
@@ -680,9 +730,7 @@
           </article>
 
           <article class="promo-card">
-            <div class="promo-img-wrap">
-              <img src="assets/promo-christmas-menu-2.jpg" alt="Ntokazi Christmas Menu 2 at R6 000 for 10 people" loading="lazy">
-            </div>
+            <div class="promo-img-wrap"><img src="assets/promo-christmas-menu-2.jpg" alt="Ntokazi Christmas Menu 2 at R6 000 for 10 people" loading="lazy"></div>
             <div class="promo-caption">
               <h4>Christmas Menu 2</h4>
               <p>Glazed gammon, grilled turkey and roast beef, with a traditional Christmas trifle. R6 000 for 10 people.</p>
@@ -690,9 +738,7 @@
           </article>
 
           <article class="promo-card">
-            <div class="promo-img-wrap">
-              <img src="assets/promo-christmas-menu-3.jpg" alt="Ntokazi Christmas Menu 3 at R7 000 for 10 people" loading="lazy">
-            </div>
+            <div class="promo-img-wrap"><img src="assets/promo-christmas-menu-3.jpg" alt="Ntokazi Christmas Menu 3 at R7 000 for 10 people" loading="lazy"></div>
             <div class="promo-caption">
               <h4>Christmas Menu 3</h4>
               <p>Starters, roasted turkey, glazed gammon and classic roast beef, with a mint crispy tart. R7 000 for 10 people.</p>
@@ -700,36 +746,34 @@
           </article>
         </div>
 
-        <p class="promo-note">
-          Get in touch for a customised quote for your event, including Halaal menu options.
-        </p>
+        <p class="promo-note">Get in touch for a customised quote for your event, including Halaal menu options.</p>
       </div>
     </section>
 
-    <section id="services" class="section services">
+    <!-- ================= SERVICES ================= -->
+    <section id="services" class="section services tone-navy">
       <div class="container">
         <div class="section-heading">
           <div>
-            <p class="eyebrow">WHAT WE DO</p>
-            <h2>Catering & event services</h2>
+            <p class="eyebrow">What we do</p>
+            <h2>Catering &amp; event services</h2>
           </div>
           <p>Professional hospitality tailored to the purpose, people and character of your occasion.</p>
         </div>
-
         <div class="service-grid">
           <article class="service-card featured">
             <div class="icon">01</div>
-            <h3>Corporate & Government</h3>
+            <h3>Corporate &amp; Government</h3>
             <p>Polished catering for meetings, conferences, government forums, boardrooms and professional functions where timing and presentation matter.</p>
           </article>
           <article class="service-card">
             <div class="icon">02</div>
-            <h3>Weddings & Traditional Celebrations</h3>
+            <h3>Weddings &amp; Traditional Celebrations</h3>
             <p>Authentic hospitality for traditional weddings and celebrations, delivered with respect for culture, family and occasion.</p>
           </article>
           <article class="service-card">
             <div class="icon">03</div>
-            <h3>Memorial & Family Services</h3>
+            <h3>Memorial &amp; Family Services</h3>
             <p>Compassionate, dignified catering for memorial services and family gatherings, with thoughtful attention to every detail.</p>
           </article>
           <article class="service-card">
@@ -741,71 +785,36 @@
       </div>
     </section>
 
-    <section id="events" class="section dark-section">
+    <!-- ================= OCCASIONS ================= -->
+    <section id="events" class="section dark-section tone-royal">
       <div class="container">
         <div class="section-heading light">
           <div>
-            <p class="eyebrow">FOR EVERY OCCASION</p>
+            <p class="eyebrow">For every occasion</p>
             <h2>From the boardroom to the family table.</h2>
           </div>
           <p>Tell us what you are planning. We will help you shape the catering experience around it.</p>
         </div>
         <div class="occasion-grid">
-          <div class="occasion"><span>Government</span><b>Forums & official functions</b></div>
-          <div class="occasion"><span>Corporate</span><b>Meetings & events</b></div>
-          <div class="occasion"><span>Weddings</span><b>Traditional & contemporary</b></div>
+          <div class="occasion"><span>Government</span><b>Forums &amp; official functions</b></div>
+          <div class="occasion"><span>Corporate</span><b>Meetings &amp; events</b></div>
+          <div class="occasion"><span>Weddings</span><b>Traditional &amp; contemporary</b></div>
           <div class="occasion"><span>Memorials</span><b>Dignified family services</b></div>
-          <div class="occasion"><span>Celebrations</span><b>Birthdays & milestones</b></div>
-          <div class="occasion"><span>Custom</span><b>Let's discuss your brief</b></div>
+          <div class="occasion"><span>Celebrations</span><b>Birthdays &amp; milestones</b></div>
+          <div class="occasion"><span>Custom</span><b>Let’s discuss your brief</b></div>
         </div>
       </div>
     </section>
 
-    <style>
-      :root { --navy: #13294b; --ivory: #faf7f2; }
-      .gallery { background: var(--ivory); }
-      .story-block { margin-bottom: 48px; }
-      .story-block:last-child { margin-bottom: 0; }
-      .story-block h3 {
-        font-family: 'Playfair Display', Georgia, serif;
-        color: var(--navy); font-size: 1.4rem; font-weight: 600;
-        margin: 0 0 4px;
-      }
-      .story-block p.story-caption { margin: 0 0 18px; opacity: .65; font-size: .95rem; }
-      .story-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
-        gap: 16px;
-      }
-      .story-grid figure {
-        margin: 0; position: relative; overflow: hidden; border-radius: 14px;
-        aspect-ratio: 4 / 3; box-shadow: 0 10px 30px rgba(19,41,75,.12);
-        background: #eee;
-      }
-      .story-grid img {
-        width: 100%; height: 100%; object-fit: cover; display: block;
-        transition: transform .5s ease;
-      }
-      .story-grid figure:hover img { transform: scale(1.06); }
-      .story-grid figcaption {
-        position: absolute; left: 0; right: 0; bottom: 0;
-        padding: 10px 14px;
-        background: linear-gradient(0deg, rgba(19,41,75,.82) 0%, rgba(19,41,75,0) 100%);
-        color: #fff; font-size: .8rem; font-weight: 500;
-        opacity: 0; transform: translateY(6px);
-        transition: all .35s ease;
-      }
-      .story-grid figure:hover figcaption { opacity: 1; transform: translateY(0); }
-    </style>
-
-    <section id="presidential" class="section media-feature" style="background:#fff;">
+    <!-- ================= PRESIDENTIAL ================= -->
+    <section id="presidential" class="section media-feature tone-navy">
       <div class="container">
         <div class="section-heading">
           <div>
-            <p class="eyebrow">A PROUD MILESTONE</p>
-            <h2>We Cooked for the President</h2>
+            <p class="eyebrow">A proud milestone</p>
+            <h2>We cooked for the President</h2>
           </div>
-          <p>Ntokazi Catering &amp; Events had the honour of preparing food for presidential consumption, serving His Excellency the President of South Africa, a moment our team will always be proud of.</p>
+          <p>Ntokazi Catering &amp; Events had the honour of preparing food for His Excellency the President of South Africa, a moment our team will always be proud of.</p>
         </div>
         <div class="story-grid">
           <figure><img src="assets/presidential-1.jpg" alt="Ntokazi Catering team greeting the President of South Africa" loading="lazy"><figcaption>Meeting the President</figcaption></figure>
@@ -815,11 +824,12 @@
       </div>
     </section>
 
-    <section id="gallery" class="section gallery">
+    <!-- ================= GALLERY ================= -->
+    <section id="gallery" class="section gallery tone-royal">
       <div class="container">
         <div class="section-heading">
           <div>
-            <p class="eyebrow">A TASTE OF NTOKAZI</p>
+            <p class="eyebrow">A taste of Ntokazi</p>
             <h2>Our gallery</h2>
           </div>
           <p>A look at our food, our people and the occasions we bring to life.</p>
@@ -829,15 +839,15 @@
           <h3>The Ntokazi Table</h3>
           <p class="story-caption">Every place setting is considered, because presentation is part of the experience.</p>
           <div class="story-grid">
-            <figure><img src="assets/gallery4.jpg" alt="Elegant gold place setting" loading="lazy"><figcaption>Gold-accented place setting</figcaption></figure>
+            <figure><img src="assets/gallery4.jpg" alt="Elegant place setting" loading="lazy"><figcaption>Refined place setting</figcaption></figure>
             <figure><img src="assets/gallery-table1.jpg" alt="Red carnation table centrepiece" loading="lazy"><figcaption>Red carnation centrepieces</figcaption></figure>
             <figure><img src="assets/gallery-table2.jpg" alt="Floral table setting in a church hall" loading="lazy"><figcaption>Floral table styling</figcaption></figure>
             <figure><img src="assets/gallery-table3.jpg" alt="Full dining hall set for a function" loading="lazy"><figcaption>Full hall, dressed and ready</figcaption></figure>
-            <figure><img src="assets/gallery-table4.jpg" alt="Blue and gold place setting with menu card" loading="lazy"><figcaption>Blue and gold place setting</figcaption></figure>
+            <figure><img src="assets/gallery-table4.jpg" alt="Place setting with menu card" loading="lazy"><figcaption>Place setting with menu card</figcaption></figure>
             <figure><img src="assets/gallery-table5.jpg" alt="Elegant tiered wedding cake with sugar flowers" loading="lazy"><figcaption>A cake to match the occasion</figcaption></figure>
             <figure><img src="assets/gallery-table6.jpg" alt="Mirror-top table centrepiece detail" loading="lazy"><figcaption>Detail in every centrepiece</figcaption></figure>
-            <figure><img src="assets/gallery-table7.jpg" alt="Full gold and white table setting in a hall" loading="lazy"><figcaption>Gold and white, hall-ready</figcaption></figure>
-            <figure><img src="assets/gallery-table8.jpg" alt="Black and gold table setting" loading="lazy"><figcaption>Black and gold place setting</figcaption></figure>
+            <figure><img src="assets/gallery-table7.jpg" alt="Full table setting in a hall" loading="lazy"><figcaption>Hall-ready table setting</figcaption></figure>
+            <figure><img src="assets/gallery-table8.jpg" alt="Elegant dark table setting" loading="lazy"><figcaption>Dramatic dark table setting</figcaption></figure>
           </div>
         </div>
 
@@ -871,14 +881,14 @@
             <figure><img src="assets/gallery-event3.jpg" alt="Outdoor memorial gathering under red gazebos" loading="lazy"><figcaption>Outdoor family gathering</figcaption></figure>
             <figure><img src="assets/gallery-event4.jpg" alt="Welcome signage for a celebration" loading="lazy"><figcaption>Welcomed in style</figcaption></figure>
             <figure><img src="assets/gallery-event5.jpg" alt="Guests seated at an elegant celebration" loading="lazy"><figcaption>Guests, dressed to celebrate</figcaption></figure>
-            <figure><img src="assets/gallery-event6.jpg" alt="Round wedding stage with floral arch" loading="lazy"><figcaption>A stage set for 'I do'</figcaption></figure>
+            <figure><img src="assets/gallery-event6.jpg" alt="Round wedding stage with floral arch" loading="lazy"><figcaption>A stage set for “I do”</figcaption></figure>
             <figure><img src="assets/gallery-event7.jpg" alt="Draped stage with podium and lounge seating" loading="lazy"><figcaption>Every detail staged</figcaption></figure>
             <figure><img src="assets/gallery-event8.jpg" alt="Wide view of guests dining under elegant lighting" loading="lazy"><figcaption>The room, full and glowing</figcaption></figure>
           </div>
         </div>
 
         <div class="story-block">
-          <h3>Our Team & Our Fleet</h3>
+          <h3>Our Team &amp; Our Fleet</h3>
           <p class="story-caption">The people and vehicles that make it happen, on time, every time.</p>
           <div class="story-grid">
             <figure><img src="assets/gallery-team.jpg" alt="The Ntokazi Catering team" loading="lazy"><figcaption>Part of the Ntokazi family</figcaption></figure>
@@ -890,70 +900,8 @@
       </div>
     </section>
 
-    <style>
-      .sizzle-section {
-        background: linear-gradient(180deg, #0b1d4d 0%, #142b6b 100%);
-        position: relative; overflow: hidden;
-      }
-      .sizzle-section::before {
-        content: ""; position: absolute; inset: 0;
-        background-image: radial-gradient(circle at 15% 10%, rgba(255,255,255,.06) 0%, transparent 40%),
-                           radial-gradient(circle at 85% 90%, rgba(255,255,255,.05) 0%, transparent 40%);
-        pointer-events: none;
-      }
-      .sizzle-header { text-align: center; position: relative; z-index: 1; margin-bottom: 20px; }
-      .sizzle-presents {
-        color: rgba(255,255,255,.75); font-size: .9rem; letter-spacing: .3em;
-        text-transform: uppercase; margin-bottom: 6px; font-weight: 500;
-      }
-      .sizzle-logo { max-height: 180px; margin: 10px auto 26px; display: block; }
-      .sizzle-title {
-        font-family: 'Playfair Display', Georgia, serif;
-        color: #fff; font-size: clamp(2.4rem, 6vw, 3.6rem); font-weight: 700;
-        letter-spacing: .04em; margin: 0;
-      }
-      .sizzle-divider { width: 90px; height: 2px; background: #d4af37; margin: 18px auto 8px; }
-      .sizzle-tagline { color: rgba(255,255,255,.7); font-style: italic; margin-bottom: 40px; }
-
-      .sizzle-category {
-        text-align: center; margin: 48px 0 22px; position: relative; z-index: 1;
-      }
-      .sizzle-category h3 {
-        font-family: 'Playfair Display', Georgia, serif;
-        color: #d4af37; font-size: 1.5rem; letter-spacing: .08em;
-        text-transform: uppercase; display: inline-block; margin: 0;
-        padding: 0 20px; position: relative;
-      }
-      .sizzle-category h3::before, .sizzle-category h3::after {
-        content: ""; position: absolute; top: 50%; width: 40px; height: 1px;
-        background: rgba(212,175,55,.5);
-      }
-      .sizzle-category h3::before { right: 100%; }
-      .sizzle-category h3::after { left: 100%; }
-
-      .sizzle-items { max-width: 760px; margin: 0 auto; position: relative; z-index: 1; }
-      .sizzle-item {
-        display: flex; justify-content: space-between; align-items: baseline;
-        gap: 16px; padding: 14px 4px; border-bottom: 1px dotted rgba(255,255,255,.2);
-      }
-      .sizzle-item .name {
-        color: #fff; font-weight: 600; font-size: 1.02rem;
-      }
-      .sizzle-item .price {
-        color: #d4af37; font-weight: 700; font-family: 'Playfair Display', Georgia, serif;
-        white-space: nowrap;
-      }
-
-      .sizzle-order { text-align: center; margin-top: 52px; position: relative; z-index: 1; }
-      .sizzle-order .btn-primary {
-        background: linear-gradient(135deg, #d4af37 0%, #b8860b 100%) !important;
-        color: #0b1d4d !important; border: none !important; font-weight: 700 !important;
-        padding: 14px 36px !important; font-size: 1.02rem !important;
-        box-shadow: 0 10px 30px rgba(212,175,55,.35);
-      }
-    </style>
-
-    <section id="cafe-sizzle" class="section sizzle-section">
+    <!-- ================= CAFÉ SIZZLE ================= -->
+    <section id="cafe-sizzle" class="section sizzle-section tone-deep">
       <div class="container">
         <div class="sizzle-header">
           <p class="sizzle-presents">Ntokazi Catering and Events presents</p>
@@ -982,68 +930,66 @@
           <div class="sizzle-item"><span class="name">Inhloko with uPhuthu/Samp</span><span class="price">R90.00</span></div>
           <div class="sizzle-item"><span class="name">Usu (Tripe) with uPhuthu/Samp</span><span class="price">R70.00</span></div>
           <div class="sizzle-item"><span class="name">Four Sticky/Spicy Wings and Fries</span><span class="price">R50.00</span></div>
-          <div class="sizzle-item"><span class="name">Kota: quarter bread loaf filled with chips, egg, cheese, french polony and beef burger</span><span class="price">R45.00</span></div>
+          <div class="sizzle-item"><span class="name">Kota: quarter bread loaf filled with chips, egg, cheese, French polony and beef burger</span><span class="price">R45.00</span></div>
         </div>
 
         <div class="sizzle-category"><h3>Platters</h3></div>
         <div class="sizzle-items">
-          <div class="sizzle-item"><span class="name">Platter for Two: two grilled chicken pieces, two skewers, two beef snack burgers/two chicken wraps</span><span class="price">R120.00</span></div>
-          <div class="sizzle-item"><span class="name">Platter for Four: four grilled chicken pieces, four skewers, four beef snack burgers/four chicken wraps</span><span class="price">R150.00</span></div>
+          <div class="sizzle-item"><span class="name">Platter for Two: two grilled chicken pieces, two skewers, two beef snack burgers or two chicken wraps</span><span class="price">R120.00</span></div>
+          <div class="sizzle-item"><span class="name">Platter for Four: four grilled chicken pieces, four skewers, four beef snack burgers or four chicken wraps</span><span class="price">R150.00</span></div>
         </div>
 
-        <div style="max-width:640px;margin:0 auto;text-align:center;">
-          <p style="color:rgba(255,255,255,.85);font-size:.95rem;line-height:1.7;">
-            Not within our Uber Eats delivery radius? No problem, order directly on
-            <strong style="color:#d4af37;">WhatsApp</strong> and collect at our address in
-            Glen Anil, Umhlanga.
-          </p>
-        </div>
+        <p class="sizzle-note">
+          Outside our Uber Eats delivery area? Order directly on
+          <strong>WhatsApp</strong> and collect from our kitchen in Glen Anil, Durban North.
+        </p>
 
         <div class="sizzle-order">
-          <div style="display:flex;flex-wrap:wrap;gap:14px;justify-content:center;align-items:center;">
-            <a class="btn btn-primary" href="#" target="_blank" rel="noopener">Order on Uber Eats</a>
-            <a href="https://wa.me/27662972750?text=Hi%2C%20I%27d%20like%20to%20place%20an%20order%20with%20Caf%C3%A9%20Sizzle." target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:10px;background:#25D366;color:#fff;font-weight:700;padding:12px 28px;border-radius:999px;text-decoration:none;box-shadow:0 10px 30px rgba(37,211,102,.35);">
-              <img src="assets/whatsapp-icon.png" alt="" style="height:22px;width:22px;object-fit:contain;" loading="lazy">
+          <div class="order-actions">
+            <!-- To show an Uber Eats button, add your store link here:
+                 <a class="btn btn-primary" href="YOUR-UBER-EATS-LINK" target="_blank" rel="noopener">Order on Uber Eats</a> -->
+            <a class="btn btn-primary" href="https://wa.me/27662972750?text=Hi%2C%20I%27d%20like%20to%20place%20an%20order%20with%20Caf%C3%A9%20Sizzle." target="_blank" rel="noopener">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 11.5a8.4 8.4 0 0 1-12.4 7.4L3 20.5l1.7-5.4A8.4 8.4 0 1 1 21 11.5z"/></svg>
               Order on WhatsApp
             </a>
           </div>
-          <div style="display:flex;align-items:center;justify-content:center;gap:24px;flex-wrap:wrap;margin-top:32px;">
-            <img src="assets/ubereats-logo.png" alt="Available on Uber Eats" style="height:180px;width:180px;object-fit:contain;" loading="lazy">
-            <img src="assets/cafe-sizzle-logo.png" alt="Café Sizzle logo" style="height:180px;width:180px;object-fit:contain;" loading="lazy">
+          <div class="sizzle-badges">
+            <img src="assets/ubereats-logo.png" alt="Available on Uber Eats" loading="lazy">
           </div>
-          <p style="color:#fff;font-weight:700;margin-top:16px;font-size:1.05rem;">Café Sizzle is on Uber Eats</p>
-          <p style="color:rgba(255,255,255,.7);font-size:.9rem;margin-top:4px;">11 Plane Glen Anil Durban North</p>
+          <p class="sizzle-addr">Café Sizzle is on Uber Eats · 11 Plane, Glen Anil, Durban North</p>
         </div>
       </div>
     </section>
 
-    <section class="section on-air">
+    <!-- ================= JOURNEY ================= -->
+    <section class="section on-air tone-navy">
       <div class="container">
         <div class="section-heading">
           <div>
-            <p class="eyebrow">IN HER OWN WORDS</p>
+            <p class="eyebrow">In her own words</p>
             <h2>The Ntokazi journey</h2>
           </div>
         </div>
-        <div class="narrow" style="max-width:70ch;">
-          <p style="font-size:1.05rem;line-height:1.75;">
-            Before she was plating for government forums and 1,500-guest weddings, Ms. Xoliswa
-            Ntokazi Nkosi was standing in front of a classroom, an educator teaching Hospitality,
-            training young people in the very skills she now practises every day. It's a detail
-            she comes back to often when she's on air: the years spent teaching gave her the
-            structure and standards that now run through everything Ntokazi Catering & Events
-            does, from a boardroom lunch to a family memorial.
+        <div class="prose">
+          <p>
+            Before she was plating for government forums and 1,500-guest functions, Ms. Xoliswa
+            Ntokazi Nkosi was standing in front of a classroom as a Home Economics educator,
+            training young people in the very skills she now practises every day. She went on to
+            further her studies and became a professional culinary chef. It is a story she
+            returns to often when she is on air: the years spent teaching gave her the structure
+            and standards that now run through everything Ntokazi Catering &amp; Events does,
+            from a boardroom lunch to a family memorial.
           </p>
-          <p style="font-size:1.05rem;line-height:1.75;">
+          <p>
             In 2009, she took that classroom discipline and turned it into a business, starting
-            small, building relationships one function at a time, and slowly earning the trust of
+            small, building relationships one function at a time, and steadily earning the trust of
             clients who needed more than good food; they needed someone reliable. Seventeen years
             later, that same passion has grown into a catering and events partner trusted across
-            KwaZulu-Natal, from Transnet's canteens to the KZN Office of the Premier's VIP
+            KwaZulu-Natal, from Transnet’s canteens to the KZN Office of the Premier’s VIP
             functions.
           </p>
-          <p style="font-size:1.05rem;line-height:1.75;">
-            It's a story Ms. Nkosi has shared on-air with both Vuma 103FM and Highway Radio:
+          <p>
+            Ms. Nkosi has shared her story on air with both Vuma 103FM and Highway Radio:
             how passion, discipline and a willingness to start small can grow into something
             people rely on. Have a look through the moments below.
           </p>
@@ -1051,53 +997,54 @@
       </div>
     </section>
 
-    <section class="section media-feature">
+    <section class="section media-feature tone-royal">
       <div class="container">
         <div class="section-heading">
           <div>
-            <p class="eyebrow">IN THE COMMUNITY</p>
+            <p class="eyebrow">In the community</p>
             <h2>Featured on Vuma 103FM</h2>
           </div>
-          <p>Ms. Nkosi shares the Ntokazi story and her passion for hospitality on-air.</p>
+          <p>Ms. Nkosi shares the Ntokazi story and her passion for hospitality on air.</p>
         </div>
         <div class="story-grid">
-          <figure><img src="assets/media1.jpg" alt="Ntokazi Nkosi live on Vuma 103FM" loading="lazy"><figcaption>Live on Vuma 103FM</figcaption></figure>
-          <figure><img src="assets/media2.jpg" alt="On-air interview at Vuma 103FM studio" loading="lazy"><figcaption>On-air interview</figcaption></figure>
+          <figure><img src="assets/media1.jpg" alt="Ms. Nkosi live on Vuma 103FM" loading="lazy"><figcaption>Live on Vuma 103FM</figcaption></figure>
+          <figure><img src="assets/media2.jpg" alt="On-air interview at the Vuma 103FM studio" loading="lazy"><figcaption>On-air interview</figcaption></figure>
           <figure><img src="assets/media3.jpg" alt="Candid moment at the Vuma 103FM studio" loading="lazy"><figcaption>Behind the scenes at Vuma</figcaption></figure>
           <figure><img src="assets/media4.jpg" alt="Ntokazi catering set up at the Vuma 103FM studio" loading="lazy"><figcaption>Catering the Vuma studio</figcaption></figure>
         </div>
       </div>
     </section>
 
-    <section class="section media-feature">
+    <section class="section media-feature tone-navy">
       <div class="container">
         <div class="section-heading">
           <div>
-            <p class="eyebrow">ON AIR</p>
-            <h2>Featured on Radio Highway</h2>
+            <p class="eyebrow">On air</p>
+            <h2>Featured on Highway Radio</h2>
           </div>
-          <p>More conversations, more community, including Highway Radio's 30th anniversary celebration, proudly sponsored by Ntokazi Catering & Events.</p>
+          <p>More conversations, more community, including Highway Radio’s 30th anniversary celebration, proudly sponsored by Ntokazi Catering &amp; Events.</p>
         </div>
         <div class="story-grid">
-          <figure><img src="assets/radiohighway1.jpg" alt="Ntokazi Nkosi interview on Radio Highway" loading="lazy"><figcaption>On-air interview</figcaption></figure>
-          <figure><img src="assets/radiohighway2.jpg" alt="On-air segment at Radio Highway studio" loading="lazy"><figcaption>In the studio</figcaption></figure>
-          <figure><img src="assets/radiohighway8.jpg" alt="Ntokazi Nkosi at the Radio Highway microphone" loading="lazy"><figcaption>On the mic</figcaption></figure>
-          <figure><img src="assets/radiohighway9.jpg" alt="Wide shot of the Radio Highway studio session" loading="lazy"><figcaption>Inside the studio</figcaption></figure>
-          <figure><img src="assets/radiohighway3.jpg" alt="Guests at the Radio Highway 30th anniversary event" loading="lazy"><figcaption>Celebrating 30 years</figcaption></figure>
+          <figure><img src="assets/radiohighway1.jpg" alt="Ms. Nkosi interview on Highway Radio" loading="lazy"><figcaption>On-air interview</figcaption></figure>
+          <figure><img src="assets/radiohighway2.jpg" alt="On-air segment at the Highway Radio studio" loading="lazy"><figcaption>In the studio</figcaption></figure>
+          <figure><img src="assets/radiohighway8.jpg" alt="Ms. Nkosi at the Highway Radio microphone" loading="lazy"><figcaption>On the mic</figcaption></figure>
+          <figure><img src="assets/radiohighway9.jpg" alt="Wide shot of the Highway Radio studio session" loading="lazy"><figcaption>Inside the studio</figcaption></figure>
+          <figure><img src="assets/radiohighway3.jpg" alt="Guests at the Highway Radio 30th anniversary event" loading="lazy"><figcaption>Celebrating 30 years</figcaption></figure>
           <figure><img src="assets/radiohighway4.jpg" alt="Welcome to Highway Radio event backdrop" loading="lazy"><figcaption>Welcome to Highway</figcaption></figure>
-          <figure><img src="assets/radiohighway5.jpg" alt="Ntokazi Catering sponsor signage at Radio Highway event" loading="lazy"><figcaption>Proud event sponsor</figcaption></figure>
-          <figure><img src="assets/radiohighway6.jpg" alt="Group photo at the Radio Highway event" loading="lazy"><figcaption>With the Highway Radio team</figcaption></figure>
-          <figure><img src="assets/radiohighway7.jpg" alt="Cultural dance performance at the Radio Highway event" loading="lazy"><figcaption>Celebrating in style</figcaption></figure>
+          <figure><img src="assets/radiohighway5.jpg" alt="Ntokazi Catering sponsor signage at the Highway Radio event" loading="lazy"><figcaption>Proud event sponsor</figcaption></figure>
+          <figure><img src="assets/radiohighway6.jpg" alt="Group photo at the Highway Radio event" loading="lazy"><figcaption>With the Highway Radio team</figcaption></figure>
+          <figure><img src="assets/radiohighway7.jpg" alt="Cultural dance performance at the Highway Radio event" loading="lazy"><figcaption>Celebrating in style</figcaption></figure>
         </div>
       </div>
     </section>
 
-    <section class="section why">
+    <!-- ================= WHY ================= -->
+    <section class="section why tone-royal">
       <div class="container two-col">
         <div>
-          <p class="eyebrow">WHY NTOKAZI</p>
+          <p class="eyebrow">Why Ntokazi</p>
           <h2>Hospitality with purpose.</h2>
-          <p class="lead">Our service is grounded in three principles:</p>
+          <p class="lead">Our service is grounded in three principles.</p>
         </div>
         <div class="principles">
           <div><span>01</span><h3>Authenticity</h3><p>We honour South African culture and the meaning behind each occasion.</p></div>
@@ -1107,251 +1054,172 @@
       </div>
     </section>
 
-    <section id="csr" class="section csr">
+    <!-- ================= CSR ================= -->
+    <section id="csr" class="section csr tone-navy">
       <div class="container">
         <div class="section-heading">
           <div>
-            <p class="eyebrow">GIVING BACK</p>
+            <p class="eyebrow">Giving back</p>
             <h2>Corporate Social Responsibility</h2>
           </div>
-          <p>Ntokazi Catering & Events is committed to contributing toward the KZN economic community through employment, upskilling and fair, compliant practice.</p>
+          <p>Ntokazi Catering &amp; Events is committed to contributing toward the KZN economic community through employment, upskilling and fair, compliant practice.</p>
         </div>
 
-        <div class="narrow" style="max-width:70ch;margin-bottom:32px;">
-          <p style="font-size:1.05rem;line-height:1.75;">
-            Growth means little to us if it doesn't create opportunity for others. We're proud to
+        <div class="prose">
+          <p>
+            Growth means little to us if it does not create opportunity for others. We are proud to
             provide real employment to youth and members of the KwaZulu-Natal community. On a
             permanent basis we employ a core team of over 15 staff, scaling up to 50+ casual
             staff for larger functions, giving flexible, meaningful work to people across the
             region.
           </p>
-          <p style="font-size:1.05rem;line-height:1.75;">
+          <p>
             We operate in full compliance with South African labour legislation, and we invest
-            continuously in our people. Ongoing training and upskilling ensures our team meets
+            continuously in our people. Ongoing training and upskilling ensure our team meets
             industry standards for hygiene, service and hospitality excellence. Many of our
             supplier relationships have lasted years, built on trust, consistency and mutual
-            respect, and it's that same pride in doing things properly that we bring to every
+            respect, and it is that same pride in doing things properly that we bring to every
             table we serve.
           </p>
         </div>
 
-        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:14px;margin-bottom:36px;">
-          <div class="check-item"><span class="mark">✔</span><span>15+ permanent staff, scaling to 50+ casual staff for larger events</span></div>
-          <div class="check-item"><span class="mark">✔</span><span>Fully compliant with South African labour legislation</span></div>
-          <div class="check-item"><span class="mark">✔</span><span>Ongoing staff training and upskilling</span></div>
-          <div class="check-item"><span class="mark">✔</span><span>Youth and community employment focus</span></div>
-          <div class="check-item"><span class="mark">✔</span><span>Long-standing, trusted supplier relationships</span></div>
-          <div class="check-item"><span class="mark">✔</span><span>100% black female-owned, BBBEE Level 1</span></div>
+        <div class="check-grid">
+          <div class="check-item">15+ permanent staff, scaling to 50+ casual staff for larger events</div>
+          <div class="check-item">Fully compliant with South African labour legislation</div>
+          <div class="check-item">Ongoing staff training and upskilling</div>
+          <div class="check-item">Youth and community employment focus</div>
+          <div class="check-item">Long-standing, trusted supplier relationships</div>
+          <div class="check-item">100% Black female-owned, B-BBEE Level 1</div>
         </div>
 
         <div class="story-grid">
-          <figure>
-            <img src="assets/gallery-team.jpg" alt="The Ntokazi Catering team" loading="lazy">
-            <figcaption>Part of the Ntokazi family</figcaption>
-          </figure>
-          <figure>
-            <img src="assets/gallery-service.jpg" alt="Trained staff plating on-site" loading="lazy">
-            <figcaption>Trained to industry standard</figcaption>
-          </figure>
-          <figure>
-            <img src="assets/gallery-fleet.jpg" alt="Ntokazi delivery fleet" loading="lazy">
-            <figcaption>Reaching every corner of KZN</figcaption>
-          </figure>
-        </div>
-        <div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:14px;">
-          <a href="assets/gallery-team.jpg" download class="btn btn-outline">Download team photo</a>
-          <a href="assets/gallery-service.jpg" download class="btn btn-outline">Download service photo</a>
-          <a href="assets/gallery-fleet.jpg" download class="btn btn-outline">Download fleet photo</a>
+          <figure><img src="assets/gallery-team.jpg" alt="The Ntokazi Catering team" loading="lazy"><figcaption>Part of the Ntokazi family</figcaption></figure>
+          <figure><img src="assets/gallery-service.jpg" alt="Trained staff plating on-site" loading="lazy"><figcaption>Trained to industry standard</figcaption></figure>
+          <figure><img src="assets/gallery-fleet.jpg" alt="Ntokazi delivery fleet" loading="lazy"><figcaption>Reaching every corner of KZN</figcaption></figure>
         </div>
       </div>
     </section>
 
-    <section id="clients" class="section clients">
+    <!-- ================= CLIENTS ================= -->
+    <section id="clients" class="section clients tone-royal">
       <div class="container">
         <div class="section-heading">
           <div>
-            <p class="eyebrow">TRUSTED BY</p>
+            <p class="eyebrow">Trusted by</p>
             <h2>Our clients</h2>
           </div>
           <p>From national entities to provincial government, our clients rely on us for consistent, professional service.</p>
         </div>
-        <div class="service-grid">
-          <article class="service-card">
-            <img src="assets/logo-thekwinitvet.jpg" alt="Thekwini TVET College logo" style="height:38px;object-fit:contain;margin-bottom:14px;" loading="lazy">
-            <h3>Thekwini TVET College</h3>
-            <p>Catering and event support services.</p>
+        <div class="client-grid">
+          <article class="client-card">
+            <div class="client-logo"><img src="assets/logo-transnet.png" alt="Transnet logo" loading="lazy"></div>
+            <div class="client-body"><h3>Transnet</h3><p>Ongoing canteen service and catering management.</p></div>
           </article>
-          <article class="service-card">
-            <img src="assets/logo-transnet.png" alt="Transnet logo" style="height:38px;object-fit:contain;margin-bottom:14px;" loading="lazy">
-            <h3>Transnet</h3>
-            <p>Ongoing canteen service and catering management.</p>
+          <article class="client-card">
+            <div class="client-logo"><img src="assets/logo-dubetradeport.png" alt="Dube TradePort logo" loading="lazy"></div>
+            <div class="client-body"><h3>Dube TradePort</h3><p>Catering for board meetings, breakfasts, lunches and other corporate and in-house functions.</p></div>
           </article>
-          <article class="service-card">
-            <img src="assets/logo-dubetradeport.png" alt="Dube TradePort logo" style="height:38px;object-fit:contain;margin-bottom:14px;" loading="lazy">
-            <h3>Dube TradePort</h3>
-            <p>Catering for board meetings, breakfasts, lunches and other corporate and in-house functions.</p>
+          <article class="client-card">
+            <div class="client-logo"><img src="assets/logo-kznpremier.jpg" alt="KZN Office of the Premier logo" loading="lazy"></div>
+            <div class="client-body"><h3>KZN Office of the Premier</h3><p>Among their VIP caterers, serving breakfasts, and African and Western lunches, for meetings and corporate functions.</p></div>
           </article>
-          <article class="service-card">
-            <img src="assets/logo-ethekwini.jpg" alt="eThekwini Municipality logo" style="height:38px;object-fit:contain;margin-bottom:14px;" loading="lazy">
-            <h3>eThekwini Municipality</h3>
-            <p>Catering and event support services.</p>
+          <article class="client-card">
+            <div class="client-logo"><img src="assets/logo-kznlegislature.jpg" alt="KwaZulu-Natal Legislature logo" loading="lazy"></div>
+            <div class="client-body"><h3>KZN Legislature</h3><p>Catering services for meetings and corporate functions.</p></div>
           </article>
-          <article class="service-card">
-            <img src="assets/logo-cxai.jpg" alt="CXAi logo" style="height:38px;object-fit:contain;margin-bottom:14px;" loading="lazy">
-            <h3>CXAi</h3>
-            <p>Catering and event support services.</p>
+          <article class="client-card">
+            <div class="client-logo"><img src="assets/logo-ethekwini.jpg" alt="eThekwini Municipality logo" loading="lazy"></div>
+            <div class="client-body"><h3>eThekwini Municipality</h3><p>Catering and event support services.</p></div>
           </article>
-          <article class="service-card">
-            <img src="assets/logo-highwayradio.jpg" alt="Highway Radio 101.5FM logo" style="height:38px;object-fit:contain;margin-bottom:14px;" loading="lazy">
-            <h3>Highway Radio</h3>
-            <p>On-air brand partner, featured guest and proud catering sponsor of the station's 30th anniversary celebration.</p>
+          <article class="client-card">
+            <div class="client-logo"><img src="assets/logo-labour.jpg" alt="Department of Labour logo" loading="lazy"></div>
+            <div class="client-body"><h3>Department of Labour</h3><p>Catering and event support services.</p></div>
           </article>
-          <article class="service-card">
-            <img src="assets/logo-kznlegislature.jpg" alt="KwaZulu-Natal Legislature logo" style="height:38px;object-fit:contain;margin-bottom:14px;" loading="lazy">
-            <h3>KZN Legislature</h3>
-            <p>Catering services for meetings and corporate functions.</p>
+          <article class="client-card">
+            <div class="client-logo"><img src="assets/logo-doj.png" alt="Department of Justice and Constitutional Development logo" loading="lazy"></div>
+            <div class="client-body"><h3>Department of Justice</h3><p>Catering and event support services.</p></div>
           </article>
-          <article class="service-card">
-            <img src="assets/logo-kznpremier.jpg" alt="KZN Office of the Premier logo" style="height:38px;object-fit:contain;margin-bottom:14px;" loading="lazy">
-            <h3>KZN Office of the Premier</h3>
-            <p>Among their VIP caterers, serving breakfasts, and African and Western lunches, for meetings and corporate functions.</p>
+          <article class="client-card">
+            <div class="client-logo"><img src="assets/logo-kznera.png" alt="KwaZulu-Natal Economic Regulatory Authority logo" loading="lazy"></div>
+            <div class="client-body"><h3>KwaZulu-Natal Economic Regulatory Authority</h3><p>Catering and event support services.</p></div>
           </article>
-          <article class="service-card">
-            <img src="assets/logo-umngeniwater.png" alt="Umngeni-uThukela Water logo" style="height:38px;object-fit:contain;margin-bottom:14px;" loading="lazy">
-            <h3>Umngeni Water</h3>
-            <p>Catering and event support services.</p>
+          <article class="client-card">
+            <div class="client-logo"><img src="assets/logo-kzntourismfilm.png" alt="KwaZulu-Natal Tourism and Film logo" loading="lazy" style="border-radius:6px"></div>
+            <div class="client-body"><h3>KZN Tourism &amp; Film</h3><p>Catering and event support services.</p></div>
           </article>
-          <article class="service-card">
-            <img src="assets/logo-labour.jpg" alt="Department of Labour logo" style="height:38px;object-fit:contain;margin-bottom:14px;" loading="lazy">
-            <h3>Department of Labour</h3>
-            <p>Catering and event support services.</p>
+          <article class="client-card">
+            <div class="client-logo"><img src="assets/logo-umngeniwater.png" alt="Umngeni-uThukela Water logo" loading="lazy"></div>
+            <div class="client-body"><h3>Umngeni-uThukela Water</h3><p>Catering and event support services.</p></div>
           </article>
-          <article class="service-card">
-            <img src="assets/logo-ekuvukeni.jpg" alt="Ekuvukeni Anglican Church logo" style="height:48px;object-fit:contain;margin-bottom:14px;" loading="lazy">
-            <h3>Ekuvukeni Anglican Church</h3>
-            <p>Catering and event support services.</p>
+          <article class="client-card">
+            <div class="client-logo"><img src="assets/logo-thekwinitvet.jpg" alt="Thekwini TVET College logo" loading="lazy"></div>
+            <div class="client-body"><h3>Thekwini TVET College</h3><p>Catering and event support services.</p></div>
           </article>
-          <article class="service-card">
-            <img src="assets/logo-doj.png" alt="Department of Justice and Constitutional Development logo" style="height:48px;object-fit:contain;margin-bottom:14px;" loading="lazy">
-            <h3>Department of Justice</h3>
-            <p>Catering and event support services.</p>
+          <article class="client-card">
+            <div class="client-logo"><img src="assets/logo-elangeni.png" alt="Elangeni TVET College logo" loading="lazy"></div>
+            <div class="client-body"><h3>Elangeni College</h3><p>Catering and event support services.</p></div>
           </article>
-          <article class="service-card">
-            <img src="assets/logo-kznera.png" alt="KwaZulu-Natal Economic Regulatory Authority logo" style="height:48px;object-fit:contain;margin-bottom:14px;" loading="lazy">
-            <h3>KZN ERA</h3>
-            <p>Catering and event support services.</p>
+          <article class="client-card">
+            <div class="client-logo"><img src="assets/logo-cxai.jpg" alt="CXAi logo" loading="lazy"></div>
+            <div class="client-body"><h3>CXAi</h3><p>Catering and event support services.</p></div>
           </article>
-          <article class="service-card">
-            <img src="assets/logo-kzntourismfilm.png" alt="KwaZulu-Natal Tourism and Film logo" style="height:48px;object-fit:contain;margin-bottom:14px;border-radius:6px;" loading="lazy">
-            <h3>KZN Tourism & Film</h3>
-            <p>Catering and event support services.</p>
+          <article class="client-card">
+            <div class="client-logo"><img src="assets/logo-highwayradio.jpg" alt="Highway Radio 101.5FM logo" loading="lazy"></div>
+            <div class="client-body"><h3>Highway Radio</h3><p>On-air brand partner, featured guest and proud catering sponsor of the station’s 30th anniversary celebration.</p></div>
+          </article>
+          <article class="client-card">
+            <div class="client-logo"><img src="assets/logo-vuma.png" alt="Vuma 103FM logo" loading="lazy"></div>
+            <div class="client-body"><h3>Vuma 103FM</h3><p>Catering and event support services.</p></div>
+          </article>
+          <article class="client-card">
+            <div class="client-logo"><img src="assets/logo-ekuvukeni.jpg" alt="Ekuvukeni Anglican Church logo" loading="lazy"></div>
+            <div class="client-body"><h3>Ekuvukeni Anglican Church</h3><p>Catering and event support services.</p></div>
           </article>
         </div>
       </div>
     </section>
 
-    <style>
-      .testimonials { background: #fff; }
-      .testimonial-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-        gap: 22px;
-      }
-      .testimonial-card {
-        background: var(--ivory, #faf7f2);
-        border: 1px solid rgba(19,41,75,.08);
-        border-radius: 16px;
-        padding: 28px 26px;
-        display: flex; flex-direction: column; height: 100%;
-      }
-      .testimonial-card .quote-mark {
-        font-family: 'Playfair Display', Georgia, serif;
-        font-size: 2.6rem; color: #d4af37; line-height: 1; margin-bottom: 6px;
-      }
-      .testimonial-card p.quote {
-        font-size: 1rem; line-height: 1.7; color: #333; font-style: italic;
-        margin: 0 0 18px; flex-grow: 1;
-      }
-      .testimonial-card .attribution strong { display: block; color: #13294b; font-size: .95rem; }
-      .testimonial-card .attribution span { font-size: .82rem; color: #777; }
-    </style>
-
-    <section id="testimonials" class="section testimonials">
-      <div class="container">
-        <div class="section-heading">
-          <div>
-            <p class="eyebrow">WHAT OUR CLIENTS SAY</p>
-            <h2>In their words</h2>
-          </div>
-          <p>Real feedback from the government, corporate and private clients we've had the privilege of serving.</p>
-        </div>
-        <div class="testimonial-grid">
-          <article class="testimonial-card">
-            <div class="quote-mark">&ldquo;</div>
-            <p class="quote">[Client testimonial to be added — please share a short quote and who it's from.]</p>
-            <div class="attribution"><strong>Client name</strong><span>Organisation, role</span></div>
-          </article>
-          <article class="testimonial-card">
-            <div class="quote-mark">&ldquo;</div>
-            <p class="quote">[Client testimonial to be added — please share a short quote and who it's from.]</p>
-            <div class="attribution"><strong>Client name</strong><span>Organisation, role</span></div>
-          </article>
-          <article class="testimonial-card">
-            <div class="quote-mark">&ldquo;</div>
-            <p class="quote">[Client testimonial to be added — please share a short quote and who it's from.]</p>
-            <div class="attribution"><strong>Client name</strong><span>Organisation, role</span></div>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section class="section why-choose">
+    <!-- ================= WHY CHOOSE ================= -->
+    <section class="section why-choose tone-navy">
       <div class="container narrow">
         <div class="section-heading">
           <div>
-            <p class="eyebrow">WHY CHOOSE NTOKAZI</p>
+            <p class="eyebrow">Why choose Ntokazi</p>
             <h2>Reliable. Compliant. Proven.</h2>
           </div>
           <p>What our clients count on, brief after brief.</p>
         </div>
-        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:14px;margin-top:24px;">
-          <div class="check-item"><span class="mark">✔</span><span>Over 17 years of industry experience</span></div>
-          <div class="check-item"><span class="mark">✔</span><span>Proven public and private sector track record</span></div>
-          <div class="check-item"><span class="mark">✔</span><span>Fully compliant and professionally managed operations</span></div>
-          <div class="check-item"><span class="mark">✔</span><span>Customised and flexible service solutions</span></div>
-          <div class="check-item"><span class="mark">✔</span><span>100% black female-owned, BBBEE Level 1</span></div>
-          <div class="check-item"><span class="mark">✔</span><span>Committed to excellence, innovation and reliability</span></div>
+        <div class="check-grid">
+          <div class="check-item">Over 17 years of industry experience</div>
+          <div class="check-item">Proven public and private sector track record</div>
+          <div class="check-item">Fully compliant and professionally managed operations</div>
+          <div class="check-item">Customised and flexible service solutions</div>
+          <div class="check-item">100% Black female-owned, B-BBEE Level 1</div>
+          <div class="check-item">Committed to excellence, innovation and reliability</div>
         </div>
-        <p style="margin-top:28px;font-size:.85rem;opacity:.65;">
-          Reg No: 2009/042567/23 · Tax No: 9179794178 · VAT No: 4640258580 · CSD No: MAAA0174211 · BEE Level 1
-        </p>
       </div>
     </section>
 
-    <section id="contact" class="section contact">
+    <!-- ================= CONTACT ================= -->
+    <section id="contact" class="section contact tone-royal">
       <div class="container contact-grid">
         <div>
-          <p class="eyebrow">LET'S PLAN YOUR EVENT</p>
+          <p class="eyebrow">Let’s plan your event</p>
           <h2>Ready to make your occasion memorable?</h2>
-          <p>
-            Send us the details of your event and the Ntokazi team will be in touch.
-          </p>
-          <div class="contact-note">
-            <strong>Serving KwaZulu-Natal</strong>
-            <span>Corporate • Government • Weddings • Memorials • Private Events</span>
-            <span>📍 11 Plane Glen Anil Durban North</span>
-            <a href="tel:+27837934919">Call: +27 83 793 4919</a>
-            <a href="tel:+27662972750">Call: +27 66 297 2750</a>
-            <a href="https://wa.me/27837934919" target="_blank" rel="noopener">WhatsApp: +27 83 793 4919</a>
-            <a href="https://wa.me/27662972750" target="_blank" rel="noopener">WhatsApp: +27 66 297 2750</a>
-            <a href="mailto:ntokazi@ntokazievents.co.za">ntokazi@ntokazievents.co.za</a>
-          </div>
+          <p class="lead">Send us the details of your event and the Ntokazi team will be in touch.</p>
+          <ul class="contact-list">
+            <li><span class="lbl">Serving</span><span>KwaZulu-Natal: corporate, government, weddings, memorials and private events</span></li>
+            <li><span class="lbl">Visit</span><span>11 Plane, Glen Anil, Durban North</span></li>
+            <li><span class="lbl">Call</span><span><a href="tel:+27837934919">+27 83 793 4919</a><span class="sep">·</span><a href="tel:+27662972750">+27 66 297 2750</a></span></li>
+            <li><span class="lbl">WhatsApp</span><span><a href="https://wa.me/27837934919" target="_blank" rel="noopener">+27 83 793 4919</a><span class="sep">·</span><a href="https://wa.me/27662972750" target="_blank" rel="noopener">+27 66 297 2750</a></span></li>
+            <li><span class="lbl">Email</span><span><a href="mailto:ntokazi@ntokazievents.co.za">ntokazi@ntokazievents.co.za</a></span></li>
+          </ul>
         </div>
 
-        <form class="quote-form" id="quoteForm">
-          <label>Name<input name="name" required placeholder="Your full name"></label>
-          <label>Phone / WhatsApp<input name="phone" required placeholder="Your contact number"></label>
-          <label>Email<input type="email" name="email" placeholder="Your email address"></label>
+        <form class="quote-form" id="quoteForm" novalidate>
+          <label>Name<input name="name" required autocomplete="name" placeholder="Your full name"></label>
+          <label>Phone / WhatsApp<input name="phone" type="tel" required autocomplete="tel" placeholder="Your contact number"></label>
+          <label>Email<input type="email" name="email" autocomplete="email" placeholder="Your email address"></label>
           <div class="form-row">
             <label>Event type
               <select name="event">
@@ -1366,163 +1234,194 @@
           </div>
           <label>Number of guests<input type="number" min="1" name="guests" placeholder="Approximate number"></label>
           <label>Tell us about your event<textarea name="message" rows="4" placeholder="Venue, menu requirements, location and anything else we should know"></textarea></label>
-          <button class="btn btn-primary" type="submit">Prepare My Enquiry</button>
-          <p class="form-small">This starter version prepares an enquiry message. Your enquiry will open in WhatsApp. The Ntokazi contact details are configured for launch.</p>
-          <div id="formStatus" class="form-status" role="status"></div>
+          <button class="btn btn-primary" type="submit">Prepare my enquiry</button>
+          <p class="form-small">Your enquiry opens in WhatsApp, ready to send to the Ntokazi team.</p>
+          <div id="formStatus" class="form-status" role="status" aria-live="polite"></div>
         </form>
       </div>
     </section>
   </main>
 
-  <section class="xmas-greeting" aria-label="Season's greetings">
-    <svg class="sf big"><use href="#snowflake"/></svg>
-    <p class="xg-script">Wishing you a joyful and blessed festive season</p>
-    <p class="xg-sub">From all of us at Ntokazi Catering &amp; Events, thank you for another wonderful year. mmm Divine</p>
-  </section>
-
   <footer>
     <div class="container footer-grid">
       <div>
-        <div style="display:flex;align-items:center;gap:20px;flex-wrap:wrap;margin-bottom:12px;">
-          <img src="assets/ntokazi-logo.png" alt="Ntokazi Catering & Events logo" style="height:110px;width:auto;object-fit:contain;" loading="lazy">
-          <img src="assets/cafe-sizzle-logo.png" alt="Café Sizzle logo" style="height:110px;width:auto;object-fit:contain;" loading="lazy">
+        <div class="footer-logos">
+          <img src="assets/ntokazi-logo.png" alt="Ntokazi Catering & Events logo" loading="lazy">
+          <img src="assets/cafe-sizzle-logo.png" alt="Café Sizzle logo" loading="lazy" onerror="this.style.display='none'">
         </div>
-        <p style="font-family:'Playfair Display', Georgia, serif;font-style:italic;color:#d4af37;font-size:1.1rem;margin-bottom:10px;">"mmm Divine"</p>
+        <p class="footer-tagline">“mmm Divine”</p>
         <p>Exceptional catering and professional event services across KwaZulu-Natal.</p>
-        <p style="margin-top:8px;"><a href="assets/ntokazi-logo.png" download style="font-size:.85rem;text-decoration:underline;">Download our logo</a></p>
       </div>
       <div>
-        <h4>Ntokazi Catering & Events</h4>
+        <h4>Ntokazi Catering &amp; Events</h4>
         <p>Founded in 2009 by Ms. Xoliswa Ntokazi Nkosi.</p>
-        <p>100% black female-owned enterprise.</p>
-        <p style="display:flex;align-items:center;gap:8px;"><img src="assets/icon-location.png" alt="" style="height:18px;width:18px;object-fit:contain;" loading="lazy">11 Plane Glen Anil Durban North</p>
+        <p>100% Black female-owned enterprise.</p>
+        <p style="margin-top:12px">11 Plane, Glen Anil,<br>Durban North</p>
       </div>
       <div>
         <h4>Get in touch</h4>
-        <p style="display:flex;align-items:center;gap:8px;"><img src="assets/icon-phone.jpg" alt="" style="height:18px;width:18px;object-fit:contain;border-radius:4px;" loading="lazy"><a href="tel:+27837934919">+27 83 793 4919</a></p>
-        <p style="display:flex;align-items:center;gap:8px;"><img src="assets/icon-phone.jpg" alt="" style="height:18px;width:18px;object-fit:contain;border-radius:4px;" loading="lazy"><a href="tel:+27662972750">+27 66 297 2750</a></p>
-        <p style="display:flex;align-items:center;gap:8px;"><img src="assets/icon-email.png" alt="" style="height:18px;width:18px;object-fit:contain;" loading="lazy"><a href="mailto:ntokazi@ntokazievents.co.za">ntokazi@ntokazievents.co.za</a></p>
+        <ul>
+          <li><a href="tel:+27837934919">+27 83 793 4919</a></li>
+          <li><a href="tel:+27662972750">+27 66 297 2750</a></li>
+          <li><a href="mailto:ntokazi@ntokazievents.co.za">ntokazi@ntokazievents.co.za</a></li>
+        </ul>
       </div>
       <div>
-        <h4>Follow Us</h4>
-        <p style="display:flex;align-items:center;gap:8px;"><img src="assets/icon-facebook.jpg" alt="" style="height:18px;width:18px;object-fit:contain;border-radius:4px;" loading="lazy"><a href="https://www.facebook.com/NtokaziCateringandEvents" target="_blank" rel="noopener">Facebook<strong>:</strong> Ntokazi Catering and Events</a></p>
-        <p style="display:flex;align-items:center;gap:8px;"><img src="assets/icon-facebook.jpg" alt="" style="height:18px;width:18px;object-fit:contain;border-radius:4px;" loading="lazy"><a href="https://www.facebook.com/NtokaziNkosi" target="_blank" rel="noopener">Facebook<strong>:</strong> Ntokazi Nkosi</a></p>
-        <p style="display:flex;align-items:center;gap:8px;"><img src="assets/icon-instagram.jpg" alt="" style="height:18px;width:18px;object-fit:contain;border-radius:4px;" loading="lazy"><a href="https://www.instagram.com/ntokazicateringandevents" target="_blank" rel="noopener">Instagram<strong>:</strong> Ntokazi Catering and Events</a></p>
-        <p style="display:flex;align-items:center;gap:8px;"><img src="assets/icon-instagram.jpg" alt="" style="height:18px;width:18px;object-fit:contain;border-radius:4px;" loading="lazy"><a href="https://www.instagram.com/ntokazinkosi" target="_blank" rel="noopener">Instagram<strong>:</strong> Ntokazi Nkosi</a></p>
-        <p style="display:flex;align-items:center;gap:8px;"><img src="assets/icon-tiktok.png" alt="" style="height:18px;width:18px;object-fit:contain;border-radius:4px;" loading="lazy"><a href="https://www.tiktok.com/@cafesizzle" target="_blank" rel="noopener">TikTok<strong>:</strong> Café Sizzle</a></p>
+        <h4>Follow us</h4>
+        <ul>
+          <li><a href="https://www.facebook.com/NtokaziCateringandEvents" target="_blank" rel="noopener">Facebook · Ntokazi Catering and Events</a></li>
+          <li><a href="https://www.facebook.com/NtokaziNkosi" target="_blank" rel="noopener">Facebook · Ntokazi Nkosi</a></li>
+          <li><a href="https://www.instagram.com/ntokazicateringandevents" target="_blank" rel="noopener">Instagram · Ntokazi Catering and Events</a></li>
+          <li><a href="https://www.instagram.com/ntokazinkosi" target="_blank" rel="noopener">Instagram · Ntokazi Nkosi</a></li>
+          <li><a href="https://www.tiktok.com/@cafesizzle" target="_blank" rel="noopener">TikTok · Café Sizzle</a></li>
+        </ul>
       </div>
     </div>
-    <div class="footer-bottom">© <span id="year"></span> Ntokazi Catering & Events. All rights reserved.</div>
+    <div class="footer-bottom">
+      <p>Reg. 2009/042567/23 · Tax 9179794178 · VAT 4640258580 · CSD MAAA1449106 · B-BBEE Level 1</p>
+      <p>© <span id="year">2026</span> Ntokazi Catering &amp; Events. All rights reserved.</p>
+    </div>
   </footer>
 
-  <div class="promo-lightbox" id="promoLightbox" role="dialog" aria-modal="true" aria-hidden="true">
+  <div class="promo-lightbox" id="promoLightbox" role="dialog" aria-modal="true" aria-hidden="true" aria-label="Image preview">
     <button class="promo-lightbox-close" id="promoLightboxClose" type="button" aria-label="Close image preview">&times;</button>
-    <img id="promoLightboxImg" src="" alt="" loading="lazy">
+    <img id="promoLightboxImg" src="" alt="">
   </div>
 
-  <script src="script.js"></script>
   <script>
     (function () {
-      var overlay = document.getElementById('promoLightbox');
-      var lightboxImg = document.getElementById('promoLightboxImg');
-      var closeBtn = document.getElementById('promoLightboxClose');
-      if (!overlay || !lightboxImg || !closeBtn) return;
-
-      function openLightbox(src, alt) {
-        lightboxImg.src = src;
-        lightboxImg.alt = alt || '';
-        overlay.classList.add('is-open');
-        overlay.setAttribute('aria-hidden', 'false');
-      }
-      function closeLightbox() {
-        overlay.classList.remove('is-open');
-        overlay.setAttribute('aria-hidden', 'true');
-        lightboxImg.src = '';
-      }
-
-      document.querySelectorAll('.promo-card img').forEach(function (img) {
-        img.addEventListener('click', function () {
-          openLightbox(img.getAttribute('src'), img.getAttribute('alt'));
-        });
-      });
-
-      overlay.addEventListener('click', function (e) {
-        if (e.target === overlay) closeLightbox();
-      });
-      closeBtn.addEventListener('click', closeLightbox);
-      document.addEventListener('keydown', function (e) {
-        if (e.key === 'Escape') closeLightbox();
-      });
-    })();
-  </script>
-  <script>
-    (function () {
-      var slides = document.querySelectorAll('.hero-slide');
-      var dots = document.querySelectorAll('.hero-dot');
-      if (!slides.length) return;
-      var idx = 0;
-
-      function goTo(next) {
-        slides[idx].classList.remove('is-active');
-        if (dots[idx]) dots[idx].classList.remove('is-active');
-        idx = next;
-        var slide = slides[idx];
-        slide.style.animation = 'none';
-        void slide.offsetWidth; // restart the zoom animation cleanly
-        slide.style.animation = '';
-        slide.classList.add('is-active');
-        var heroEl = document.querySelector('.hero');
-        if (heroEl) heroEl.classList.toggle('is-flyer', slide.classList.contains('hero-slide--flyer'));
-        if (dots[idx]) dots[idx].classList.add('is-active');
-      }
-
-      var timer = setInterval(function () { goTo((idx + 1) % slides.length); }, 5500);
-
-      dots.forEach(function (dot, i) {
-        dot.addEventListener('click', function () {
-          clearInterval(timer);
-          goTo(i);
-          timer = setInterval(function () { goTo((idx + 1) % slides.length); }, 5500);
-        });
-      });
-    })();
-  </script>
-  <script>
-    (function () {
+      'use strict';
+      var doc = document;
       var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-      function startSnow() {
-        if (reduce) return;
-        var cv = document.getElementById('snow'); if (!cv || !cv.getContext) return;
-        var ctx = cv.getContext('2d'), w = 0, h = 0, flakes = [];
-        function size() { w = cv.width = window.innerWidth; h = cv.height = window.innerHeight; }
-        size(); window.addEventListener('resize', size);
-        var n = window.innerWidth < 700 ? 34 : 68;
-        for (var i = 0; i < n; i++) flakes.push({ x: Math.random() * w, y: Math.random() * h, r: 1 + Math.random() * 3, s: .35 + Math.random() * 1.0, d: Math.random() * 6.28, a: .4 + Math.random() * .5 });
-        (function tick() {
-          ctx.clearRect(0, 0, w, h);
-          for (var j = 0; j < flakes.length; j++) {
-            var f = flakes[j]; f.y += f.s; f.d += .012; f.x += Math.sin(f.d) * .45;
-            if (f.y > h + 6) { f.y = -6; f.x = Math.random() * w; }
-            ctx.beginPath(); ctx.fillStyle = 'rgba(255,255,255,' + f.a + ')'; ctx.arc(f.x, f.y, f.r, 0, 6.283); ctx.fill();
-          }
-          requestAnimationFrame(tick);
-        })();
+
+      /* ---------- Year ---------- */
+      var yr = doc.getElementById('year');
+      if (yr) yr.textContent = new Date().getFullYear();
+
+      /* ---------- Header: scrolled state + mobile menu ---------- */
+      var header = doc.querySelector('.site-header');
+      var toggle = doc.querySelector('.menu-toggle');
+      var nav = doc.getElementById('siteNav');
+      function onScroll() { header.classList.toggle('is-scrolled', window.scrollY > 8); }
+      onScroll(); window.addEventListener('scroll', onScroll, { passive: true });
+
+      function setMenu(open) {
+        nav.classList.toggle('is-open', open);
+        toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+        toggle.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+        doc.body.style.overflow = open ? 'hidden' : '';
       }
-      var c = document.getElementById('curtain');
-      if (!c) { startSnow(); return; }
-      var seen = false; try { seen = sessionStorage.getItem('ntokaziCurtain') === '1'; } catch (e) {}
-      if (seen) { c.parentNode.removeChild(c); startSnow(); return; }
-      var root = document.documentElement; root.classList.add('curtain-lock');
-      var opened = false, timer = null;
-      function openCurtain() {
-        if (opened) return; opened = true; clearTimeout(timer);
-        try { sessionStorage.setItem('ntokaziCurtain', '1'); } catch (e) {}
-        c.classList.add('is-open');
-        setTimeout(function () { if (c.parentNode) c.parentNode.removeChild(c); root.classList.remove('curtain-lock'); startSnow(); }, reduce ? 700 : 3300);
+      toggle.addEventListener('click', function () { setMenu(!nav.classList.contains('is-open')); });
+      nav.addEventListener('click', function (e) { if (e.target.closest('a')) setMenu(false); });
+      doc.addEventListener('keydown', function (e) { if (e.key === 'Escape') setMenu(false); });
+      window.addEventListener('resize', function () { if (window.innerWidth > 960) setMenu(false); });
+
+      /* ---------- Current-section highlight in the nav ---------- */
+      var links = [].slice.call(nav.querySelectorAll('a[href^="#"]:not(.nav-cta)'));
+      if ('IntersectionObserver' in window) {
+        var map = {};
+        links.forEach(function (a) { var s = doc.querySelector(a.getAttribute('href')); if (s) map[s.id] = a; });
+        var io = new IntersectionObserver(function (entries) {
+          entries.forEach(function (en) {
+            if (en.isIntersecting && map[en.target.id]) {
+              links.forEach(function (l) { l.classList.remove('is-current'); });
+              map[en.target.id].classList.add('is-current');
+            }
+          });
+        }, { rootMargin: '-45% 0px -50% 0px' });
+        Object.keys(map).forEach(function (id) { io.observe(doc.getElementById(id)); });
       }
-      c.addEventListener('click', openCurtain);
-      document.addEventListener('keydown', function (e) { if (e.key === 'Escape') openCurtain(); });
-      timer = setTimeout(openCurtain, 5500);
+
+      /* ---------- Hero slideshow (images load on demand) ---------- */
+      var hero = doc.querySelector('.hero');
+      var slides = [].slice.call(doc.querySelectorAll('.hero-slide'));
+      var count = doc.getElementById('heroCount');
+      var bar = doc.getElementById('heroBar');
+      var idx = 0, timer = null, DELAY = 6000;
+
+      function pad(n) { return n < 10 ? '0' + n : '' + n; }
+      function loadSlide(i) {
+        var s = slides[i % slides.length];
+        if (!s || s.getAttribute('data-loaded')) return;
+        var bg = s.getAttribute('data-bg'), fl = s.getAttribute('data-flyer');
+        if (bg) s.style.backgroundImage = "url('" + bg + "')";
+        if (fl) s.style.setProperty('--flyer', "url('" + fl + "')");
+        s.setAttribute('data-loaded', '1');
+      }
+      function progress() {
+        if (!bar || reduce) return;
+        bar.style.transition = 'none'; bar.style.width = '0';
+        void bar.offsetWidth;
+        bar.style.transition = 'width ' + DELAY + 'ms linear'; bar.style.width = '100%';
+      }
+      function goTo(n) {
+        n = (n + slides.length) % slides.length;
+        loadSlide(n); loadSlide(n + 1);
+        slides[idx].classList.remove('is-active');
+        idx = n;
+        var s = slides[idx];
+        s.style.animation = 'none'; void s.offsetWidth; s.style.animation = '';
+        s.classList.add('is-active');
+        hero.classList.toggle('is-flyer', s.classList.contains('hero-slide--flyer'));
+        if (count) count.textContent = pad(idx + 1) + ' / ' + pad(slides.length);
+        progress();
+      }
+      function start() { if (reduce) return; clearInterval(timer); timer = setInterval(function () { goTo(idx + 1); }, DELAY); }
+      if (slides.length) {
+        loadSlide(1);
+        if (count) count.textContent = pad(1) + ' / ' + pad(slides.length);
+        progress(); start();
+        doc.getElementById('heroNext').addEventListener('click', function () { goTo(idx + 1); start(); });
+        doc.getElementById('heroPrev').addEventListener('click', function () { goTo(idx - 1); start(); });
+        doc.addEventListener('visibilitychange', function () { if (doc.hidden) clearInterval(timer); else start(); });
+      }
+
+      /* ---------- Lightbox for flyers and gallery photos ---------- */
+      var overlay = doc.getElementById('promoLightbox');
+      var lbImg = doc.getElementById('promoLightboxImg');
+      var lbClose = doc.getElementById('promoLightboxClose');
+      function openLb(src, alt) {
+        lbImg.src = src; lbImg.alt = alt || '';
+        overlay.classList.add('is-open'); overlay.setAttribute('aria-hidden', 'false');
+        doc.body.style.overflow = 'hidden';
+      }
+      function closeLb() {
+        overlay.classList.remove('is-open'); overlay.setAttribute('aria-hidden', 'true');
+        lbImg.removeAttribute('src'); doc.body.style.overflow = '';
+      }
+      [].forEach.call(doc.querySelectorAll('.promo-card img, .story-grid img'), function (img) {
+        img.addEventListener('click', function () { openLb(img.currentSrc || img.src, img.alt); });
+      });
+      overlay.addEventListener('click', function (e) { if (e.target === overlay) closeLb(); });
+      lbClose.addEventListener('click', closeLb);
+      doc.addEventListener('keydown', function (e) { if (e.key === 'Escape' && overlay.classList.contains('is-open')) closeLb(); });
+
+      /* ---------- Quote form: prepares the enquiry in WhatsApp ---------- */
+      var form = doc.getElementById('quoteForm');
+      var status = doc.getElementById('formStatus');
+      var WHATSAPP = '27837934919';
+      form.addEventListener('submit', function (e) {
+        e.preventDefault();
+        var f = form.elements;
+        if (!f.name.value.trim() || !f.phone.value.trim()) {
+          status.textContent = 'Please add your name and a contact number so we can reach you.';
+          (f.name.value.trim() ? f.phone : f.name).focus();
+          return;
+        }
+        var lines = [
+          'Hello Ntokazi Catering & Events, I would like to request a quote.', '',
+          'Name: ' + f.name.value.trim(),
+          'Phone / WhatsApp: ' + f.phone.value.trim()
+        ];
+        if (f.email.value.trim()) lines.push('Email: ' + f.email.value.trim());
+        lines.push('Event type: ' + f.event.value);
+        if (f.date.value) lines.push('Event date: ' + f.date.value);
+        if (f.guests.value) lines.push('Guests: ' + f.guests.value);
+        if (f.message.value.trim()) lines.push('', 'Details: ' + f.message.value.trim());
+        var url = 'https://wa.me/' + WHATSAPP + '?text=' + encodeURIComponent(lines.join('\n'));
+        status.textContent = 'Opening WhatsApp with your enquiry…';
+        window.open(url, '_blank', 'noopener');
+      });
     })();
   </script>
 </body>
